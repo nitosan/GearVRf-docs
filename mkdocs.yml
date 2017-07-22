@@ -1,0 +1,34 @@
+site_name: GearVR Framework
+site_description: Documentation for GearVR Framework
+site_author: GearVR Framework Team
+
+# Copyright
+copyright: 'Copyright &copy; 2016 - 2017 Samsung'
+
+theme: 'material'
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - toc(permalink=true)
+  - pymdownx.magiclink
+
+pages:
+  - Home: index.md
+  - Getting Started: getting_started.md
+  - Tutorials:
+    - Simple VR app: tutorials/simple_vr_app.md
+    - 360 Photo app: tutorials/360_photo_app.md
+  - Programming Guide:
+    - Overview: programming_guide/overview.md
+    - Features: programming_guide/features.md
+    - FAQ: programming_guide/faq.md
+    - Video Tutorials: programming_guide/video_tutorials.md
+    - Sample Code: programming_guide/sample_code.md
+  - About:
+    - Contribution: about/contribution.md
+    - Release Notes: about/release_notes.md
+    - Roadmap: about/roadmap.md
+    - License: about/license.md
+    - Privacy Policy: about/privacy_policy.md
+    - Marketing Resources: about/marketing_resource.md
