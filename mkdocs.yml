@@ -21,7 +21,17 @@ pages:
     - 360 Photo app: tutorials/360_photo_app.md
   - Programming Guide:
     - Overview: programming_guide/overview.md
-    - Features: programming_guide/features.md
+    - Features:
+      - Loading Assets: programming_guide/features/loading_assets.md
+      - Render Data: programming_guide/features/render_data.md
+      - Meshes: programming_guide/features/meshes.md
+      - Materials: programming_guide/features/materials.md
+      - Lighting: programming_guide/features/lighting.md
+      - Phong Shader Template: programming_guide/features/phong_shader_template.md
+      - Built-In Legacy Shader: programming_guide/features/builtin_legacy_shader.md
+      - Picking: programming_guide/features/picking.md
+    - Build Instructions: programming_guide/build_instructions.md
+    - GearVRf Settings File: programming_guide/gearvr_settings_files.md
     - FAQ: programming_guide/faq.md
     - Video Tutorials: programming_guide/video_tutorials.md
     - Sample Code: programming_guide/sample_code.md
