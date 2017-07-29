@@ -14,20 +14,20 @@
         <meta name="author" content="GearVR Framework Team">
       
       
-        <link rel="shortcut icon" href="../../assets/images/favicon.png">
+        <link rel="shortcut icon" href="../../../assets/images/favicon.png">
       
       <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.7.4">
     
     
       
-        <title>Sample Code - GearVR Framework</title>
+        <title>Loading Assets - GearVR Framework</title>
       
     
     
-      <script src="../../assets/javascripts/modernizr-1df76c4e58.js"></script>
+      <script src="../../../assets/javascripts/modernizr-1df76c4e58.js"></script>
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application-769c285a91.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/application-769c285a91.css">
       
     
     
@@ -64,7 +64,7 @@
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
         
-          <a href="../.." title="GearVR Framework" class="md-icon md-icon--home md-header-nav__button">
+          <a href="../../.." title="GearVR Framework" class="md-icon md-icon--home md-header-nav__button">
           </a>
         
       </div>
@@ -80,8 +80,12 @@
                   Programming Guide
                 </span>
               
+                <span class="md-header-nav__parent">
+                  Features
+                </span>
+              
             
-            Sample Code
+            Loading Assets
           
         </span>
       </div>
@@ -142,7 +146,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../.." title="Home" class="md-nav__link">
+    <a href="../../.." title="Home" class="md-nav__link">
       Home
     </a>
   </li>
@@ -154,7 +158,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../getting_started/" title="Getting Started" class="md-nav__link">
+    <a href="../../../getting_started/" title="Getting Started" class="md-nav__link">
       Getting Started
     </a>
   </li>
@@ -185,7 +189,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../tutorials/simple_vr_app/" title="Simple VR app" class="md-nav__link">
+    <a href="../../../tutorials/simple_vr_app/" title="Simple VR app" class="md-nav__link">
       Simple VR app
     </a>
   </li>
@@ -197,7 +201,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../tutorials/360_photo_app/" title="360 Photo app" class="md-nav__link">
+    <a href="../../../tutorials/360_photo_app/" title="360 Photo app" class="md-nav__link">
       360 Photo app
     </a>
   </li>
@@ -235,7 +239,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../overview/" title="Overview" class="md-nav__link">
+    <a href="../../overview/" title="Overview" class="md-nav__link">
       Overview
     </a>
   </li>
@@ -245,10 +249,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2" checked>
     
     <label class="md-nav__link" for="nav-4-2">
       Features
@@ -264,11 +270,50 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../features/loading_assets/" title="Loading Assets" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Loading Assets
+      </label>
+    
+    <a href="./" title="Loading Assets" class="md-nav__link md-nav__link--active">
       Loading Assets
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#loading-a-3d-model" title="Loading a 3D Model" class="md-nav__link">
+    Loading a 3D Model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-loading-example" title="Model Loading Example" class="md-nav__link">
+    Model Loading Example
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -278,7 +323,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../features/render_data/" title="Render Data" class="md-nav__link">
+    <a href="../render_data/" title="Render Data" class="md-nav__link">
       Render Data
     </a>
   </li>
@@ -290,7 +335,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../features/meshes/" title="Meshes" class="md-nav__link">
+    <a href="../meshes/" title="Meshes" class="md-nav__link">
       Meshes
     </a>
   </li>
@@ -302,7 +347,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../features/materials/" title="Materials" class="md-nav__link">
+    <a href="../materials/" title="Materials" class="md-nav__link">
       Materials
     </a>
   </li>
@@ -314,7 +359,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../features/lighting/" title="Lighting" class="md-nav__link">
+    <a href="../lighting/" title="Lighting" class="md-nav__link">
       Lighting
     </a>
   </li>
@@ -326,7 +371,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../features/phong_shader_template/" title="Phong Shader Template" class="md-nav__link">
+    <a href="../phong_shader_template/" title="Phong Shader Template" class="md-nav__link">
       Phong Shader Template
     </a>
   </li>
@@ -338,7 +383,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../features/builtin_legacy_shader/" title="Built-In Legacy Shader" class="md-nav__link">
+    <a href="../builtin_legacy_shader/" title="Built-In Legacy Shader" class="md-nav__link">
       Built-In Legacy Shader
     </a>
   </li>
@@ -350,7 +395,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../features/picking/" title="Picking" class="md-nav__link">
+    <a href="../picking/" title="Picking" class="md-nav__link">
       Picking
     </a>
   </li>
@@ -367,7 +412,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../api_reference/" title="API Reference" class="md-nav__link">
+    <a href="../../api_reference/" title="API Reference" class="md-nav__link">
       API Reference
     </a>
   </li>
@@ -379,7 +424,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../build_instructions/" title="Build Instructions" class="md-nav__link">
+    <a href="../../build_instructions/" title="Build Instructions" class="md-nav__link">
       Build Instructions
     </a>
   </li>
@@ -391,7 +436,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../gearvr_settings_files/" title="GearVRf Settings File" class="md-nav__link">
+    <a href="../../gearvr_settings_files/" title="GearVRf Settings File" class="md-nav__link">
       GearVRf Settings File
     </a>
   </li>
@@ -403,7 +448,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../faq/" title="FAQ" class="md-nav__link">
+    <a href="../../faq/" title="FAQ" class="md-nav__link">
       FAQ
     </a>
   </li>
@@ -415,7 +460,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../video_tutorials/" title="Video Tutorials" class="md-nav__link">
+    <a href="../../video_tutorials/" title="Video Tutorials" class="md-nav__link">
       Video Tutorials
     </a>
   </li>
@@ -425,47 +470,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        Sample Code
-      </label>
-    
-    <a href="./" title="Sample Code" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../sample_code/" title="Sample Code" class="md-nav__link">
       Sample Code
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#sample-gearvrf-applications" title="Sample GearVRf Applications" class="md-nav__link">
-    Sample GearVRf Applications
-  </a>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -499,7 +508,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../about/contribution/" title="Contribution" class="md-nav__link">
+    <a href="../../../about/contribution/" title="Contribution" class="md-nav__link">
       Contribution
     </a>
   </li>
@@ -511,7 +520,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../about/certificate/" title="Developer Certificate of Origin" class="md-nav__link">
+    <a href="../../../about/certificate/" title="Developer Certificate of Origin" class="md-nav__link">
       Developer Certificate of Origin
     </a>
   </li>
@@ -523,7 +532,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../about/release_notes/" title="Release Notes" class="md-nav__link">
+    <a href="../../../about/release_notes/" title="Release Notes" class="md-nav__link">
       Release Notes
     </a>
   </li>
@@ -535,7 +544,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../about/roadmap/" title="Roadmap" class="md-nav__link">
+    <a href="../../../about/roadmap/" title="Roadmap" class="md-nav__link">
       Roadmap
     </a>
   </li>
@@ -547,7 +556,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../about/license/" title="License" class="md-nav__link">
+    <a href="../../../about/license/" title="License" class="md-nav__link">
       License
     </a>
   </li>
@@ -559,7 +568,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../about/privacy_policy/" title="Privacy Policy" class="md-nav__link">
+    <a href="../../../about/privacy_policy/" title="Privacy Policy" class="md-nav__link">
       Privacy Policy
     </a>
   </li>
@@ -571,7 +580,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../about/marketing_resource/" title="Marketing Resources" class="md-nav__link">
+    <a href="../../../about/marketing_resource/" title="Marketing Resources" class="md-nav__link">
       Marketing Resources
     </a>
   </li>
@@ -596,15 +605,20 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
-  
   
     <label class="md-nav__title" for="toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sample-gearvrf-applications" title="Sample GearVRf Applications" class="md-nav__link">
-    Sample GearVRf Applications
+  <a href="#loading-a-3d-model" title="Loading a 3D Model" class="md-nav__link">
+    Loading a 3D Model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-loading-example" title="Model Loading Example" class="md-nav__link">
+    Model Loading Example
   </a>
   
 </li>
@@ -624,52 +638,34 @@
               
                 
                 
-                <h1 id="gearvrf-samples-and-demos">GearVRf Samples and Demos<a class="headerlink" href="#gearvrf-samples-and-demos" title="Permanent link">&para;</a></h1>
-<p>To get the GearVR Framework Samples and Demos, clone the following repository in the same directory as where you did the clone for the framework source code:</p>
-<div class="codehilite"><pre><span></span>$ git clone https://github.com/gearvrf/GearVRf-Demos.git -b release_v3.2
+                  <h1>Loading Assets</h1>
+                
+                <p>GearVRf supports loading of 3D content files both synchronously and asynchronously. Your application may issue a blocking load and wait for the asset or get a callback when the asset loading is finished. GearVRf can import .OBJ, .FBX, Collada  (.dae) and X3D file formats, as well as all file formats supported by <a href="http://www.assimp.org/main_features_formats.html">Assimp</a>. GearVRf can also read all commonly used bitmap file formats.</p>
+<h2 id="loading-a-3d-model">Loading a 3D Model<a class="headerlink" href="#loading-a-3d-model" title="Permanent link">&para;</a></h2>
+<p>Loading models is handled by the GVRAssetLoader class which is accessible from the context by calling GVRContext.getAssetLoader(). The asset loader can load models from a variety of places. You use the volume type to indicate where you are reading the model from.</p>
+<ul>
+<li>GVRResourceLoader.VolumeType.ANDROID_ASSETS designates the model is in the "assets" directory.</li>
+<li>GVRResourceLoader.VolumeType.ANDROID_SDCARD designates the model on the phone SD card.</li>
+<li>GVRResourceLoader.VolumeType.NETWORK designates the model is on the internet.</li>
+</ul>
+<p>The <code>GVRAssetLoader.loadModel</code> function loads a model from a device and returns as soon as the model geometry has been parsed and accumulated. This model may not have been added to the scene yet. If you pass the current GVRScene as an argument, the asset loader will wait until all of the textures in the model have been loaded and then add it to the scene. If you omit the argument, the model is not added to the scene and you will need to add it in your own code.</p>
+<h2 id="model-loading-example">Model Loading Example<a class="headerlink" href="#model-loading-example" title="Permanent link">&para;</a></h2>
+<p>This example shows how to load a model which lives in the assets directory of your application. The path name for the asset is relative to that directory. The asset is loaded in the background in another thread and added to the scene when all of its textures have completed loading. The model returned may not be completely loaded but all of the geometry will be accessible. Usually assets are loaded in the onInit function of your main script.</p>
+<div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">onInit</span><span class="o">(</span><span class="n">GVRContext</span> <span class="n">context</span><span class="o">)</span>
+<span class="o">{</span>
+    <span class="n">GVRScene</span> <span class="n">scene</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="na">getNextMainScene</span><span class="o">();</span>
+    <span class="k">try</span>
+    <span class="o">{</span>
+        <span class="n">String</span> <span class="n">url</span> <span class="o">=</span> <span class="s">&quot;https://raw.githubusercontent.com/gearvrf/GearVRf-Demos/master/gvrjassimpmodelloader/assets/trees/trees9.3ds&quot;</span><span class="o">;</span>
+        <span class="n">GVRSceneObject</span> <span class="n">model</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="na">getAssetLoader</span><span class="o">().</span><span class="na">loadModel</span><span class="o">(</span><span class="n">url</span><span class="o">,</span> <span class="n">GVRResourceVolume</span><span class="o">.</span><span class="na">VolumeType</span><span class="o">.</span><span class="na">NET</span><span class="o">,</span> <span class="n">scene</span><span class="o">);</span>
+        <span class="n">model</span><span class="o">.</span><span class="na">getTransform</span><span class="o">().</span><span class="na">setPosition</span><span class="o">(</span><span class="mf">0.0f</span><span class="o">,</span> <span class="o">-</span><span class="mf">4.0f</span><span class="o">,</span> <span class="o">-</span><span class="mf">20.0f</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span>
+    <span class="o">{</span>
+        <span class="n">Log</span><span class="o">.</span><span class="na">e</span><span class="o">(</span><span class="s">&quot;ERROR&quot;</span><span class="o">,</span> <span class="s">&quot;Failed to load model: %s&quot;</span><span class="o">,</span> <span class="n">e</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </pre></div>
-
-
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>You should put both GearVRf/ and GearVRf-Demos/ in the same directory.</p>
-</div>
-<h2 id="sample-gearvrf-applications">Sample GearVRf Applications<a class="headerlink" href="#sample-gearvrf-applications" title="Permanent link">&para;</a></h2>
-<p>Sample GearVRf applications, available in the GearVRf SDK, can provide you with valuable insight into writing your own VR applications.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The flat images below represent GearVRf applications with actual stereographic displays.</p>
-</div>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Solar System</strong> <br/> (gvrsolarsystem) <br/> <img alt="" src="../../../../images/GearVRf_Solar_System_Mono_Small.png" /></td>
-<td><strong>Solar system with four inner rotating planets revolving around the rotating sun as viewed from the point on the moon closest to Earth</strong> <br/> Asynchronous loading of meshes and textures is used. <br/>Loading order is by priority; no mesh or texture is loaded twice. <br/>Animation is used to create the illusion of rotation and revolution.</td>
-</tr>
-<tr>
-<td><strong>Dynamic Graphics Board</strong><br/>(gvropacityanigalery)<br/><img alt="" src="../../../../images/Dynamic_Gallery_Mono_Small_Centered.png" /></td>
-<td><strong>Images and video displayed on a board inside a 3D scene</strong><br/>A video or image is displayed in a rectangular scene object (up the stairs).<br/>Animation is used to switch images and video smoothly.<br/>OnStep decides and defines the animation to apply, based on HMD orientation.<br/>Post-effect converts view to sepia colors.</td>
-</tr>
-<tr>
-<td><strong>Eye Picking</strong> <br/>(gvreyepickingsample)<br/><img alt="" src="../../../../images/Eye_Picking_Stereo_Center_OffCenter_Small.png" /></td>
-<td><strong>Color of objects (bunnies and rectangles) changes to red when an object is at the center of the view</strong><br/>OnStep updates scene object colors.<br/>Implements a color custom shader.</td>
-</tr>
-<tr>
-<td><strong>Pick and Move</strong> <br/>(gvr-pickandmove)<br/><img alt="" src="../../../../images/GVR_Pick_Move_Small.png" /></td>
-<td><strong>3D mirror ball can be selected and repositioned in a 3D scene</strong><br/>Uses the HMD trackpad.<br/>Uses Cubemap support.<br/>Uses scene picking.</td>
-</tr>
-<tr>
-<td><strong>Useful Scene Objects</strong><br/>(scene-objects)<br/><img alt="" src="../../../../images/GVR_Scene_Objects_Big_Cube.png" /></td>
-<td><strong>Contains fundamental scene objects (such as a cube, sphere, cone, and text) that you can use in your own apps</strong></td>
-</tr>
-</tbody>
-</table>
                 
                   
                 
@@ -688,7 +684,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../video_tutorials/" title="Video Tutorials" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../overview/" title="Overview" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -697,19 +693,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Video Tutorials
+                Overview
               </span>
             </div>
           </a>
         
         
-          <a href="../../about/contribution/" title="Contribution" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../render_data/" title="Render Data" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Contribution
+                Render Data
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -743,10 +739,10 @@
       
     </div>
     
-      <script src="../../assets/javascripts/application-c35428f87f.js"></script>
+      <script src="../../../assets/javascripts/application-c35428f87f.js"></script>
       
       
-      <script>app.initialize({url:{base:"../.."}})</script>
+      <script>app.initialize({url:{base:"../../.."}})</script>
       
     
     

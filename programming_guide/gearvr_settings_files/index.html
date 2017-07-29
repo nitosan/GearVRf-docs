@@ -20,7 +20,7 @@
     
     
       
-        <title>Features - GearVR Framework</title>
+        <title>GearVRf Settings File - GearVR Framework</title>
       
     
     
@@ -81,7 +81,7 @@
                 </span>
               
             
-            Features
+            GearVRf Settings File
           
         </span>
       </div>
@@ -245,6 +245,150 @@
           
           
 
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2">
+    
+    <label class="md-nav__link" for="nav-4-2">
+      Features
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-2">
+        Features
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../features/loading_assets/" title="Loading Assets" class="md-nav__link">
+      Loading Assets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../features/render_data/" title="Render Data" class="md-nav__link">
+      Render Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../features/meshes/" title="Meshes" class="md-nav__link">
+      Meshes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../features/materials/" title="Materials" class="md-nav__link">
+      Materials
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../features/lighting/" title="Lighting" class="md-nav__link">
+      Lighting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../features/phong_shader_template/" title="Phong Shader Template" class="md-nav__link">
+      Phong Shader Template
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../features/builtin_legacy_shader/" title="Built-In Legacy Shader" class="md-nav__link">
+      Built-In Legacy Shader
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../features/picking/" title="Picking" class="md-nav__link">
+      Picking
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api_reference/" title="API Reference" class="md-nav__link">
+      API Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../build_instructions/" title="Build Instructions" class="md-nav__link">
+      Build Instructions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -253,8 +397,8 @@
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
     
-    <a href="./" title="Features" class="md-nav__link md-nav__link--active">
-      Features
+    <a href="./" title="GearVRf Settings File" class="md-nav__link md-nav__link--active">
+      GearVRf Settings File
     </a>
     
   </li>
@@ -328,6 +472,18 @@
   <li class="md-nav__item">
     <a href="../../about/contribution/" title="Contribution" class="md-nav__link">
       Contribution
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../about/certificate/" title="Developer Certificate of Origin" class="md-nav__link">
+      Developer Certificate of Origin
     </a>
   </li>
 
@@ -423,9 +579,140 @@
               
                 
                 
-                  <h1>Features</h1>
+                  <h1>GearVRf Settings File</h1>
                 
-                <p>features.md</p>
+                <p>Definitions of GearVRf XML settings file parameters</p>
+<p>Before rendering can start, the framework needs to know about the characteristics of the display device. These are specified in the XML settings file passed to GVRActivity.setMain or GVRActivity.setScript when your application is being initialized.</p>
+<table>
+<thead>
+<tr>
+<th>vr-app-settings</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>framebufferPixelsHigh</td>
+<td>Height of the framebuffer</td>
+</tr>
+<tr>
+<td>framebufferPixelsWide</td>
+<td>Width of the framebuffer</td>
+</tr>
+<tr>
+<td>showLoadingIcon</td>
+<td>Enable / disable loading icon</td>
+</tr>
+<tr>
+<td>useProtectedFramebuffer</td>
+<td>Enable / disable use of protected framebuffer</td>
+</tr>
+<tr>
+<td>useSrgbFramebuffer</td>
+<td>Enable / disable use of SRGB framebuffer</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>mono-mode-parms</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>allowPowerSave</td>
+<td>If enabled, the application will run at 30 fps when power is low. Otherwise, it will show an error message when power is low.</td>
+</tr>
+<tr>
+<td>resetWindowFullScreen</td>
+<td>If enabled, the fullscreen flag of the activity window will be on when a VR activity returns from background to foreground. It will help performance since it won't draw a DecorView as background.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>performance-parms</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cpuLevel</td>
+<td>CPU clock level</td>
+</tr>
+<tr>
+<td>gpuLevel</td>
+<td>GPU clock level</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>eye-buffer-parms</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>colorFormat</td>
+<td>Format of the color buffer (default COLOR_8888) <br/> COLOR_5551 5 bits R,G,B, 1 bit alpha <br/> COLOR_565 5 bits red, 6 bits green, 5 bits blue<br/> COLOR_4444 4 bits RGBA<br/> COLOR_888 8 bits RGBA <br/> COLOR_888_sRGB SRGB color format <br/> COLOR_RGBA16F 16 bits float RGBA</td>
+</tr>
+<tr>
+<td>depthFormat</td>
+<td>Format of the depth buffer (default DEPTH_24) <br /> DEPTH_0 no depth buffer <br /> DEPTH_16 16 bit depth buffer <br /> DEPTH_24 24 bit depth buffer <br /> DEPTH_24_STENCIL_8 32 bit depth buffer</td>
+</tr>
+<tr>
+<td>fov-y</td>
+<td>Y field of view in degrees (default 90)</td>
+</tr>
+<tr>
+<td>resolutionWidth</td>
+<td>Eye buffer resolution width in pixels (default 1024)</td>
+</tr>
+<tr>
+<td>resolutionHeight</td>
+<td>Eye buffer resolution height in pixels (default 1024)</td>
+</tr>
+<tr>
+<td>resolveDepth</td>
+<td>True to resolve framebuffer to a texture (default false)</td>
+</tr>
+<tr>
+<td>multiSamples</td>
+<td>Number of framebuffer multisamples for anti-aliasing <br/> 1 = no multisampling (not recommended) <br/> 2 = 2xMSAA recommended setting <br/> 4 = 4xMSAA Higher visual quality but lower performance</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>head-model-parms</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>eyeHeight</td>
+<td>Distance from ground to eye</td>
+</tr>
+<tr>
+<td>headModelDepth</td>
+<td>Offset of head center ahead of eyes based on eye height</td>
+</tr>
+<tr>
+<td>headModelHeight</td>
+<td>Distance from neck joint to eyes based on eye height</td>
+</tr>
+<tr>
+<td>interpupillaryDistance</td>
+<td>Distance between left and right eye</td>
+</tr>
+</tbody>
+</table>
                 
                   
                 
@@ -444,7 +731,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../overview/" title="Overview" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../build_instructions/" title="Build Instructions" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -453,7 +740,7 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Overview
+                Build Instructions
               </span>
             </div>
           </a>

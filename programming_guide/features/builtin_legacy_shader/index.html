@@ -1,0 +1,1224 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Documentation for GearVR Framework">
+      
+      
+      
+        <meta name="author" content="GearVR Framework Team">
+      
+      
+        <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.7.4">
+    
+    
+      
+        <title>Built-In Legacy Shader - GearVR Framework</title>
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr-1df76c4e58.js"></script>
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application-769c285a91.css">
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+  
+  
+  
+    <body>
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <a href="../../.." title="GearVR Framework" class="md-icon md-icon--home md-header-nav__button">
+          </a>
+        
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
+            
+              
+                <span class="md-header-nav__parent">
+                  Programming Guide
+                </span>
+              
+                <span class="md-header-nav__parent">
+                  Features
+                </span>
+              
+            
+            Built-In Legacy Shader
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
+<div class="md-search" data-md-component="search">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">close</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result" data-md-lang-search="">
+          <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    
+      <i class="md-icon md-icon--home md-nav__button"></i>
+    
+    GearVR Framework
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../getting_started/" title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Tutorials
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Tutorials
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../tutorials/simple_vr_app/" title="Simple VR app" class="md-nav__link">
+      Simple VR app
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../tutorials/360_photo_app/" title="360 Photo app" class="md-nav__link">
+      360 Photo app
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      Programming Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Programming Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2" checked>
+    
+    <label class="md-nav__link" for="nav-4-2">
+      Features
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-2">
+        Features
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../loading_assets/" title="Loading Assets" class="md-nav__link">
+      Loading Assets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../render_data/" title="Render Data" class="md-nav__link">
+      Render Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../meshes/" title="Meshes" class="md-nav__link">
+      Meshes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../materials/" title="Materials" class="md-nav__link">
+      Materials
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../lighting/" title="Lighting" class="md-nav__link">
+      Lighting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../phong_shader_template/" title="Phong Shader Template" class="md-nav__link">
+      Phong Shader Template
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Built-In Legacy Shader
+      </label>
+    
+    <a href="./" title="Built-In Legacy Shader" class="md-nav__link md-nav__link--active">
+      Built-In Legacy Shader
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#unlit_horizontal_stereo_shader" title="UNLIT_HORIZONTAL_STEREO_SHADER" class="md-nav__link">
+    UNLIT_HORIZONTAL_STEREO_SHADER
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unlit_vertical_stereo_shader" title="UNLIT_VERTICAL_STEREO_SHADER" class="md-nav__link">
+    UNLIT_VERTICAL_STEREO_SHADER
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oes_shader" title="OES_SHADER" class="md-nav__link">
+    OES_SHADER
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oes_horizontal_stereo_shader" title="OES_HORIZONTAL_STEREO_SHADER" class="md-nav__link">
+    OES_HORIZONTAL_STEREO_SHADER
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oes_vertical_stereo_shader" title="OES_VERTICAL_STEREO_SHADER" class="md-nav__link">
+    OES_VERTICAL_STEREO_SHADER
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cubemap_shader" title="CUBEMAP_SHADER" class="md-nav__link">
+    CUBEMAP_SHADER
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cubemap_reflection_shader" title="CUBEMAP_REFLECTION_SHADER" class="md-nav__link">
+    CUBEMAP_REFLECTION_SHADER
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#texture_shader" title="TEXTURE_SHADER" class="md-nav__link">
+    TEXTURE_SHADER
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lightmap_shader" title="LIGHTMAP_SHADER" class="md-nav__link">
+    LIGHTMAP_SHADER
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assimp_shader" title="ASSIMP_SHADER" class="md-nav__link">
+    ASSIMP_SHADER
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../picking/" title="Picking" class="md-nav__link">
+      Picking
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api_reference/" title="API Reference" class="md-nav__link">
+      API Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../build_instructions/" title="Build Instructions" class="md-nav__link">
+      Build Instructions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../gearvr_settings_files/" title="GearVRf Settings File" class="md-nav__link">
+      GearVRf Settings File
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../video_tutorials/" title="Video Tutorials" class="md-nav__link">
+      Video Tutorials
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sample_code/" title="Sample Code" class="md-nav__link">
+      Sample Code
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      About
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        About
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../about/contribution/" title="Contribution" class="md-nav__link">
+      Contribution
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../about/certificate/" title="Developer Certificate of Origin" class="md-nav__link">
+      Developer Certificate of Origin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../about/release_notes/" title="Release Notes" class="md-nav__link">
+      Release Notes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../about/roadmap/" title="Roadmap" class="md-nav__link">
+      Roadmap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../about/license/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../about/privacy_policy/" title="Privacy Policy" class="md-nav__link">
+      Privacy Policy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../about/marketing_resource/" title="Marketing Resources" class="md-nav__link">
+      Marketing Resources
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#unlit_horizontal_stereo_shader" title="UNLIT_HORIZONTAL_STEREO_SHADER" class="md-nav__link">
+    UNLIT_HORIZONTAL_STEREO_SHADER
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unlit_vertical_stereo_shader" title="UNLIT_VERTICAL_STEREO_SHADER" class="md-nav__link">
+    UNLIT_VERTICAL_STEREO_SHADER
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oes_shader" title="OES_SHADER" class="md-nav__link">
+    OES_SHADER
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oes_horizontal_stereo_shader" title="OES_HORIZONTAL_STEREO_SHADER" class="md-nav__link">
+    OES_HORIZONTAL_STEREO_SHADER
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oes_vertical_stereo_shader" title="OES_VERTICAL_STEREO_SHADER" class="md-nav__link">
+    OES_VERTICAL_STEREO_SHADER
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cubemap_shader" title="CUBEMAP_SHADER" class="md-nav__link">
+    CUBEMAP_SHADER
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cubemap_reflection_shader" title="CUBEMAP_REFLECTION_SHADER" class="md-nav__link">
+    CUBEMAP_REFLECTION_SHADER
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#texture_shader" title="TEXTURE_SHADER" class="md-nav__link">
+    TEXTURE_SHADER
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lightmap_shader" title="LIGHTMAP_SHADER" class="md-nav__link">
+    LIGHTMAP_SHADER
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assimp_shader" title="ASSIMP_SHADER" class="md-nav__link">
+    ASSIMP_SHADER
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Built-In Legacy Shader</h1>
+                
+                <p>Legacy shaders are included for compatibility with older GearVRF versions and will be deprecated in the future. Lighting support is limited to a single point light or no lights at all.</p>
+<h2 id="unlit_horizontal_stereo_shader">UNLIT_HORIZONTAL_STEREO_SHADER<a class="headerlink" href="#unlit_horizontal_stereo_shader" title="Permanent link">&para;</a></h2>
+<p>The computed fragment color is the product of the diffuse texture, diffuse color and opacity. It requires the vertex to have positions and texture coordinates. Normals are not required because lights in the scene are not used by this shader. The u_right parameter controls whether it displays on the left half or the right half of the output display.</p>
+<table>
+<thead>
+<tr>
+<th>uniform</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u_texture</td>
+<td>sampler2D</td>
+<td>diffuse texture</td>
+</tr>
+<tr>
+<td>u_color</td>
+<td>vec3</td>
+<td>RGB diffuse color</td>
+</tr>
+<tr>
+<td>u_opacity</td>
+<td>float</td>
+<td>alpha for transparency</td>
+</tr>
+<tr>
+<td>u_right</td>
+<td>int</td>
+<td>1 = right eye, 0 = left</td>
+</tr>
+</tbody>
+</table>
+<h2 id="unlit_vertical_stereo_shader">UNLIT_VERTICAL_STEREO_SHADER<a class="headerlink" href="#unlit_vertical_stereo_shader" title="Permanent link">&para;</a></h2>
+<p>The computed fragment color is the product of the diffuse texture, diffuse color and opacity. It requires the vertex to have positions and texture coordinates. Normals are not required because lights in the scene are not used by this shader. The u_right parameter controls whether it displays on the top half or the bottom half of the output display.</p>
+<table>
+<thead>
+<tr>
+<th>uniform</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u_texture</td>
+<td>sampler2D</td>
+<td>diffuse texture</td>
+</tr>
+<tr>
+<td>u_color</td>
+<td>vec3</td>
+<td>RGB diffuse color</td>
+</tr>
+<tr>
+<td>u_opacity</td>
+<td>float</td>
+<td>alpha for transparency</td>
+</tr>
+<tr>
+<td>u_right</td>
+<td>int</td>
+<td>1 = right eye, 0 = left</td>
+</tr>
+</tbody>
+</table>
+<h2 id="oes_shader">OES_SHADER<a class="headerlink" href="#oes_shader" title="Permanent link">&para;</a></h2>
+<p>The computed fragment color is the product of the diffuse texture, diffuse color and opacity. It requires the vertex to have positions and texture coordinates. Normals are not required because lights in the scene are not used by this shader. The texture supplied as u_ texture must be and OES external texture (type GL_TEXTURE_EXTERNAL_OES, not GL_TEXTURE_2D) as this shader uses samplerExternalOES as opposed to sampler2D.</p>
+<table>
+<thead>
+<tr>
+<th>uniform</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u_texture</td>
+<td>sampler2D</td>
+<td>diffuse texture</td>
+</tr>
+<tr>
+<td>u_color</td>
+<td>vec3</td>
+<td>RGB diffuse color</td>
+</tr>
+<tr>
+<td>u_opacity</td>
+<td>float</td>
+<td>alpha for transparency</td>
+</tr>
+<tr>
+<td>u_right</td>
+<td>int</td>
+<td>description</td>
+</tr>
+</tbody>
+</table>
+<h2 id="oes_horizontal_stereo_shader">OES_HORIZONTAL_STEREO_SHADER<a class="headerlink" href="#oes_horizontal_stereo_shader" title="Permanent link">&para;</a></h2>
+<p>The computed fragment color is the product of the diffuse texture, diffuse color and opacity. It requires the vertex to have positions and texture coordinates. Normals are not required because lights in the scene are not used by this shader. The texture supplied as u_ texture must be and OES external texture (type GL_TEXTURE_EXTERNAL_OES, not GL_TEXTURE_2D) as this shader uses samplerExternalOES as opposed to sampler2D.The u_right parameter controls whether it displays on the left half or the right half of the output display.</p>
+<table>
+<thead>
+<tr>
+<th>uniform</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u_texture</td>
+<td>sampler2D</td>
+<td>diffuse texture</td>
+</tr>
+<tr>
+<td>u_color</td>
+<td>vec3</td>
+<td>RGB diffuse color</td>
+</tr>
+<tr>
+<td>u_opacity</td>
+<td>float</td>
+<td>alpha for transparency</td>
+</tr>
+<tr>
+<td>u_right</td>
+<td>int</td>
+<td>1 = right eye, 0 = left</td>
+</tr>
+</tbody>
+</table>
+<h2 id="oes_vertical_stereo_shader">OES_VERTICAL_STEREO_SHADER<a class="headerlink" href="#oes_vertical_stereo_shader" title="Permanent link">&para;</a></h2>
+<p>The computed fragment color is the product of the diffuse texture, diffuse color and opacity. It requires the vertex to have positions and texture coordinates. Normals are not required because lights in the scene are not used by this shader. The texture supplied as u_ texture must be and OES external texture (type GL_TEXTURE_EXTERNAL_OES, not GL_TEXTURE_2D) as this shader uses samplerExternalOES as opposed to sampler2D. The u_right parameter controls whether it displays on the top half or the bottom half of the output display.</p>
+<table>
+<thead>
+<tr>
+<th>uniform</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u_texture</td>
+<td>sampler2D</td>
+<td>diffuse texture</td>
+</tr>
+<tr>
+<td>u_color</td>
+<td>vec3</td>
+<td>RGB diffuse color</td>
+</tr>
+<tr>
+<td>u_opacity</td>
+<td>float</td>
+<td>alpha for transparency</td>
+</tr>
+<tr>
+<td>u_right</td>
+<td>int</td>
+<td>1 = right eye, 0 = left</td>
+</tr>
+</tbody>
+</table>
+<h2 id="cubemap_shader">CUBEMAP_SHADER<a class="headerlink" href="#cubemap_shader" title="Permanent link">&para;</a></h2>
+<p>The computed fragment color is the product of the diffuse texture, diffuse color and opacity. It requires the vertex to have positions and texture coordinates. Normals are not required because lights in the scene are not used by this shader. The diffuse texture must be a cube map texture (six different textures for each face of the cube).</p>
+<table>
+<thead>
+<tr>
+<th>uniform</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u_texture</td>
+<td>sampler2D</td>
+<td>diffuse texture</td>
+</tr>
+<tr>
+<td>u_color</td>
+<td>vec3</td>
+<td>RGB diffuse color</td>
+</tr>
+<tr>
+<td>u_opacity</td>
+<td>float</td>
+<td>alpha for transparency</td>
+</tr>
+<tr>
+<td>u_right</td>
+<td>int</td>
+<td>description</td>
+</tr>
+</tbody>
+</table>
+<h2 id="cubemap_reflection_shader">CUBEMAP_REFLECTION_SHADER<a class="headerlink" href="#cubemap_reflection_shader" title="Permanent link">&para;</a></h2>
+<p>The computed fragment color is the product of the diffuse texture, diffuse color and opacity. It requires the vertex to have positions and texture coordinates. Normals are not required because lights in the scene are not used by this shader. The diffuse texture must be a cube map texture (six different textures for each face of the cube).</p>
+<table>
+<thead>
+<tr>
+<th>uniform</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u_texture</td>
+<td>sampler2D</td>
+<td>diffuse texture</td>
+</tr>
+<tr>
+<td>u_color</td>
+<td>vec3</td>
+<td>RGB diffuse color</td>
+</tr>
+<tr>
+<td>u_opacity</td>
+<td>float</td>
+<td>alpha for transparency</td>
+</tr>
+<tr>
+<td>u_view_i</td>
+<td>mat4atrix</td>
+<td>view matrix</td>
+</tr>
+<tr>
+<td>v_viewspace_position</td>
+<td>vec3</td>
+<td>view space position</td>
+</tr>
+<tr>
+<td>v_viewspace_normal</td>
+<td>vec3</td>
+<td>view space normal</td>
+</tr>
+</tbody>
+</table>
+<h2 id="texture_shader">TEXTURE_SHADER<a class="headerlink" href="#texture_shader" title="Permanent link">&para;</a></h2>
+<p>The computed fragment color is the product of the diffuse texture, diffuse color and opacity as illuminated by a single point light. It requires the vertex to have positions, normals and texture coordinates. If the scene is not lit, the material and light intensity properties are ignored. GVRPhongShader provides the same functionality and supports multiple lights.</p>
+<table>
+<thead>
+<tr>
+<th>uniform</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u_texture</td>
+<td>sampler2D</td>
+<td>diffuse texture</td>
+</tr>
+<tr>
+<td>u_color</td>
+<td>vec3</td>
+<td>RGB diffuse color</td>
+</tr>
+<tr>
+<td>u_opacity</td>
+<td>float</td>
+<td>alpha for transparency</td>
+</tr>
+<tr>
+<td>ambient_color</td>
+<td>vec4</td>
+<td>color reflected by ambient light</td>
+</tr>
+<tr>
+<td>diffuse_color</td>
+<td>vec4</td>
+<td>color reflected by diffuse light</td>
+</tr>
+<tr>
+<td>specular_color</td>
+<td>float</td>
+<td>exponent for specular reflection</td>
+</tr>
+<tr>
+<td>specular_exponent</td>
+<td>vec4</td>
+<td>color reflected by specular light</td>
+</tr>
+<tr>
+<td>ambient_intensity</td>
+<td>vec4</td>
+<td>intensity of ambient light</td>
+</tr>
+<tr>
+<td>diffuse_intensity</td>
+<td>vec4</td>
+<td>intensity of diffuse light</td>
+</tr>
+<tr>
+<td>specular_intensity</td>
+<td>vec4</td>
+<td>intensity of specular light</td>
+</tr>
+<tr>
+<td>v_view_space_normal</td>
+<td>vec4</td>
+<td>view space normal</td>
+</tr>
+<tr>
+<td>v_view_space_light_directionl</td>
+<td>vec4</td>
+<td>view space light direction</td>
+</tr>
+</tbody>
+</table>
+<h2 id="lightmap_shader">LIGHTMAP_SHADER<a class="headerlink" href="#lightmap_shader" title="Permanent link">&para;</a></h2>
+<p>The computed fragment color is the product of the diffuse texture, diffuse color and opacity as illuminated by a light map. It requires the vertex to have positions, normals and texture coordinates. GVRPhongShader supports light mapping integrated with other surface shading capabilities.</p>
+<table>
+<thead>
+<tr>
+<th>uniform</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u_main_texture</td>
+<td>sampler2D</td>
+<td>diffuse texture</td>
+</tr>
+<tr>
+<td>u_lightmap_texture</td>
+<td>sampler2D</td>
+<td>light map texture</td>
+</tr>
+<tr>
+<td>u_lightmap_offset</td>
+<td>vec2</td>
+<td>light map offset</td>
+</tr>
+<tr>
+<td>u_lightmap_scale</td>
+<td>vec2</td>
+<td>light map scal</td>
+</tr>
+</tbody>
+</table>
+<h2 id="assimp_shader">ASSIMP_SHADER<a class="headerlink" href="#assimp_shader" title="Permanent link">&para;</a></h2>
+<p>The computed fragment color is the product of the diffuse texture, diffuse color and opacity. It requires the vertex to have positions and texture coordinates. Normals are not required because lights in the scene are not used by this shader. The GearVRF asset importer no longer uses this shader, it uses GVRPhongShader instead.</p>
+<table>
+<thead>
+<tr>
+<th>uniform</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u_texture</td>
+<td>sampler2D</td>
+<td>diffuse texture</td>
+</tr>
+<tr>
+<td>u_color</td>
+<td>vec3</td>
+<td>RGB diffuse color</td>
+</tr>
+<tr>
+<td>u_opacity</td>
+<td>float</td>
+<td>alpha for transparency</td>
+</tr>
+<tr>
+<td>u_ambient_color</td>
+<td>vec4</td>
+<td>color reflected by ambient light</td>
+</tr>
+<tr>
+<td>u_diffuse_color</td>
+<td>vec4</td>
+<td>color reflected by diffuse light</td>
+</tr>
+</tbody>
+</table>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../phong_shader_template/" title="Phong Shader Template" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Phong Shader Template
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../picking/" title="Picking" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Picking
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2016 - 2017 Samsung
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application-c35428f87f.js"></script>
+      
+      
+      <script>app.initialize({url:{base:"../../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>

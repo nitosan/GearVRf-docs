@@ -1,0 +1,939 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Documentation for GearVR Framework">
+      
+      
+      
+        <meta name="author" content="GearVR Framework Team">
+      
+      
+        <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.7.4">
+    
+    
+      
+        <title>Phong Shader Template - GearVR Framework</title>
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr-1df76c4e58.js"></script>
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application-769c285a91.css">
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+  
+  
+  
+    <body>
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <a href="../../.." title="GearVR Framework" class="md-icon md-icon--home md-header-nav__button">
+          </a>
+        
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
+            
+              
+                <span class="md-header-nav__parent">
+                  Programming Guide
+                </span>
+              
+                <span class="md-header-nav__parent">
+                  Features
+                </span>
+              
+            
+            Phong Shader Template
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
+<div class="md-search" data-md-component="search">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">close</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result" data-md-lang-search="">
+          <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    
+      <i class="md-icon md-icon--home md-nav__button"></i>
+    
+    GearVR Framework
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../getting_started/" title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Tutorials
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Tutorials
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../tutorials/simple_vr_app/" title="Simple VR app" class="md-nav__link">
+      Simple VR app
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../tutorials/360_photo_app/" title="360 Photo app" class="md-nav__link">
+      360 Photo app
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      Programming Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Programming Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2" checked>
+    
+    <label class="md-nav__link" for="nav-4-2">
+      Features
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-2">
+        Features
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../loading_assets/" title="Loading Assets" class="md-nav__link">
+      Loading Assets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../render_data/" title="Render Data" class="md-nav__link">
+      Render Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../meshes/" title="Meshes" class="md-nav__link">
+      Meshes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../materials/" title="Materials" class="md-nav__link">
+      Materials
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../lighting/" title="Lighting" class="md-nav__link">
+      Lighting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Phong Shader Template
+      </label>
+    
+    <a href="./" title="Phong Shader Template" class="md-nav__link md-nav__link--active">
+      Phong Shader Template
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#phong-shader-example" title="Phong Shader Example" class="md-nav__link">
+    Phong Shader Example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vertex-shader" title="Vertex Shader" class="md-nav__link">
+    Vertex Shader
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fragment-shader" title="Fragment Shader" class="md-nav__link">
+    Fragment Shader
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../builtin_legacy_shader/" title="Built-In Legacy Shader" class="md-nav__link">
+      Built-In Legacy Shader
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../picking/" title="Picking" class="md-nav__link">
+      Picking
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api_reference/" title="API Reference" class="md-nav__link">
+      API Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../build_instructions/" title="Build Instructions" class="md-nav__link">
+      Build Instructions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../gearvr_settings_files/" title="GearVRf Settings File" class="md-nav__link">
+      GearVRf Settings File
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../video_tutorials/" title="Video Tutorials" class="md-nav__link">
+      Video Tutorials
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sample_code/" title="Sample Code" class="md-nav__link">
+      Sample Code
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      About
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        About
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../about/contribution/" title="Contribution" class="md-nav__link">
+      Contribution
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../about/certificate/" title="Developer Certificate of Origin" class="md-nav__link">
+      Developer Certificate of Origin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../about/release_notes/" title="Release Notes" class="md-nav__link">
+      Release Notes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../about/roadmap/" title="Roadmap" class="md-nav__link">
+      Roadmap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../about/license/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../about/privacy_policy/" title="Privacy Policy" class="md-nav__link">
+      Privacy Policy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../about/marketing_resource/" title="Marketing Resources" class="md-nav__link">
+      Marketing Resources
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#phong-shader-example" title="Phong Shader Example" class="md-nav__link">
+    Phong Shader Example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vertex-shader" title="Vertex Shader" class="md-nav__link">
+    Vertex Shader
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fragment-shader" title="Fragment Shader" class="md-nav__link">
+    Fragment Shader
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Phong Shader Template</h1>
+                
+                <p>Phong shader tempates, vertex and fragment shaders, and examples</p>
+<p>The phong reflectance model is used to calculate how objects reflect light. This model assumes that reflected light is most intense at an angle perpendicular to the light source and falls off in a lobe based on angle from the viewer. The base surface material is assumed to reflect evenly but texture maps can be used to modify the normal per pixel to provide bumps or control reflection per pixel. </p>
+<p><img alt="" src="../../../../images/gvrf_phong_reflectance.png" /></p>
+<p>Instead of implementing an extremely complex single shader to handle all of the many combinations of texture maps, lighting and materials, GearVRF supports the concept of shader templates. A shader template is a complex shader with a lot of #ifdef statements which allow it to be compiled in different ways depending on what features are required to render an object. GearVRF will examine your meshes, materials and lights and set the #ifdefs to generate a custom shader for each case.</p>
+<p>The asset loader uses the phong shader template for all imported assets. This means that, if you import an asset containing new lights, other objects in your scene may be affected and will use different custom shaders that support the newly added lights. Similarly, importing an object that uses lightmapping if it has not been used before in the scene might cause a new shader to be generated.</p>
+<p>To use the phong shader template programmatically, call GVRRenderData.setShaderTemplate(GVRPhongShader.class). This tells GearVRF to defer selecting a specific shader until the scene has been composed. After GVRActivity.onInit completes, the shader templates are used to generate and compile the needed shaders. If you import assets while the application is running, the asset loader will take care of binding the shaders. But if you program creatively and add objects to the scene in other ways, you may have to call GVRScene.bindShaders to make sure the proper shaders are generated.</p>
+<p>The phong model separates light into several different types and allows different colors for each. The components are combined with corresponding material uniforms to independently control illumination for each type.</p>
+<ul>
+<li>Ambient light reflects uniformly everywhere in the scene and is added to all objects</li>
+<li>Diffuse light reflects at many angles and is stronger in the direction of the surface normal</li>
+<li>Specular light reflects towards the viewer</li>
+</ul>
+<p>Each light type has a corresponding color uniform to define the overall object color and a texture sampler to provide a color at each pixel.</p>
+<h2 id="phong-shader-example">Phong Shader Example<a class="headerlink" href="#phong-shader-example" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span>    <span class="n">GVRTexture</span> <span class="n">tex</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="na">loadTexture</span><span class="o">(</span><span class="k">new</span> <span class="n">GVRAndroidResource</span><span class="o">(</span><span class="n">mGVRContext</span><span class="o">,</span> <span class="n">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">gearvrflogo</span><span class="o">));</span>
+    <span class="n">GVRSceneObject</span> <span class="n">plane</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRSceneObject</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="mf">10.0f</span><span class="o">,</span> <span class="mf">4.0f</span><span class="o">,</span> <span class="n">tex</span><span class="o">);</span>
+    <span class="n">GVRRenderData</span> <span class="n">rdata</span> <span class="o">=</span> <span class="n">backdrop</span><span class="o">.</span><span class="na">getRenderData</span><span class="o">();</span>
+    <span class="n">GVRMaterial</span> <span class="n">material</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRMaterial</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
+
+    <span class="n">material</span><span class="o">.</span><span class="na">setVec4</span><span class="o">(</span><span class="s">&quot;diffuse_color&quot;</span><span class="o">,</span> <span class="mf">0.8f</span><span class="o">,</span> <span class="mf">0.8f</span><span class="o">,</span> <span class="mf">0.8f</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">);</span>
+    <span class="n">material</span><span class="o">.</span><span class="na">setVec4</span><span class="o">(</span><span class="s">&quot;ambient_color&quot;</span><span class="o">,</span> <span class="mf">0.3f</span><span class="o">,</span> <span class="mf">0.3f</span><span class="o">,</span> <span class="mf">0.3f</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">);</span>
+    <span class="n">material</span><span class="o">.</span><span class="na">setVec4</span><span class="o">(</span><span class="s">&quot;specular_color&quot;</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">);</span>
+    <span class="n">material</span><span class="o">.</span><span class="na">setVec4</span><span class="o">(</span><span class="s">&quot;emissive_color&quot;</span><span class="o">,</span> <span class="mf">0.0f</span><span class="o">,</span> <span class="mf">0.0f</span><span class="o">,</span> <span class="mf">0.0f</span><span class="o">,</span> <span class="mf">0.0f</span><span class="o">);</span>
+    <span class="n">material</span><span class="o">.</span><span class="na">setFloat</span><span class="o">(</span><span class="s">&quot;specular_exponent&quot;</span><span class="o">,</span> <span class="mf">10.0f</span><span class="o">);</span>
+    <span class="n">material</span><span class="o">.</span><span class="na">setTexture</span><span class="o">(</span><span class="s">&quot;diffuseTexture&quot;</span><span class="o">,</span> <span class="n">tex</span><span class="o">);</span>
+    <span class="n">rdata</span><span class="o">.</span><span class="na">setMaterial</span><span class="o">(</span><span class="n">material</span><span class="o">);</span>
+    <span class="n">rdata</span><span class="o">.</span><span class="na">setShaderTemplate</span><span class="o">(</span><span class="n">GVRPhongShader</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+</pre></div>
+
+
+<h2 id="vertex-shader">Vertex Shader<a class="headerlink" href="#vertex-shader" title="Permanent link">&para;</a></h2>
+<p>The phong vertex shader supports lighting with multiple light sources, normal mapping and skinning with up to 60 bones. Lighting calculations are done per pixel.</p>
+<p>Phong Shader Vertex Attributes</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a_position</td>
+<td>vec3</td>
+<td>X, Y, Z position in model space</td>
+</tr>
+<tr>
+<td>a_normal</td>
+<td>vec3</td>
+<td>normal vector in model space</td>
+</tr>
+<tr>
+<td>a_texcoord</td>
+<td>vec2</td>
+<td>U, V texture coordinate for diffuse texture</td>
+</tr>
+<tr>
+<td>a_tangent</td>
+<td>vec3</td>
+<td>tangent for normal mapping</td>
+</tr>
+<tr>
+<td>a_bitangent</td>
+<td>vec3</td>
+<td>bitangent for normal mapping</td>
+</tr>
+<tr>
+<td>a_bone_weights</td>
+<td>vec4</td>
+<td>weights for 4 bones for skinning</td>
+</tr>
+<tr>
+<td>a_bone_indices</td>
+<td>ivec4</td>
+<td>bone matrix indices for 4 bones</td>
+</tr>
+</tbody>
+</table>
+<p>The vertex shader uses one or more matrices calculated each frame by GearVRF. These matrices are supplied to all shaders so they are available for you to use in your own vertex and fragment shader code.</p>
+<p>Phong Shader Matrix Uniforms</p>
+<table>
+<thead>
+<tr>
+<th>Uniform</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u_model</td>
+<td>mat4</td>
+<td>model matrix (model -&gt; world)</td>
+</tr>
+<tr>
+<td>u_view</td>
+<td>mat4</td>
+<td>view matrix (world -&gt; camera)</td>
+</tr>
+<tr>
+<td>u_mvp</td>
+<td>mat4</td>
+<td>model, view, projection (model -&gt; screen)</td>
+</tr>
+<tr>
+<td>u_mv</td>
+<td>mat4</td>
+<td>model, view (model -&gt; camera)</td>
+</tr>
+<tr>
+<td>u_mv_it</td>
+<td>mat4</td>
+<td>inverse transpose of model, view (for lighting)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fragment-shader">Fragment Shader<a class="headerlink" href="#fragment-shader" title="Permanent link">&para;</a></h2>
+<p>The fragment shader performs the lighting calculations at each pixel. Shadow mapping is supported for multiple light sources but should be used sparingly because it is computationally expensive. It renders the scene from the viewpoint of each light that casts shadows.</p>
+<p>Many different types of texture maps are supporting by the phong fragment shader template but usually a scene object only uses one or two. Each texture map contributes differently to the overall color and reacts differently to the lighting in the scene.</p>
+<p>Phong Texture Maps</p>
+<table>
+<thead>
+<tr>
+<th>Sampler</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>diffuseTexture</td>
+<td>Supplies diffuse color per pixel</td>
+</tr>
+<tr>
+<td>ambientTexture</td>
+<td>Supplies ambient color per pixel</td>
+</tr>
+<tr>
+<td>specularTexture</td>
+<td>Supplies specular color per pixel</td>
+</tr>
+<tr>
+<td>emissiveTexture</td>
+<td>Supplies emissive color per pixel</td>
+</tr>
+<tr>
+<td>normalTexture</td>
+<td>Supplies normal per pixel</td>
+</tr>
+</tbody>
+</table>
+<p>Materials used with the phong shader template support these uniforms. Each different type of light has its own set of uniforms used to define the light properties.</p>
+<p>Phong Material Uniforms</p>
+<table>
+<thead>
+<tr>
+<th>Uniform</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>diffuse_color</td>
+<td>vec4</td>
+<td>color reflected by diffuse light, alpha component has overall opacity</td>
+</tr>
+<tr>
+<td>ambient_color</td>
+<td>vec4</td>
+<td>color reflected by ambient light</td>
+</tr>
+<tr>
+<td>specular_color</td>
+<td>vec4</td>
+<td>color reflected by specular light (towards viewer)</td>
+</tr>
+<tr>
+<td>emissive_color</td>
+<td>vec4</td>
+<td>light color emitted by object</td>
+</tr>
+<tr>
+<td>specular_exponent</td>
+<td>float</td>
+<td>specular exponent (shininess)</td>
+</tr>
+<tr>
+<td>u_lightmap_offset</td>
+<td>vec2</td>
+<td>texture coordinate offset for lightmap texture</td>
+</tr>
+<tr>
+<td>u_lightmap_scale</td>
+<td>vec2</td>
+<td>texture coordinate scale for lightmap texture</td>
+</tr>
+</tbody>
+</table>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../lighting/" title="Lighting" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Lighting
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../builtin_legacy_shader/" title="Built-In Legacy Shader" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Built-In Legacy Shader
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2016 - 2017 Samsung
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application-c35428f87f.js"></script>
+      
+      
+      <script>app.initialize({url:{base:"../../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>

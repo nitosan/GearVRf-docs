@@ -20,7 +20,7 @@
     
     
       
-        <title>Sample Code - GearVR Framework</title>
+        <title>API Reference - GearVR Framework</title>
       
     
     
@@ -81,7 +81,7 @@
                 </span>
               
             
-            Sample Code
+            API Reference
           
         </span>
       </div>
@@ -365,11 +365,18 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../api_reference/" title="API Reference" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+    <a href="./" title="API Reference" class="md-nav__link md-nav__link--active">
       API Reference
     </a>
+    
   </li>
 
         
@@ -425,47 +432,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        Sample Code
-      </label>
-    
-    <a href="./" title="Sample Code" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../sample_code/" title="Sample Code" class="md-nav__link">
       Sample Code
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#sample-gearvrf-applications" title="Sample GearVRf Applications" class="md-nav__link">
-    Sample GearVRf Applications
-  </a>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -596,22 +567,6 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#sample-gearvrf-applications" title="Sample GearVRf Applications" class="md-nav__link">
-    Sample GearVRf Applications
-  </a>
-  
-</li>
-      
-      
-      
-    </ul>
   
 </nav>
                   </div>
@@ -624,52 +579,9 @@
               
                 
                 
-                <h1 id="gearvrf-samples-and-demos">GearVRf Samples and Demos<a class="headerlink" href="#gearvrf-samples-and-demos" title="Permanent link">&para;</a></h1>
-<p>To get the GearVR Framework Samples and Demos, clone the following repository in the same directory as where you did the clone for the framework source code:</p>
-<div class="codehilite"><pre><span></span>$ git clone https://github.com/gearvrf/GearVRf-Demos.git -b release_v3.2
-</pre></div>
-
-
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>You should put both GearVRf/ and GearVRf-Demos/ in the same directory.</p>
-</div>
-<h2 id="sample-gearvrf-applications">Sample GearVRf Applications<a class="headerlink" href="#sample-gearvrf-applications" title="Permanent link">&para;</a></h2>
-<p>Sample GearVRf applications, available in the GearVRf SDK, can provide you with valuable insight into writing your own VR applications.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The flat images below represent GearVRf applications with actual stereographic displays.</p>
-</div>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Solar System</strong> <br/> (gvrsolarsystem) <br/> <img alt="" src="../../../../images/GearVRf_Solar_System_Mono_Small.png" /></td>
-<td><strong>Solar system with four inner rotating planets revolving around the rotating sun as viewed from the point on the moon closest to Earth</strong> <br/> Asynchronous loading of meshes and textures is used. <br/>Loading order is by priority; no mesh or texture is loaded twice. <br/>Animation is used to create the illusion of rotation and revolution.</td>
-</tr>
-<tr>
-<td><strong>Dynamic Graphics Board</strong><br/>(gvropacityanigalery)<br/><img alt="" src="../../../../images/Dynamic_Gallery_Mono_Small_Centered.png" /></td>
-<td><strong>Images and video displayed on a board inside a 3D scene</strong><br/>A video or image is displayed in a rectangular scene object (up the stairs).<br/>Animation is used to switch images and video smoothly.<br/>OnStep decides and defines the animation to apply, based on HMD orientation.<br/>Post-effect converts view to sepia colors.</td>
-</tr>
-<tr>
-<td><strong>Eye Picking</strong> <br/>(gvreyepickingsample)<br/><img alt="" src="../../../../images/Eye_Picking_Stereo_Center_OffCenter_Small.png" /></td>
-<td><strong>Color of objects (bunnies and rectangles) changes to red when an object is at the center of the view</strong><br/>OnStep updates scene object colors.<br/>Implements a color custom shader.</td>
-</tr>
-<tr>
-<td><strong>Pick and Move</strong> <br/>(gvr-pickandmove)<br/><img alt="" src="../../../../images/GVR_Pick_Move_Small.png" /></td>
-<td><strong>3D mirror ball can be selected and repositioned in a 3D scene</strong><br/>Uses the HMD trackpad.<br/>Uses Cubemap support.<br/>Uses scene picking.</td>
-</tr>
-<tr>
-<td><strong>Useful Scene Objects</strong><br/>(scene-objects)<br/><img alt="" src="../../../../images/GVR_Scene_Objects_Big_Cube.png" /></td>
-<td><strong>Contains fundamental scene objects (such as a cube, sphere, cone, and text) that you can use in your own apps</strong></td>
-</tr>
-</tbody>
-</table>
+                  <h1>API Reference</h1>
+                
+                <p>Online GearVRf API Reference (<a href="http://docs.gearvrf.org">http://docs.gearvrf.org</a>)</p>
                 
                   
                 
@@ -688,7 +600,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../video_tutorials/" title="Video Tutorials" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../features/picking/" title="Picking" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -697,19 +609,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Video Tutorials
+                Picking
               </span>
             </div>
           </a>
         
         
-          <a href="../../about/contribution/" title="Contribution" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../build_instructions/" title="Build Instructions" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Contribution
+                Build Instructions
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
