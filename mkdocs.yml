@@ -30,6 +30,7 @@ pages:
       - Phong Shader Template: programming_guide/features/phong_shader_template.md
       - Built-In Legacy Shader: programming_guide/features/builtin_legacy_shader.md
       - Picking: programming_guide/features/picking.md
+    - API Reference: programming_guide/api_reference.md
     - Build Instructions: programming_guide/build_instructions.md
     - GearVRf Settings File: programming_guide/gearvr_settings_files.md
     - FAQ: programming_guide/faq.md
@@ -37,6 +38,7 @@ pages:
     - Sample Code: programming_guide/sample_code.md
   - About:
     - Contribution: about/contribution.md
+    - Developer Certificate of Origin: about/certificate.md
     - Release Notes: about/release_notes.md
     - Roadmap: about/roadmap.md
     - License: about/license.md
