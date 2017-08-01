@@ -657,12 +657,12 @@
                 <p>VR mesh types, access, and examples</p>
 <p>Indexed triangle meshes are the only shape definition currently supported by GearVRF. Each mesh contains a set of vertices with the 3D locations of the triangle coordinates. Typically these are unique locations to maximize vertex sharing but this is not a requirement. A triangle has three indices designating which vertices are used by that triangle.</p>
 <p>In addition to positions, a mesh may have normals and texture coordinates as well. These arrays, if present, must follow the same ordering as the vertices. There is only one set of triangle indices to reference the position, normal and texture coordinate. This is unlike some systems which permit multiple index tables. </p>
-<p><img alt="" src="../../../../images/GVRf_Mesh.png" /></p>
+<p><img alt="" src="../../../images/GVRf_Mesh.png" /></p>
 <h2 id="skinned-meshes">Skinned Meshes<a class="headerlink" href="#skinned-meshes" title="Permanent link">&para;</a></h2>
 <p>Skinned meshes have vertex bone data to indicate which bones affect which vertices in the mesh. A bone is a transform matrix which affects a subset of vertices in the mesh. Each vertex can be influenced by up to four bones.</p>
 <p>A mesh also contains a list of the bone transforms (GVRBone objects) that influence its vertices. The bone indices in the vertex array reference the bones in this list.</p>
 <p>GearVRf executes skinning on the GPU but it calculates the bone matrices on the CPU.</p>
-<p><img alt="" src="../../../../images/GVRf_Skinned_Mesh.png" /></p>
+<p><img alt="" src="../../../images/GVRf_Skinned_Mesh.png" /></p>
 <h2 id="accessing-mesh-components">Accessing Mesh Components<a class="headerlink" href="#accessing-mesh-components" title="Permanent link">&para;</a></h2>
 <p>The vertex shader used to render the mesh determines which vertex components are required. The GearVRf build-in shaders rely on positions, normals, texture coordinates and bone information. You can write your own shaders which use other vertex components.</p>
 <p>Each vertex component has a unique name and type. GearVRf vertex components are vectors containing between one and four floats. Each component has a function wh|ich can get or set that component for the entire vertex array. GVRMesh provides convenience functions for the built-in types. Reading or writing the vertex array is a high overhead operation and should not be done every frame.</p>

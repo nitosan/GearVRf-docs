@@ -644,7 +644,7 @@
 <p>A material dictates how a scene object will be colored and textured. The visual appearance of a mesh in the scene is controlled by a fragment shader program in the GPU. GearVRf will automatically construct a shader for common use cases but you can also provide your own shader code.</p>
 <p>The GVRMaterial object encapsulates the fragment shader and all of its associated data. This usually includes one or more texture maps and lighting properties that affect how the surface reacts to lights in the scene. Because you can write custom shaders, you can attach your own custom data to a material that your shader can use in computations. This data can be scalar numbers (float or int), arrays or textures. Each custom data element has a string key used to look up or modify its value. When the object is rendered, these values are passed to the shader program.</p>
 <p>This picture shows a material with two custom data parameters - a diffuse color with an alpha (4 floats) and an integer enabling transparency. </p>
-<p><img alt="" src="../../../../images/GVR_Material.png" /></p>
+<p><img alt="" src="../../../images/GVR_Material.png" /></p>
 <h2 id="accessing-material-parameters">Accessing Material Parameters<a class="headerlink" href="#accessing-material-parameters" title="Permanent link">&para;</a></h2>
 <p>The GVRMaterial provides access to the fragment shader uniforms by name. Setting the value of a material parameter will set the correspondingly named uniform variable in the fragment shader associated with that material. GVRMaterial has a set of functions that read and write the material parameters based on type.</p>
 <table>
