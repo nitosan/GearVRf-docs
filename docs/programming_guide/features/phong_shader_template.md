@@ -2,7 +2,7 @@ Phong shader tempates, vertex and fragment shaders, and examples
 
 The phong reflectance model is used to calculate how objects reflect light. This model assumes that reflected light is most intense at an angle perpendicular to the light source and falls off in a lobe based on angle from the viewer. The base surface material is assumed to reflect evenly but texture maps can be used to modify the normal per pixel to provide bumps or control reflection per pixel. 
 
-![](../../../images/gvrf_phong_reflectance.png)
+![](/images/gvrf_phong_reflectance.png)
 
 Instead of implementing an extremely complex single shader to handle all of the many combinations of texture maps, lighting and materials, GearVRF supports the concept of shader templates. A shader template is a complex shader with a lot of #ifdef statements which allow it to be compiled in different ways depending on what features are required to render an object. GearVRF will examine your meshes, materials and lights and set the #ifdefs to generate a custom shader for each case.
 

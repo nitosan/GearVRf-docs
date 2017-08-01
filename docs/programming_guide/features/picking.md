@@ -4,7 +4,7 @@ For a scene object to be pickable, it must have a collider component attached. T
 
 To pick a 3D object GearVRf casts a ray from the camera viewpoint in the direction the viewer is looking through the entire scene looking only at the geometry in the colliders. When the ray penetrates the collider geometry, the scene object that owns it is "picked". The list of picked objects is sorted based on distance from the camera so it is easy to choose the closest object to the viewer.
 
-![](../../../images/gvrf_picking.png)
+![](/images/gvrf_picking.png)
 
 
 ##Types of Colliders

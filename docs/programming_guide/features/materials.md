@@ -6,7 +6,7 @@ The GVRMaterial object encapsulates the fragment shader and all of its associate
 
 This picture shows a material with two custom data parameters - a diffuse color with an alpha (4 floats) and an integer enabling transparency. 
 
-![](../../../images/GVR_Material.png)
+![](/images/GVR_Material.png)
 
 
 ##Accessing Material Parameters
