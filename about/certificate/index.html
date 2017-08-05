@@ -16,7 +16,7 @@
       
         <link rel="shortcut icon" href="../../assets/images/favicon.png">
       
-      <meta name="generator" content="mkdocs-0.16.1, mkdocs-material-1.7.5">
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.7.4">
     
     
       
@@ -89,11 +89,11 @@
         
           <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
           
-<div class="md-search" data-md-component="search" role="dialog">
+<div class="md-search" data-md-component="search">
   <label class="md-search__overlay" for="search"></label>
   <div class="md-search__inner">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
       <label class="md-icon md-search__icon" for="search"></label>
       <button type="reset" class="md-icon md-search__icon" data-md-component="reset">close</button>
     </form>
@@ -481,9 +481,34 @@
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
     
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Developer Certificate of Origin
+      </label>
+    
     <a href="./" title="Developer Certificate of Origin" class="md-nav__link md-nav__link--active">
       Developer Certificate of Origin
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-signed-off-by-process" title="Using the Signed-Off-By Process" class="md-nav__link">
+    Using the Signed-Off-By Process
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -542,6 +567,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../terms_of_service/" title="Terms of Service" class="md-nav__link">
+      Terms of Service
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../marketing_resource/" title="Marketing Resources" class="md-nav__link">
       Marketing Resources
     </a>
@@ -568,6 +605,20 @@
   
   
   
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-signed-off-by-process" title="Using the Signed-Off-By Process" class="md-nav__link">
+    Using the Signed-Off-By Process
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -581,7 +632,29 @@
                 
                   <h1>Developer Certificate of Origin</h1>
                 
-                <p>certificate.md</p>
+                <p>Gear DCO and signed-off-by process</p>
+<p>The GearVRf project uses the signed-off-by language and process used by the Linux kernel, to give us a clear chain of trust for every patch received.</p>
+<div class="codehilite"><pre><span></span>GearVRf Developer&#39;s Certificate of Origin 1.0
+
+By making a contribution to this project, I certify that:
+
+(a) The contribution was created in whole or in part by me and I have the right to submit it under the open source license indicated in the file; or
+
+(b) The contribution is based upon previous work that, to the best of my knowledge, is covered under an appropriate open source license and I have the right under that license to submit that work with modifications, whether created in whole or in part by me, under the same open source license (unless I am permitted to submit under a different license), as indicated in the file; or
+
+(c) The contribution was provided directly to me by some other person who certified (a), (b) or (c) and I have not modified it.
+
+(d) I understand and agree that this project and the contribution are public and that a record of the contribution (including all personal information I submit with it, including my sign-off) is maintained indefinitely and may be redistributed consistent with this project, under the same open source license.
+</pre></div>
+
+
+<h2 id="using-the-signed-off-by-process">Using the Signed-Off-By Process<a class="headerlink" href="#using-the-signed-off-by-process" title="Permanent link">&para;</a></h2>
+<p>We have the same requirements for using the signed-off-by process as the Linux kernel. In short, you need to include a signed-off-by tag in every patch:</p>
+<p>"Signed-off-by:" this is a developer's certification that he or she has the right to submit the patch for inclusion into the project. It is an agreement to the Developer's Certificate of Origin (above). Code without a proper signoff cannot be merged into the mainline.</p>
+<p>You should use your real name and email address in the format below:</p>
+<div class="codehilite"><pre><span></span>GearVRf-DCO-1.0-Signed-off-by: Random J Developer
+random@developer.example.org
+</pre></div>
                 
                   
                 
@@ -655,7 +728,7 @@
       
     </div>
     
-      <script src="../../assets/javascripts/application-07b0fbb49b.js"></script>
+      <script src="../../assets/javascripts/application-c35428f87f.js"></script>
       
       
       <script>app.initialize({url:{base:"../.."}})</script>
