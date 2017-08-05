@@ -16,7 +16,7 @@ When constructing an Android application, you subclass the Activity class. Simil
 
 During initialization, GVRActivity creates a GVRViewManager which does all the heavy lifting. This class is responsible for task scheduling, 3D rendering, animation and asset loading.
 
-![](../images/gvrf_overview_app_structure.png)
+![](/images/gvrf_overview_app_structure.png)
 
 ## Thread Management
 
@@ -38,7 +38,7 @@ The scene graph describes the spatial relationship between objects in the scene.
 
 Here we see a scene graph for a butterfly with a body and two wings. Each scene object has a position and an orientation. The left and right wings can share the same mesh but it is positioned and oriented differently for each wing. The initial translation on the body is inherited by the wings. 
 
-![](../images/gvrf_scene_graph.png)
+![](/images/gvrf_scene_graph.png)
 
 The form of your scene graph can have implications for the performance of your application. Typically, having lots of small objects performs poorly compared to several large objects with a similar total vertex count. This is because there is a considerable amount of overhead in rendering a single object. GearVRf attempts to batch objects that do not move together to improve performance.
 

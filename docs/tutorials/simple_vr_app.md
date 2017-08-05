@@ -8,7 +8,7 @@ The easiest way to create a GearVR Framework project is by copying the [template
 ## Project Structure
 Before we start, let's take a look at some essential parts of fo a GearVR Framework app
 
-![](../images/gvrf_tut1_project.png)
+![](/images/gvrf_tut1_project.png)
 
 The template project contains two classes, `MainActivity` and `MainScene`
 

@@ -4,7 +4,7 @@ Indexed triangle meshes are the only shape definition currently supported by Gea
 
 In addition to positions, a mesh may have normals and texture coordinates as well. These arrays, if present, must follow the same ordering as the vertices. There is only one set of triangle indices to reference the position, normal and texture coordinate. This is unlike some systems which permit multiple index tables. 
 
-![](../../../images/GVRf_Mesh.png)
+![](/images/GVRf_Mesh.png)
 
 ##Skinned Meshes
 
@@ -14,7 +14,7 @@ A mesh also contains a list of the bone transforms (GVRBone objects) that influe
 
 GearVRf executes skinning on the GPU but it calculates the bone matrices on the CPU.
 
-![](../../../images/GVRf_Skinned_Mesh.png)
+![](/images/GVRf_Skinned_Mesh.png)
 
 ##Accessing Mesh Components
 
