@@ -715,11 +715,11 @@
                   <h1>Simple VR app</h1>
                 
                 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>After setting up GearVR Framework, let's create our first VR app and learn a few very important concept in the process.</p>
+<p>After setting up GearVR Framework, let's create our first VR app and learn a few very important concepts in the process.</p>
 <h2 id="create-project">Create Project<a class="headerlink" href="#create-project" title="Permanent link">&para;</a></h2>
 <p>The easiest way to create a GearVR Framework project is by copying the <a href="https://github.com/nitosan/GearVRf-template">template project</a> </p>
 <h2 id="project-structure">Project Structure<a class="headerlink" href="#project-structure" title="Permanent link">&para;</a></h2>
-<p>Before we start, let's take a look at some essential parts of fo a GearVR Framework app</p>
+<p>Before we start, let's take a look at some essential parts of a GearVR Framework app</p>
 <p><img alt="" src="../../images/gvrf_tut1_project.png" /></p>
 <p>The template project contains two classes, <code>MainActivity</code> and <code>MainScene</code></p>
 <ul>
@@ -740,18 +740,18 @@
 </li>
 </ul>
 <h2 id="scene">Scene<a class="headerlink" href="#scene" title="Permanent link">&para;</a></h2>
-<p>Usually a VR app/game consists of one or more scenes. The templeate project already created one Scene called <code>MainScene</code> and it should be the starting point for your VR project. </p>
+<p>Usually a VR app/game consists of one or more scenes. The template project already created one Scene called <code>MainScene</code> and it should be the starting point for your VR project. </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><code>MainScene</code> extends from <code>GVRMain</code>, if you're creating your own entry point class, make sure to extend <code>GVRMain</code></p>
 </div>
-<p>There are two functions in <code>MainScene</code> both are important for the scene to work</p>
+<p>There are two functions in <code>MainScene</code>; both are important for the scene to work</p>
 <ul>
-<li>onInit() is called when the scene is being loaded, can be used to perform actions like object creation, assets loading.</li>
+<li>onInit() is called when the scene is being loaded, and can be used to perform actions like object creation, assets loading.</li>
 <li>onStep() called once per frame, can be used to perform things like animation, AI or user interactions</li>
 </ul>
 <h3 id="add-object">Add object<a class="headerlink" href="#add-object" title="Permanent link">&para;</a></h3>
-<p>Adding a object to the scene is simple, just create the object and specify the material and add it to the scene</p>
+<p>Adding a object to the scene is simple, Just create the object and specify the material and add it to the scene</p>
 <p>First let's add a new member varible for the Cube to the <code>MainScene</code></p>
 <div class="codehilite"><pre><span></span>    <span class="n">GVRCubeSceneObject</span> <span class="n">mCube</span>
 </pre></div>
