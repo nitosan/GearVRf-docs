@@ -26,11 +26,11 @@ Getting started with GearVR Framework in few simple steps
 1. Click Run button and put on your VR device
 
 !!! note
-	You can test VR apps without headset, by enable Samsung VR service developer mode.
+	You can test VR apps without a VR headset, by enabling Samsung VR service developer mode.
 	Settings > Applications > manage applications > Gear VR Service > Manage Storage - press the VR Service Version 6 times. After that a 'You are a developer' message will appear.
 
 !!! note
-	Make sure install your VR app with a valid oculus signature on the device first. Otherwise you'll see a 'You are not a developer' message.
+	Make sure to install your VR app with a valid oculus signature on the device first. Otherwise you'll see a 'You are not a developer' message.
 
 !!! warning
 	Screen will keep blinking after you turn on the developer mode

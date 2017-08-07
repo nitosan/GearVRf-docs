@@ -1,12 +1,12 @@
 
 ## Overview
-After setting up GearVR Framework, let's create our first VR app and learn a few very important concept in the process.
+After setting up GearVR Framework, let's create our first VR app and learn a few very important concepts in the process.
 
 ## Create Project
 The easiest way to create a GearVR Framework project is by copying the [template project](https://github.com/nitosan/GearVRf-template) 
 
 ## Project Structure
-Before we start, let's take a look at some essential parts of fo a GearVR Framework app
+Before we start, let's take a look at some essential parts of a GearVR Framework app
 
 ![](/images/gvrf_tut1_project.png)
 
@@ -24,19 +24,19 @@ In the assets folder there are two files: `gvr.xml` and `oculussig` file
 
 
 ## Scene
-Usually a VR app/game consists of one or more scenes. The templeate project already created one Scene called `MainScene` and it should be the starting point for your VR project. 
+Usually a VR app/game consists of one or more scenes. The template project already created one Scene called `MainScene` and it should be the starting point for your VR project. 
 
 !!!note
 	`MainScene` extends from `GVRMain`, if you're creating your own entry point class, make sure to extend `GVRMain`
 
-There are two functions in `MainScene` both are important for the scene to work
+There are two functions in `MainScene`; both are important for the scene to work
 
-* onInit() is called when the scene is being loaded, can be used to perform actions like object creation, assets loading.
+* onInit() is called when the scene is being loaded, and can be used to perform actions like object creation, assets loading.
 * onStep() called once per frame, can be used to perform things like animation, AI or user interactions
 
 ### Add object
 
-Adding a object to the scene is simple, just create the object and specify the material and add it to the scene
+Adding a object to the scene is simple, Just create the object and specify the material and add it to the scene
 
 First let's add a new member varible for the Cube to the `MainScene`
 ```java

@@ -1,9 +1,9 @@
 
 ## Overview
 
-Last time we showed how easy it is to create a simple game scene, This time we're going to create an app for viewing 360 photos.
+Last time we showed how easy it is to create a simple game scene. This time we're going to create an app for viewing 360 photos.
 
-To display a photo in VR you first need to have a 360 photo. Then display the photo inside a sphere. When user look at the image from inside the sphere, it will create a immersive experience for the them. 
+To display a photo in VR you first need to have a 360 photo. Then display the photo inside a sphere. When user looks at the image from inside the sphere, it will create a immersive experience for the them. 
 
 
 ## Create Project
