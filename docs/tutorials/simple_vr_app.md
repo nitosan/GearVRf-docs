@@ -5,6 +5,12 @@ After setting up GearVR Framework, let's create our first VR app and learn a few
 ## Create Project
 The easiest way to create a GearVR Framework project is by copying the [template project](https://github.com/nitosan/GearVRf-template) 
 
+Perform the following steps to make sure your project runs correctly
+
+1. Copy your [Oculus signature file](https://developer.oculus.com/osig/) to `app/src/main/assets` folder.
+1. Change the `applicationId` in `build.gradle` to a unique name to avoid naming conflict when you testing the app later
+1. Change the `app_name` in `res/values/strings.xml` to avoid confusion when you debugging the app.
+
 ## Project Structure
 Before we start, let's take a look at some essential parts of a GearVR Framework app
 
@@ -78,6 +84,7 @@ Add the following code to the `onStep()` function
 
 Build and run the app, you should be able to see a rotating cube.
 
-Now that you have a rotating cube in VR, feel free to try different things, how about, change it's color, make it scalue up and down or move it around.
+Now that you have a rotating cube in VR, feel free to try different things: change it's color, make it scale up and down or move it around.
 
-[Source Code](https://github.com/gearvrf/GearVRf-Demos)
+## Source Code
+Complete [Source Code](https://github.com/gearvrf/GearVRf-Demos) for this sample

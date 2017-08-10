@@ -2,5 +2,8 @@
  ✔ Convert GearVR Feature documentation (9) @done (17-07-28 16:40)
  ✔ Convert GearVR Build instructions @done (17-07-28 16:40)
  ✔ Convert GearVR Setting file doc @done (17-07-28 16:40)
+ ☐ Create documentation about how to convert normal Android Studio project into GearVR Framework project
+ ☐ Create source code for getting started projects
+ ☐ Update "Build instructions" to include Maven and move java docs info
  ☐ Convert contribution section
  ☐ Review old getting start guide and see what we can convert

@@ -18,6 +18,7 @@ pages:
   - Getting Started: getting_started.md
   - Tutorials:
     - Simple VR app: tutorials/simple_vr_app.md
+    - Play With Materials: tutorials/play_with_material.md
     - 360 Photo app: tutorials/360_photo_app.md
   - Programming Guide:
     - Overview: programming_guide/overview.md
