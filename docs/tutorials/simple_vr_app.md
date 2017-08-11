@@ -3,7 +3,7 @@
 After setting up GearVR Framework, let's create our first VR app and learn a few very important concepts in the process.
 
 ## Create Project
-The easiest way to create a GearVR Framework project is by copying the [template project](https://github.com/nitosan/GearVRf-template) 
+Create a GearVR Framework project is by copying the [template project](https://github.com/nitosan/GearVRf-template) 
 
 Perform the following steps to make sure your project runs correctly
 
