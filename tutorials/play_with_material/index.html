@@ -20,7 +20,7 @@
     
     
       
-        <title>Simple VR app - GearVR Framework</title>
+        <title>Play With Materials - GearVR Framework</title>
       
     
     
@@ -81,7 +81,7 @@
                 </span>
               
             
-            Simple VR app
+            Play With Materials
           
         </span>
       </div>
@@ -185,6 +185,18 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../simple_vr_app/" title="Simple VR app" class="md-nav__link">
+      Simple VR app
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -194,11 +206,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="toc">
-        Simple VR app
+        Play With Materials
       </label>
     
-    <a href="./" title="Simple VR app" class="md-nav__link md-nav__link--active">
-      Simple VR app
+    <a href="./" title="Play With Materials" class="md-nav__link md-nav__link--active">
+      Play With Materials
     </a>
     
       
@@ -224,36 +236,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#project-structure" title="Project Structure" class="md-nav__link">
-    Project Structure
+  <a href="#what-is-material" title="What is Material" class="md-nav__link">
+    What is Material
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#scene" title="Scene" class="md-nav__link">
-    Scene
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#add-object" title="Add object" class="md-nav__link">
-    Add object
+  <a href="#create-sceneobjects" title="Create SceneObjects" class="md-nav__link">
+    Create SceneObjects
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
+  <a href="#material-with-solid-color" title="Material with solid color" class="md-nav__link">
+    Material with solid color
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#material-with-texture" title="Material with Texture" class="md-nav__link">
+    Material with Texture
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#turn-on-the-light" title="Turn on the light" class="md-nav__link">
+    Turn on the light
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#make-it-move" title="Make it move" class="md-nav__link">
     Make it move
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -270,18 +290,6 @@
   
 </nav>
     
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../play_with_material/" title="Play With Materials" class="md-nav__link">
-      Play With Materials
-    </a>
   </li>
 
         
@@ -695,36 +703,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#project-structure" title="Project Structure" class="md-nav__link">
-    Project Structure
+  <a href="#what-is-material" title="What is Material" class="md-nav__link">
+    What is Material
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#scene" title="Scene" class="md-nav__link">
-    Scene
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#add-object" title="Add object" class="md-nav__link">
-    Add object
+  <a href="#create-sceneobjects" title="Create SceneObjects" class="md-nav__link">
+    Create SceneObjects
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
+  <a href="#material-with-solid-color" title="Material with solid color" class="md-nav__link">
+    Material with solid color
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#material-with-texture" title="Material with Texture" class="md-nav__link">
+    Material with Texture
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#turn-on-the-light" title="Turn on the light" class="md-nav__link">
+    Turn on the light
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#make-it-move" title="Make it move" class="md-nav__link">
     Make it move
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -750,10 +766,10 @@
               
                 
                 
-                  <h1>Simple VR app</h1>
+                  <h1>Play With Materials</h1>
                 
                 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>After setting up GearVR Framework, let's create our first VR app and learn a few very important concepts in the process.</p>
+<p>Now that you've created your first VR app with GearVR Framework. We are going to learn how to create things that look much better in VR.</p>
 <h2 id="create-project">Create Project<a class="headerlink" href="#create-project" title="Permanent link">&para;</a></h2>
 <p>Create a GearVR Framework project is by copying the <a href="https://github.com/nitosan/GearVRf-template">template project</a> </p>
 <p>Perform the following steps to make sure your project runs correctly</p>
@@ -762,75 +778,105 @@
 <li>Change the <code>applicationId</code> in <code>build.gradle</code> to a unique name to avoid naming conflict when you testing the app later</li>
 <li>Change the <code>app_name</code> in <code>res/values/strings.xml</code> to avoid confusion when you debugging the app.</li>
 </ol>
-<h2 id="project-structure">Project Structure<a class="headerlink" href="#project-structure" title="Permanent link">&para;</a></h2>
-<p>Before we start, let's take a look at some essential parts of a GearVR Framework app</p>
-<p><img alt="" src="../../images/gvrf_tut1_project.png" /></p>
-<p>The template project contains two classes, <code>MainActivity</code> and <code>MainScene</code></p>
-<ul>
-<li>
-<p><code>MainActivity</code> is the entry point of the app, like <code>android.app.Activity</code> it handles the initialization and life cycle of a VR app.</p>
-</li>
-<li>
-<p><code>MainScene</code> is the container of a scene, just like a scene in the movie, it contains things like camera, characters, visual effects etc, it is the place for all your VR content.</p>
-</li>
-</ul>
-<p>In the assets folder there are two files: <code>gvr.xml</code> and <code>oculussig</code> file</p>
-<ul>
-<li>
-<p><code>gvr.xml</code> is where you config various behavior of GearVR framework, which we'll get into detail in future tutorials</p>
-</li>
-<li>
-<p><code>oculussig</code> is the oculus signing file which allows you to deploy debug apps to VR devices, so always make sure this you have a signing file in your project</p>
-</li>
-</ul>
-<h2 id="scene">Scene<a class="headerlink" href="#scene" title="Permanent link">&para;</a></h2>
-<p>Usually a VR app/game consists of one or more scenes. The template project already created one Scene called <code>MainScene</code> and it should be the starting point for your VR project. </p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><code>MainScene</code> extends from <code>GVRMain</code>, if you're creating your own entry point class, make sure to extend <code>GVRMain</code></p>
-</div>
-<p>There are two functions in <code>MainScene</code>; both are important for the scene to work</p>
-<ul>
-<li>onInit() is called when the scene is being loaded, and can be used to perform actions like object creation, assets loading.</li>
-<li>onStep() called once per frame, can be used to perform things like animation, AI or user interactions</li>
-</ul>
-<h3 id="add-object">Add object<a class="headerlink" href="#add-object" title="Permanent link">&para;</a></h3>
-<p>Adding a object to the scene is simple, Just create the object and specify the material and add it to the scene</p>
-<p>First let's add a new member varible for the Cube to the <code>MainScene</code></p>
-<div class="codehilite"><pre><span></span>    <span class="n">GVRCubeSceneObject</span> <span class="n">mCube</span>
+<h2 id="what-is-material">What is Material<a class="headerlink" href="#what-is-material" title="Permanent link">&para;</a></h2>
+<p>In 3D graphics term, a material is a set of textures and shader parameters that can be used to simulate different types of materials in real life.</p>
+<p>For example with the correct material, you can make your 3D objects looks like bricks.</p>
+<p><img alt="" src="../../images/tutorial_material_2.png" /></p>
+<p>By CaliCoastReplay - Own work, <a href="https://commons.wikimedia.org/w/index.php?curid=55131278">CC BY 4.0</a></p>
+<h2 id="create-sceneobjects">Create SceneObjects<a class="headerlink" href="#create-sceneobjects" title="Permanent link">&para;</a></h2>
+<p>First, let's create one cube and one sphere</p>
+<div class="codehilite"><pre><span></span>    <span class="n">GVRCubeSceneObject</span> <span class="n">mCube</span><span class="o">;</span>
+    <span class="n">GVRSphereSceneObject</span> <span class="n">mSphere</span><span class="o">;</span>
 </pre></div>
 
 
-<p>Then add the cube to our scene with following code in <code>onInit()</code> function</p>
-<div class="codehilite"><pre><span></span>    <span class="c1">//Create a cube</span>
+<p>and initialize them in <code>onInit</code> function</p>
+<div class="codehilite"><pre><span></span>    <span class="c1">//Create Shpere</span>
+    <span class="n">mSphere</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRSphereSceneObject</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">);</span>
+    <span class="n">mSphere</span><span class="o">.</span><span class="na">getTransform</span><span class="o">().</span><span class="na">setPosition</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="o">-</span><span class="mi">3</span><span class="o">);</span>
+    <span class="n">gvrContext</span><span class="o">.</span><span class="na">getMainScene</span><span class="o">().</span><span class="na">addSceneObject</span><span class="o">(</span><span class="n">mSphere</span><span class="o">);</span>
+
+    <span class="c1">//Create Cube</span>
     <span class="n">mCube</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRCubeSceneObject</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">);</span>
-
-    <span class="c1">//Set shader for the cube</span>
-    <span class="n">mCube</span><span class="o">.</span><span class="na">getRenderData</span><span class="o">().</span><span class="na">setShaderTemplate</span><span class="o">(</span><span class="n">GVRPhongShader</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
-
-    <span class="c1">//Set position of the cube at (0, -2, -3)</span>
-    <span class="n">mCube</span><span class="o">.</span><span class="na">getTransform</span><span class="o">().</span><span class="na">setPosition</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="o">-</span><span class="mi">2</span><span class="o">,</span> <span class="o">-</span><span class="mi">3</span><span class="o">);</span>
-
-    <span class="c1">//Add cube to the scene</span>
+    <span class="n">mCube</span><span class="o">.</span><span class="na">getTransform</span><span class="o">().</span><span class="na">setPosition</span><span class="o">(-</span><span class="mi">2</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="o">-</span><span class="mi">3</span><span class="o">);</span>
     <span class="n">gvrContext</span><span class="o">.</span><span class="na">getMainScene</span><span class="o">().</span><span class="na">addSceneObject</span><span class="o">(</span><span class="n">mCube</span><span class="o">);</span>
 </pre></div>
 
 
-<p>Build and run the app, you should be able to see a white cube on the screen</p>
+<h2 id="material-with-solid-color">Material with solid color<a class="headerlink" href="#material-with-solid-color" title="Permanent link">&para;</a></h2>
+<p>Material with solid color can be used to create simple 3D objects, such as a red ball, a white cube.</p>
+<p>Let's create a red material with the following code.</p>
+<div class="codehilite"><pre><span></span>    <span class="n">GVRMaterial</span> <span class="n">flatMaterial</span><span class="o">;</span>
+    <span class="n">flatMaterial</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRMaterial</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">);</span>
+    <span class="n">flatMaterial</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="mf">1.0f</span><span class="o">,</span> <span class="mf">0.0f</span><span class="o">,</span> <span class="mf">0.0f</span><span class="o">);</span>
+</pre></div>
+
+
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you're using "VR developer mode" without headset the orentation might be different, you might need to turn around to see the cube</p>
+<p>GearVR Framework uses <a href="https://en.wikipedia.org/wiki/RGB_color_model">RGB color model</a> and the range of each color is from 0 to 1 </p>
 </div>
-<h3 id="make-it-move">Make it move<a class="headerlink" href="#make-it-move" title="Permanent link">&para;</a></h3>
-<p>Now let's make the cube rotate. Because we want to see the cube rotate continuously, we need to update it's rotation every frame. So instead of the <code>onInit()</code> function we need to add the rotation logic into <code>onStep()</code> function</p>
-<p>Add the following code to the <code>onStep()</code> function</p>
+<p>Now that we created the material, let's apply it to the sphere.</p>
+<div class="codehilite"><pre><span></span>    <span class="n">mSphere</span><span class="o">.</span><span class="na">getRenderData</span><span class="o">().</span><span class="na">setMaterial</span><span class="o">(</span><span class="n">flatMaterial</span><span class="o">);</span>
+    <span class="n">mSphere</span><span class="o">.</span><span class="na">getRenderData</span><span class="o">().</span><span class="na">setShaderTemplate</span><span class="o">(</span><span class="n">GVRPhongShader</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+</pre></div>
+
+
+<p>Build and run your app and see if you can find the red sphere.</p>
+<h2 id="material-with-texture">Material with Texture<a class="headerlink" href="#material-with-texture" title="Permanent link">&para;</a></h2>
+<p>Solid color objects are good, but what if I want to create things like a wooden box or brick wall? </p>
+<p>Yes, we can do that with textures, let's learn how to do that.</p>
+<p>The first step of creating a textured material is to have one texture. Which you can download it here</p>
+<p><img alt="" src="../../images/crate_wood.jpg" /></p>
+<p>Place the texture under <code>app\src\main\res\raw</code> folder</p>
+<p>Sync your project, and you should be able to load the texture using following code</p>
+<div class="codehilite"><pre><span></span>    <span class="n">GVRTexture</span> <span class="n">texture</span> <span class="o">=</span> <span class="n">gvrContext</span><span class="o">.</span><span class="na">getAssetLoader</span><span class="o">().</span><span class="na">loadTexture</span><span class="o">(</span><span class="k">new</span> <span class="n">GVRAndroidResource</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">,</span> <span class="n">R</span><span class="o">.</span><span class="na">raw</span><span class="o">.</span><span class="na">crate_wood</span><span class="o">));</span>
+</pre></div>
+
+
+<p>You can create a material with texture using following code.</p>
+<div class="codehilite"><pre><span></span>    <span class="n">GVRMaterial</span> <span class="n">textureMaterial</span><span class="o">;</span>
+    <span class="n">textureMaterial</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRMaterial</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">);</span>
+    <span class="n">textureMaterial</span><span class="o">.</span><span class="na">setMainTexture</span><span class="o">(</span><span class="n">texture</span><span class="o">);</span>
+
+    <span class="n">mCube</span><span class="o">.</span><span class="na">getRenderData</span><span class="o">().</span><span class="na">setMaterial</span><span class="o">(</span><span class="n">textureMaterial</span><span class="o">);</span>
+</pre></div>
+
+
+<p>Build and run your app, you should see the wooden crate we just created.</p>
+<h2 id="turn-on-the-light">Turn on the light<a class="headerlink" href="#turn-on-the-light" title="Permanent link">&para;</a></h2>
+<p>We just created a wooden crate, but if you look at it closely, you'll find it's really bright and doesn't feel natural. </p>
+<p>In this section, we're going to apply lighting to both objects to make it look a lot nicer.</p>
+<p>First, let's add a light to the scene using following code</p>
+<div class="codehilite"><pre><span></span>    <span class="n">GVRPointLight</span> <span class="n">pointLight</span><span class="o">;</span>
+    <span class="n">pointLight</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRPointLight</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">);</span>
+    <span class="n">pointLight</span><span class="o">.</span><span class="na">setDiffuseIntensity</span><span class="o">(</span><span class="mf">0.6f</span><span class="o">,</span> <span class="mf">0.5f</span><span class="o">,</span> <span class="mf">0.5f</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">);</span>
+    <span class="n">pointLight</span><span class="o">.</span><span class="na">setSpecularIntensity</span><span class="o">(</span><span class="mf">0.5f</span><span class="o">,</span> <span class="mf">0.5f</span><span class="o">,</span> <span class="mf">0.5f</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">);</span>
+
+    <span class="n">GVRSceneObject</span> <span class="n">lightNode</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRSceneObject</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">);</span>
+    <span class="n">lightNode</span><span class="o">.</span><span class="na">getTransform</span><span class="o">().</span><span class="na">setPosition</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">);</span>
+    <span class="n">lightNode</span><span class="o">.</span><span class="na">attachLight</span><span class="o">(</span><span class="n">pointLight</span><span class="o">);</span>
+
+    <span class="n">gvrContext</span><span class="o">.</span><span class="na">getMainScene</span><span class="o">().</span><span class="na">addSceneObject</span><span class="o">(</span><span class="n">lightNode</span><span class="o">);</span>
+</pre></div>
+
+
+<p>The code snippet will create a light with diffuse color of (0.6, 0.5, 0.5) and specular color of (0.5, 0.5, 0.5). Which will give the scene a red tone.</p>
+<p>There is one more thing we need to do to make the light work, it is to make sure all the scene objects uses PhongShader and uses diffuse texture.</p>
+<p>Add the following line to the cube object:</p>
+<div class="codehilite"><pre><span></span><span class="n">textureMaterial</span><span class="o">.</span><span class="na">setTexture</span><span class="o">(</span><span class="s">&quot;diffuseTexture&quot;</span><span class="o">,</span> <span class="n">texture</span><span class="o">);</span>
+<span class="n">mCube</span><span class="o">.</span><span class="na">getRenderData</span><span class="o">().</span><span class="na">setShaderTemplate</span><span class="o">(</span><span class="n">GVRPhongShader</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+</pre></div>
+
+
+<p>Build and run the app, you should be able to see the lighting on the sphere and crate box, feel free to tweak with the light to make it look better.</p>
+<h2 id="make-it-move">Make it move<a class="headerlink" href="#make-it-move" title="Permanent link">&para;</a></h2>
+<p>Add the following code to the <code>onStep()</code> function to make the cube move.</p>
 <div class="codehilite"><pre><span></span>    <span class="c1">//Rotate the cube along the Y axis</span>
     <span class="n">mCube</span><span class="o">.</span><span class="na">getTransform</span><span class="o">().</span><span class="na">rotateByAxis</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
 </pre></div>
 
 
-<p>Build and run the app, you should be able to see a rotating cube.</p>
-<p>Now that you have a rotating cube in VR, feel free to try different things: change it's color, make it scale up and down or move it around.</p>
 <h2 id="source-code">Source Code<a class="headerlink" href="#source-code" title="Permanent link">&para;</a></h2>
 <p>Complete <a href="https://github.com/gearvrf/GearVRf-Demos">Source Code</a> for this sample</p>
                 
@@ -851,7 +897,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../getting_started/" title="Getting Started" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../simple_vr_app/" title="Simple VR app" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -860,19 +906,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Getting Started
+                Simple VR app
               </span>
             </div>
           </a>
         
         
-          <a href="../play_with_material/" title="Play With Materials" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../play_with_3d_models/" title="Play With 3D Models" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Play With Materials
+                Play With 3D Models
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
