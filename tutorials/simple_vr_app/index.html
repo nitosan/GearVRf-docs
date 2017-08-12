@@ -774,13 +774,13 @@
 <p><code>MainScene</code> is the container of a scene, just like a scene in the movie, it contains things like camera, characters, visual effects etc, it is the place for all your VR content.</p>
 </li>
 </ul>
-<p>In the assets folder there are two files: <code>gvr.xml</code> and <code>oculussig</code> file</p>
+<p>In the assets folder, there are two files: <code>gvr.xml</code> and <code>oculussig</code> file</p>
 <ul>
 <li>
 <p><code>gvr.xml</code> is where you config various behavior of GearVR framework, which we'll get into detail in future tutorials</p>
 </li>
 <li>
-<p><code>oculussig</code> is the oculus signing file which allows you to deploy debug apps to VR devices, so always make sure this you have a signing file in your project</p>
+<p><code>oculussig</code> is the Oculus signing file which allows you to deploy debug apps to VR devices, so always make sure this you have a signing file in your project</p>
 </li>
 </ul>
 <h2 id="scene">Scene<a class="headerlink" href="#scene" title="Permanent link">&para;</a></h2>
@@ -795,8 +795,8 @@
 <li>onStep() called once per frame, can be used to perform things like animation, AI or user interactions</li>
 </ul>
 <h3 id="add-object">Add object<a class="headerlink" href="#add-object" title="Permanent link">&para;</a></h3>
-<p>Adding a object to the scene is simple, Just create the object and specify the material and add it to the scene</p>
-<p>First let's add a new member varible for the Cube to the <code>MainScene</code></p>
+<p>Adding an object to the scene is simple, Just create the object and specify the material and add it to the scene</p>
+<p>First, let's add a new member variable for the Cube to the <code>MainScene</code></p>
 <div class="codehilite"><pre><span></span>    <span class="n">GVRCubeSceneObject</span> <span class="n">mCube</span>
 </pre></div>
 
@@ -819,10 +819,10 @@
 <p>Build and run the app, you should be able to see a white cube on the screen</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you're using "VR developer mode" without headset the orentation might be different, you might need to turn around to see the cube</p>
+<p>If you're using "VR developer mode" without headset the orientation might be different, you might need to turn around to see the cube</p>
 </div>
 <h3 id="make-it-move">Make it move<a class="headerlink" href="#make-it-move" title="Permanent link">&para;</a></h3>
-<p>Now let's make the cube rotate. Because we want to see the cube rotate continuously, we need to update it's rotation every frame. So instead of the <code>onInit()</code> function we need to add the rotation logic into <code>onStep()</code> function</p>
+<p>Now let's make the cube rotate. Because we want to see the cube rotate continuously, we need to update its rotation every frame. So instead of the <code>onInit()</code> function we need to add the rotation logic into <code>onStep()</code> function</p>
 <p>Add the following code to the <code>onStep()</code> function</p>
 <div class="codehilite"><pre><span></span>    <span class="c1">//Rotate the cube along the Y axis</span>
     <span class="n">mCube</span><span class="o">.</span><span class="na">getTransform</span><span class="o">().</span><span class="na">rotateByAxis</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
@@ -830,7 +830,7 @@
 
 
 <p>Build and run the app, you should be able to see a rotating cube.</p>
-<p>Now that you have a rotating cube in VR, feel free to try different things: change it's color, make it scale up and down or move it around.</p>
+<p>Now that you have a rotating cube in VR, feel free to try different things: change its color, make it scale up and down or move it around.</p>
 <h2 id="source-code">Source Code<a class="headerlink" href="#source-code" title="Permanent link">&para;</a></h2>
 <p>Complete <a href="https://github.com/gearvrf/GearVRf-Demos">Source Code</a> for this sample</p>
                 
