@@ -247,6 +247,41 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#intro" title="Intro" class="md-nav__link">
+    Intro
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-load-3d-models" title="How to load 3D models" class="md-nav__link">
+    How to load 3D models
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-play-animations" title="How to play animations" class="md-nav__link">
+    How to play animations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#work-with-3d-modeling-tools" title="Work with 3D modeling tools" class="md-nav__link">
+    Work with 3D modeling tools
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-code" title="Source Code" class="md-nav__link">
+    Source Code
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -653,6 +688,41 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#intro" title="Intro" class="md-nav__link">
+    Intro
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-load-3d-models" title="How to load 3D models" class="md-nav__link">
+    How to load 3D models
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-play-animations" title="How to play animations" class="md-nav__link">
+    How to play animations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#work-with-3d-modeling-tools" title="Work with 3D modeling tools" class="md-nav__link">
+    Work with 3D modeling tools
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-code" title="Source Code" class="md-nav__link">
+    Source Code
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -680,6 +750,82 @@
 <li>Change the <code>applicationId</code> in <code>build.gradle</code> to a unique name to avoid naming conflict when you testing the app later</li>
 <li>Change the <code>app_name</code> in <code>res/values/strings.xml</code> to avoid confusion when you debugging the app.</li>
 </ol>
+<h2 id="intro">Intro<a class="headerlink" href="#intro" title="Permanent link">&para;</a></h2>
+<p>Often times when we develop VR applications, we need to show complex 3D models for example a plane, a castle or even an earth. We're going to learn how to achieve it with GearVR Framework</p>
+<p>Before we start, we need to have a 3D model file. Here is a <a href="../../images/trex_mesh.fbx">3D T-rex model</a> and it's <a href="../../images/trex_tex_diffuse.pkm">texture</a> we're going to use for this tutorial. You can preview them in <a href="https://www.autodesk.com/products/fbx/fbx-review">FBX Review</a>. </p>
+<p>If you want to use 3D models that you prefer that's totally fine, just keep in mind it has to be one of the following file formats:</p>
+<ul>
+<li>OBJ</li>
+<li>FBX</li>
+<li>Collada(.dae)</li>
+<li>X3D</li>
+<li>All formats supported by <a href="http://www.assimp.org/main_features_formats.html">Assimp</a></li>
+</ul>
+<h2 id="how-to-load-3d-models">How to load 3D models<a class="headerlink" href="#how-to-load-3d-models" title="Permanent link">&para;</a></h2>
+<p>The first step of loading a 3D model into your VR app is to place it correctly. Please make sure to copy the files to following path.</p>
+<ol>
+<li>Copy <code>trex_mesh.fbx</code> into <code>app/src/main/res/raw</code></li>
+<li>Copy <code>trex_tex_diffuse</code> into <code>app/src/main/res/drawable-xxxhdpi</code></li>
+</ol>
+<p>After copying the 3D model files, we can use <code>GVRAssetLoader</code> class to load them, it is accessible from the context by calling <code>GVRContext.getAssetLoader()</code> GVRAssetLoader supports loading content synchronously and asynchronously, generally asynchronously loading is recommended.</p>
+<p>Using the following code to load the fbx file and texture asynchronously</p>
+<div class="codehilite"><pre><span></span>    <span class="n">Future</span><span class="o">&lt;</span><span class="n">GVRMesh</span><span class="o">&gt;</span> <span class="n">dinoMesh</span> <span class="o">=</span> <span class="n">gvrContext</span><span class="o">.</span><span class="na">getAssetLoader</span><span class="o">().</span><span class="na">loadFutureMesh</span><span class="o">(</span>
+            <span class="k">new</span> <span class="n">GVRAndroidResource</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">,</span> <span class="n">R</span><span class="o">.</span><span class="na">raw</span><span class="o">.</span><span class="na">trex_mesh</span><span class="o">)</span>
+    <span class="o">);</span>
+
+    <span class="n">Future</span><span class="o">&lt;</span><span class="n">GVRTexture</span><span class="o">&gt;</span> <span class="n">dinoTexture</span> <span class="o">=</span> <span class="n">gvrContext</span><span class="o">.</span><span class="na">getAssetLoader</span><span class="o">().</span><span class="na">loadFutureTexture</span><span class="o">(</span>
+            <span class="k">new</span> <span class="n">GVRAndroidResource</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">,</span> <span class="n">R</span><span class="o">.</span><span class="na">raw</span><span class="o">.</span><span class="na">trex_tex_diffuse</span><span class="o">)</span>
+    <span class="o">);</span>
+</pre></div>
+
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Asynchronous methods have <code>Future</code> in its API for example <code>loadFutureTexture</code> compare to synchronous version <code>loadTexture</code></p>
+</div>
+<p>After 3D model and texture both loaded, we can add them to the scene with a scene object</p>
+<div class="codehilite"><pre><span></span>    <span class="n">GVRSceneObject</span> <span class="n">dinoObj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRSceneObject</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">,</span> <span class="n">dinoMesh</span><span class="o">,</span> <span class="n">dinoTexture</span><span class="o">);</span>
+
+    <span class="n">dinoObj</span><span class="o">.</span><span class="na">getTransform</span><span class="o">().</span><span class="na">setPosition</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,-</span><span class="mi">10</span><span class="o">);</span>
+    <span class="n">dinoObj</span><span class="o">.</span><span class="na">getTransform</span><span class="o">().</span><span class="na">rotateByAxis</span><span class="o">(-</span><span class="mi">90</span><span class="o">,</span> <span class="mf">1f</span><span class="o">,</span> <span class="mf">0f</span><span class="o">,</span> <span class="mf">0f</span><span class="o">);</span>
+    <span class="n">gvrContext</span><span class="o">.</span><span class="na">getMainScene</span><span class="o">().</span><span class="na">addSceneObject</span><span class="o">(</span><span class="n">dinoObj</span><span class="o">);</span>
+</pre></div>
+
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You might need to rotate the model differently if you're using other models.</p>
+</div>
+<p>Build and run the app, you should be able to see a T-Rex!</p>
+<h2 id="how-to-play-animations">How to play animations<a class="headerlink" href="#how-to-play-animations" title="Permanent link">&para;</a></h2>
+<p>Using an 3D model with animations follow a different process. let's see how it works. </p>
+<p>First, let's download following files</p>
+<ul>
+<li><a href="../../images/astro_boy.dae">3D model with animation</a></li>
+<li><a href="../../images/astro_boy.jpg">Texture</a></li>
+</ul>
+<p>Then make sure to copy both files into <code>app/src/main/assets</code> folder</p>
+<p>You can load the animated model with following code</p>
+<div class="codehilite"><pre><span></span>    <span class="n">GVRModelSceneObject</span> <span class="n">character</span> <span class="o">=</span> <span class="n">gvrContext</span><span class="o">.</span><span class="na">getAssetLoader</span><span class="o">().</span><span class="na">loadModel</span><span class="o">(</span><span class="s">&quot;astro_boy.dae&quot;</span><span class="o">);</span>
+    <span class="n">character</span><span class="o">.</span><span class="na">getTransform</span><span class="o">().</span><span class="na">setRotationByAxis</span><span class="o">(</span><span class="mf">45.0f</span><span class="o">,</span> <span class="mf">0.0f</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">,</span> <span class="mf">0.0f</span><span class="o">);</span>
+    <span class="n">character</span><span class="o">.</span><span class="na">getTransform</span><span class="o">().</span><span class="na">setScale</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">);</span>
+    <span class="n">character</span><span class="o">.</span><span class="na">getTransform</span><span class="o">().</span><span class="na">setPosition</span><span class="o">(</span><span class="mf">0.0f</span><span class="o">,</span> <span class="o">-</span><span class="mf">0.4f</span><span class="o">,</span> <span class="o">-</span><span class="mf">0.5f</span><span class="o">);</span>
+    <span class="n">gvrContext</span><span class="o">.</span><span class="na">getMainScene</span><span class="o">().</span><span class="na">addSceneObject</span><span class="o">(</span><span class="n">character</span><span class="o">);</span>
+</pre></div>
+
+
+<p>And play the animation with <code>GVRAnimator</code>, here we make sure the animation in looping forever with the <code>setRepeatCount</code> set to -1</p>
+<div class="codehilite"><pre><span></span>    <span class="n">GVRAnimator</span> <span class="n">animator</span> <span class="o">=</span> <span class="o">(</span><span class="n">GVRAnimator</span><span class="o">)</span><span class="n">character</span><span class="o">.</span><span class="na">getComponent</span><span class="o">(</span><span class="n">GVRAnimator</span><span class="o">.</span><span class="na">getComponentType</span><span class="o">());</span>
+    <span class="n">animator</span><span class="o">.</span><span class="na">setRepeatCount</span><span class="o">(-</span><span class="mi">1</span><span class="o">);</span>
+    <span class="n">animator</span><span class="o">.</span><span class="na">setRepeatMode</span><span class="o">(</span><span class="n">GVRRepeatMode</span><span class="o">.</span><span class="na">REPEATED</span><span class="o">);</span>
+    <span class="n">animator</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+</pre></div>
+
+
+<h2 id="work-with-3d-modeling-tools">Work with 3D modeling tools<a class="headerlink" href="#work-with-3d-modeling-tools" title="Permanent link">&para;</a></h2>
+<p>Fbx is the recommended format for GearVR framework. Currently all major 3D modeling tools support exporting to FBX format.</p>
+<h2 id="source-code">Source Code<a class="headerlink" href="#source-code" title="Permanent link">&para;</a></h2>
+<p>Complete <a href="https://github.com/gearvrf/GearVRf-Demos">Source Code</a> for this sample</p>
                 
                   
                 
