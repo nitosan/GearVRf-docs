@@ -20,6 +20,7 @@ pages:
     - Simple VR app: tutorials/simple_vr_app.md
     - Play With Materials: tutorials/play_with_material.md
     - Play With 3D Models: tutorials/play_with_3d_models.md
+    - Play With Controller: tutorials/play_with_controller.md
     - 360 Photo app: tutorials/360_photo_app.md
   - Programming Guide:
     - Overview: programming_guide/overview.md
