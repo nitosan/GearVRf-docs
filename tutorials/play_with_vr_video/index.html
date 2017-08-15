@@ -875,16 +875,19 @@
 </pre></div>
 
 
-<p>Add following code to the <code>onResume</code> function</p>
-<div class="codehilite"><pre><span></span>        <span class="k">if</span><span class="o">(</span><span class="n">mPlayerObj</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span>
+<p>Add an <code>onResume</code> function to the <code>MainScene</code> class</p>
+<div class="codehilite"><pre><span></span>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onResume</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">mPlayerObj</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span>
             <span class="n">mPlayerObj</span><span class="o">.</span><span class="na">onResume</span><span class="o">();</span>
+    <span class="o">}</span>
 </pre></div>
 
 
+<p>Override <code>onResume</code> function in the <code>MainActivity</code></p>
 <h2 id="build-and-run">Build and Run<a class="headerlink" href="#build-and-run" title="Permanent link">&para;</a></h2>
 <p>Build and run the VR app, you should be able to watch the VR video on your device.</p>
 <h2 id="source-code">Source Code<a class="headerlink" href="#source-code" title="Permanent link">&para;</a></h2>
-<p>Complete <a href="https://github.com/gearvrf/GearVRf-Demos">Source Code</a> for this sample</p>
+<p>Complete <a href="https://github.com/nitosan/GearVRf-Demos/tree/master/tutorials/tutorial_5_vr_video">Source Code</a> for this sample</p>
                 
                   
                 
