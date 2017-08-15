@@ -87,4 +87,4 @@ Build and run the app, you should be able to see a rotating cube.
 Now that you have a rotating cube in VR, feel free to try different things: change its color, make it scale up and down or move it around.
 
 ## Source Code
-Complete [Source Code](https://github.com/gearvrf/GearVRf-Demos) for this sample
+Complete [Source Code](https://github.com/nitosan/GearVRf-Demos/tree/master/tutorials/tutorial_1_simple_app) for this sample

@@ -98,4 +98,4 @@ Fbx is the recommended format for the GearVR framework. Currently, all major 3D 
 
 
 ## Source Code
-Complete [Source Code](https://github.com/gearvrf/GearVRf-Demos) for this sample
+Complete [Source Code](https://github.com/nitosan/GearVRf-Demos/tree/master/tutorials/tutorial_3_model_animation) for this sample

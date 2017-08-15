@@ -141,5 +141,5 @@ Add the following code to the `onStep()` function to make the cube move.
 ```
 
 ## Source Code
-Complete [Source Code](https://github.com/gearvrf/GearVRf-Demos) for this sample
+Complete [Source Code](https://github.com/nitosan/GearVRf-Demos/tree/master/tutorials/tutorial_2_materials) for this sample
 
