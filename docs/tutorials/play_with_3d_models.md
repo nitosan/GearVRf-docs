@@ -1,6 +1,6 @@
 ##Overview
 
-Now that you've created your first VR app with GearVR Framework. We are going to learn how to create great looking scenes in VR
+Now that you've learnt how to apply material to the VR app with GearVR Framework. We are going to learn how to play with 3D model and animation in VR
 
 ##Create Project
 Create a GearVR Framework project is by copying the [template project](https://github.com/nitosan/GearVRf-template) 

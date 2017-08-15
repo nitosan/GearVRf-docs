@@ -1,6 +1,6 @@
 ##Overview
 
-Now that you've created your first VR app with GearVR Framework. We are going to learn how to create great looking scenes in VR
+Now that you've learnt how to use 3D model and animation with GearVR Framework. We are going to learn how to use controllers to make VR app more interactive.
 
 ##Create Project
 Create a GearVR Framework project is by copying the [template project](https://github.com/nitosan/GearVRf-template) 
@@ -157,4 +157,5 @@ Build and run the project, you should be able to see a cursor on the center of t
 Gear VR controller provides better user experience and more precise tracking. GearVR cursor controller functionality is still under development [this demo](https://github.com/gearvrf/GearVRf-Demos/tree/master/gvr-controller) for using Gear VR controller
 
 
-
+## Source Code
+Complete [Source Code](https://github.com/gearvrf/GearVRf-Demos) for this sample

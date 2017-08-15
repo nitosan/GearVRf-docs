@@ -21,7 +21,7 @@ pages:
     - Play With Materials: tutorials/play_with_material.md
     - Play With 3D Models: tutorials/play_with_3d_models.md
     - Play With Controller: tutorials/play_with_controller.md
-    - 360 Photo app: tutorials/360_photo_app.md
+    - Play With VR Video: tutorials/play_with_vr_video.md
   - Programming Guide:
     - Overview: programming_guide/overview.md
     - Features:
