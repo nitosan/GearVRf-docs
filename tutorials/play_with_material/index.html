@@ -236,8 +236,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-is-material" title="What is Material" class="md-nav__link">
-    What is Material
+  <a href="#what-is-a-material" title="What is a Material" class="md-nav__link">
+    What is a Material
   </a>
   
 </li>
@@ -715,8 +715,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-is-material" title="What is Material" class="md-nav__link">
-    What is Material
+  <a href="#what-is-a-material" title="What is a Material" class="md-nav__link">
+    What is a Material
   </a>
   
 </li>
@@ -783,14 +783,14 @@
                 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>Now that you've created your first VR app with GearVR Framework. We are going to learn how to create things that look much better in VR.</p>
 <h2 id="create-project">Create Project<a class="headerlink" href="#create-project" title="Permanent link">&para;</a></h2>
-<p>Create a GearVR Framework project is by copying the <a href="https://github.com/nitosan/GearVRf-template">template project</a> </p>
+<p>Create a GearVR Framework project by copying the <a href="https://github.com/nitosan/GearVRf-template">template project</a> </p>
 <p>Perform the following steps to make sure your project runs correctly</p>
 <ol>
-<li>Copy your <a href="https://developer.oculus.com/osig/">Oculus signature file</a> to <code>app/src/main/assets</code> folder.</li>
-<li>Change the <code>applicationId</code> in <code>build.gradle</code> to a unique name to avoid naming conflict when you testing the app later</li>
-<li>Change the <code>app_name</code> in <code>res/values/strings.xml</code> to avoid confusion when you debugging the app.</li>
+<li>(if developing for Gear VR) Copy your <a href="https://developer.oculus.com/osig/">Oculus signature file</a> to <code>app/src/main/assets</code> folder.</li>
+<li>Change the <code>applicationId</code> in <code>build.gradle</code> to a unique name to avoid naming conflict when you test the app later</li>
+<li>Change the <code>app_name</code> in <code>res/values/strings.xml</code> to avoid confusion when you debug the app.</li>
 </ol>
-<h2 id="what-is-material">What is Material<a class="headerlink" href="#what-is-material" title="Permanent link">&para;</a></h2>
+<h2 id="what-is-a-material">What is a Material<a class="headerlink" href="#what-is-a-material" title="Permanent link">&para;</a></h2>
 <p>In 3D graphics term, a material is a set of textures and shader parameters that can be used to simulate different types of materials in real life.</p>
 <p>For example with the correct material, you can make your 3D objects looks like bricks.</p>
 <p><img alt="" src="../../images/tutorial_material_2.png" /></p>
@@ -873,8 +873,8 @@
 </pre></div>
 
 
-<p>The code snippet will create a light with diffuse color of (0.6, 0.5, 0.5) and specular color of (0.5, 0.5, 0.5). Which will give the scene a red tone.</p>
-<p>There is one more thing we need to do to make the light work, it is to make sure all the scene objects uses PhongShader and uses diffuse texture.</p>
+<p>The code snippet will create a light with diffuse color of (0.6, 0.5, 0.5) and specular color of (0.5, 0.5, 0.5), Which will give the scene a red tone.</p>
+<p>There is one more thing we need to do to make the light work - ensure all the scene objects uses PhongShader and uses diffuse texture.</p>
 <p>Add the following line to the cube object:</p>
 <div class="codehilite"><pre><span></span><span class="n">textureMaterial</span><span class="o">.</span><span class="na">setTexture</span><span class="o">(</span><span class="s">&quot;diffuseTexture&quot;</span><span class="o">,</span> <span class="n">texture</span><span class="o">);</span>
 <span class="n">mCube</span><span class="o">.</span><span class="na">getRenderData</span><span class="o">().</span><span class="na">setShaderTemplate</span><span class="o">(</span><span class="n">GVRPhongShader</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
