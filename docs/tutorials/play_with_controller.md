@@ -3,17 +3,17 @@
 Now that you've learnt how to use 3D model and animation with GearVR Framework. We are going to learn how to use controllers to make VR app more interactive.
 
 ##Create Project
-Create a GearVR Framework project is by copying the [template project](https://github.com/nitosan/GearVRf-template) 
+Create a GearVR Framework project by copying the [template project](https://github.com/nitosan/GearVRf-template) 
 
 Perform the following steps to make sure your project runs correctly
 
-1. Copy your [Oculus signature file](https://developer.oculus.com/osig/) to `app/src/main/assets` folder.
-1. Change the `applicationId` in `build.gradle` to a unique name to avoid naming conflict when you testing the app later
-1. Change the `app_name` in `res/values/strings.xml` to avoid confusion when you debugging the app.
+1. (if developing for Gear VR) Copy your [Oculus signature file](https://developer.oculus.com/osig/) to `app/src/main/assets` folder.
+1. Change the `applicationId` in `build.gradle` to a unique name to avoid naming conflict when you test the app later
+1. Change the `app_name` in `res/values/strings.xml` to avoid confusion when you debug the app.
 
 ##Intro
 
-Be able to interact with in the VR environment helps a lot with the emersion. Currently, there are two ways to interact with VR content
+Being able to interact with in the VR environment helps a lot with the immersion. Currently, there are two ways to interact with VR content
 
 1. Gaze controller
 2. GearVR controller
@@ -154,7 +154,7 @@ Add following code to the `onInit` function to initialize Gaze controller.
 Build and run the project, you should be able to see a cursor on the center of the screen
 
 ## Gear VR Controller
-Gear VR controller provides better user experience and more precise tracking. GearVR cursor controller functionality is still under development [this demo](https://github.com/gearvrf/GearVRf-Demos/tree/master/gvr-controller) for using Gear VR controller
+Gear VR controller provides better user experience and more precise tracking. The GearVR cursor controller functionality tutorial is still under development. See [this demo](https://github.com/gearvrf/GearVRf-Demos/tree/master/gvr-controller) for using Gear VR controller
 
 
 ## Source Code

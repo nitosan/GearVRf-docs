@@ -3,15 +3,15 @@
 Now that you've created your first VR app with GearVR Framework. We are going to learn how to create things that look much better in VR.
 
 ##Create Project
-Create a GearVR Framework project is by copying the [template project](https://github.com/nitosan/GearVRf-template) 
+Create a GearVR Framework project by copying the [template project](https://github.com/nitosan/GearVRf-template) 
 
 Perform the following steps to make sure your project runs correctly
 
-1. Copy your [Oculus signature file](https://developer.oculus.com/osig/) to `app/src/main/assets` folder.
-1. Change the `applicationId` in `build.gradle` to a unique name to avoid naming conflict when you testing the app later
-1. Change the `app_name` in `res/values/strings.xml` to avoid confusion when you debugging the app.
+1. (if developing for Gear VR) Copy your [Oculus signature file](https://developer.oculus.com/osig/) to `app/src/main/assets` folder.
+1. Change the `applicationId` in `build.gradle` to a unique name to avoid naming conflict when you test the app later
+1. Change the `app_name` in `res/values/strings.xml` to avoid confusion when you debug the app.
 
-## What is Material
+## What is a Material
 In 3D graphics term, a material is a set of textures and shader parameters that can be used to simulate different types of materials in real life.
 
 For example with the correct material, you can make your 3D objects looks like bricks.
@@ -117,9 +117,9 @@ First, let's add a light to the scene using following code
     gvrContext.getMainScene().addSceneObject(lightNode);
 ```
 
-The code snippet will create a light with diffuse color of (0.6, 0.5, 0.5) and specular color of (0.5, 0.5, 0.5). Which will give the scene a red tone.
+The code snippet will create a light with diffuse color of (0.6, 0.5, 0.5) and specular color of (0.5, 0.5, 0.5), Which will give the scene a red tone.
 
-There is one more thing we need to do to make the light work, it is to make sure all the scene objects uses PhongShader and uses diffuse texture.
+There is one more thing we need to do to make the light work - ensure all the scene objects uses PhongShader and uses diffuse texture.
 
 Add the following line to the cube object:
 ```java

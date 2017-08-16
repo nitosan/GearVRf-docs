@@ -1,15 +1,15 @@
 ##Overview
 
-Now that you've learnt how to apply material to the VR app with GearVR Framework. We are going to learn how to play with 3D model and animation in VR
+Now that you've learnt how to apply material to the VR app with GearVR Framework, we are going to learn how to play with 3D model and animation in VR
 
 ##Create Project
-Create a GearVR Framework project is by copying the [template project](https://github.com/nitosan/GearVRf-template) 
+Create a GearVR Framework project by copying the [template project](https://github.com/nitosan/GearVRf-template) 
 
 Perform the following steps to make sure your project runs correctly
 
-1. Copy your [Oculus signature file](https://developer.oculus.com/osig/) to `app/src/main/assets` folder.
-1. Change the `applicationId` in `build.gradle` to a unique name to avoid naming conflict when you testing the app later
-1. Change the `app_name` in `res/values/strings.xml` to avoid confusion when you debugging the app.
+1. (if developing for Gear VR) Copy your [Oculus signature file](https://developer.oculus.com/osig/) to `app/src/main/assets` folder.
+1. Change the `applicationId` in `build.gradle` to a unique name to avoid naming conflict when you test the app later
+1. Change the `app_name` in `res/values/strings.xml` to avoid confusion when you debug the app.
 
 ## Intro
 
@@ -34,7 +34,7 @@ The first step of loading a 3D model into your VR app is to place it correctly. 
 1. Copy `trex_mesh.fbx` into `app/src/main/res/raw`
 1. Copy `trex_tex_diffuse` into `app/src/main/res/drawable-xxxhdpi`
 
-After copying the 3D model files, we can use `GVRAssetLoader` class to load them, it is accessible from the context by calling `GVRContext.getAssetLoader()` GVRAssetLoader supports loading content synchronously and asynchronously, generally asynchronously loading is recommended.
+After copying the 3D model files, we can use `GVRAssetLoader` class to load them, it is accessible from the context by calling `GVRContext.getAssetLoader()` GVRAssetLoader supports loading content synchronously and asynchronously; generally, asynchronously loading is recommended.
 
 Using the following code to load the fbx file and texture asynchronously
 ```java

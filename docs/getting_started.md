@@ -2,16 +2,24 @@
 
 Before start using GearVR Framework, make sure you download the following SDKs
 
-* [Android Studio](http://tools.android.com/download/studio/builds/android-studio-2-1-2)
+* [Android Studio](https://developer.android.com/studio/index.html)
 * [JDK 1.7 or above](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-* [Oculus Mobile SDK](https://developer.oculus.com/downloads/package/oculus-mobile-sdk/)
-* [Google VR SDK](https://developers.google.com/vr/android/download)
+* [Oculus Mobile SDK](https://developer.oculus.com/downloads/package/oculus-mobile-sdk/) (If developing for Samsung GearVR)
+* [Google VR SDK](https://developers.google.com/vr/android/download) (If developing for Google DayDream)
 
 ## Hardware Requirements
 
 GearVR Framework supports following devices
 
-* Gear VR compatible Samsung phone - Galaxy S8, Galaxy S8+, Galaxy S7, Galaxy S7 Edge, Note 5, Galaxy S6, Galaxy S6 Edge, Galaxy Edge+, Note 4
+* Gear VR compatible Samsung phone:
+    - Galaxy S8
+    - Galaxy S8+
+    - Galaxy S7
+    - Galaxy S7 Edge
+    - Note 5
+    - Galaxy S6
+    - Galaxy S6 Edge
+    - Galaxy S6+
 * Samsung Gear VR headset
 * [Daydream-ready phone](https://vr.google.com/daydream/phones/)
 * Google Daydream View VR headset
