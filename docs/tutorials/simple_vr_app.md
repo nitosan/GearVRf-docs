@@ -82,6 +82,12 @@ Add the following code to the `onStep()` function
 
 ```
 
+`rotateByAxis()` has 4 parameters, the first specifies the rotation angle while the rest 3 defines the rotation axis.
+
+![](/images/3d_rotation.png)
+
+By [opengl_tutorials](http://www.opengl-tutorial.org/), [CC-BY-NC-ND](https://creativecommons.org/licenses/by-nc-nd/3.0/fr/deed.en)
+
 Build and run the app, you should be able to see a rotating cube.
 
 Now that you have a rotating cube in VR, feel free to try different things: change its color, make it scale up and down or move it around.
