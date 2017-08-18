@@ -25,6 +25,8 @@ pages:
   - Programming Guide:
     - Overview: programming_guide/overview.md
     - Features:
+      - Scene Graph: programming_guide/features/scene_graph.md
+      - Rendering: programming_guide/features/rendering.md
       - Loading Assets: programming_guide/features/loading_assets.md
       - Render Data: programming_guide/features/render_data.md
       - Meshes: programming_guide/features/meshes.md
