@@ -193,6 +193,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#device-setup" title="Device Setup" class="md-nav__link">
+    Device Setup
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gear-vr" title="Gear VR" class="md-nav__link">
+    Gear VR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daydream" title="DayDream" class="md-nav__link">
+    DayDream
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
     </ul>
@@ -745,6 +772,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#device-setup" title="Device Setup" class="md-nav__link">
+    Device Setup
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gear-vr" title="Gear VR" class="md-nav__link">
+    Gear VR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daydream" title="DayDream" class="md-nav__link">
+    DayDream
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
     </ul>
@@ -792,10 +846,31 @@
 <p>Getting started with GearVR Framework in few simple steps</p>
 <ol>
 <li>Download the <a href="https://github.com/nitosan/GearVRf-template">template project</a></li>
-<li>Make sure to download your <a href="https://developer.oculus.com/osig/">Oculus signature file</a> and copy it under <code>app\src\main\assets</code> folder</li>
+<li>Rename your project by changine the folder name</li>
 <li>Open the project with Android Studio</li>
+<li>Rename your Android App by updating <code>app_name</code> field of <code>app/src/main/res/values/strings.xml</code></li>
+<li>(For Gear VR only) Make sure to download your <a href="https://developer.oculus.com/osig/">Oculus signature file</a> and copy it under <code>app\src\main\assets</code> folder</li>
+<li>
+<p>(For DayDream only) comment out or remove following code</p>
+<ol>
+<li>
+<p>in <code>app/build.gradle</code> </p>
+<p><code>compile "org.gearvrf:backend_oculus:$gearvrfVersion"</code></p>
+</li>
+<li>
+<p>in <code>AndroidManifest.xml</code></p>
+<p><code>&lt;meta-data android:name="com.samsung.android.vr.application.mode" android:value="vr_only"/&gt;</code></p>
+</li>
+</ol>
+</li>
+<li>
+<p>Update the applicationID in app/build.gradle to avoid conflict between other GearVR Framework apps.</p>
+</li>
 <li>Click Run button and put on your VR device</li>
 </ol>
+<h2 id="device-setup">Device Setup<a class="headerlink" href="#device-setup" title="Permanent link">&para;</a></h2>
+<h3 id="gear-vr">Gear VR<a class="headerlink" href="#gear-vr" title="Permanent link">&para;</a></h3>
+<p>After you build the application, click <code>Start</code> and your device will install Oculus automatically.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You can test VR apps without a VR headset, by enabling Samsung VR service developer mode.
@@ -809,6 +884,8 @@ Settings &gt; Apps &gt; manage applications &gt; Gear VR Service &gt; Storage &g
 <p class="admonition-title">Warning</p>
 <p>Screen will start blinking after you turn on the developer mode</p>
 </div>
+<h3 id="daydream">DayDream<a class="headerlink" href="#daydream" title="Permanent link">&para;</a></h3>
+<p>Enable Google VR Service from "Settings" =&gt; "Apps" =&gt; "Google VR Service" make sure it click permissions to enable the permission it required to run.</p>
                 
                   
                 
