@@ -39,6 +39,8 @@ pages:
     - FAQ: programming_guide/faq.md
     - Video Tutorials: programming_guide/video_tutorials.md
     - Sample Code: programming_guide/sample_code.md
+  - Blog:
+    - GVRF and the X3D file format: blog/2017_4_17_x3d.md
   - About:
     - Contribution: about/contribution.md
     - Developer Certificate of Origin: about/certificate.md
