@@ -29,9 +29,31 @@ GearVR Framework supports following devices
 Getting started with GearVR Framework in few simple steps
 
 1. Download the [template project](https://github.com/nitosan/GearVRf-template)
-1. Make sure to download your [Oculus signature file](https://developer.oculus.com/osig/) and copy it under `app\src\main\assets` folder
+1. Rename your project by changine the folder name
 1. Open the project with Android Studio
+1. Rename your Android App by updating `app_name` field of `app/src/main/res/values/strings.xml`
+1. (For Gear VR only) Make sure to download your [Oculus signature file](https://developer.oculus.com/osig/) and copy it under `app\src\main\assets` folder
+1. (For DayDream only) comment out or remove following code
+    1. in `app/build.gradle` 
+
+        ```
+    compile "org.gearvrf:backend_oculus:$gearvrfVersion"
+        ```
+
+    1. in `AndroidManifest.xml`
+
+        ```
+    <meta-data android:name="com.samsung.android.vr.application.mode" android:value="vr_only"/>
+        ```
+
+1. Update the applicationID in app/build.gradle to avoid conflict between other GearVR Framework apps.
 1. Click Run button and put on your VR device
+
+## Device Setup
+
+### Gear VR
+
+After you build the application, click `Start` and your device will install Oculus automatically.
 
 !!! note
 	You can test VR apps without a VR headset, by enabling Samsung VR service developer mode.
@@ -43,4 +65,6 @@ Getting started with GearVR Framework in few simple steps
 !!! warning
 	Screen will start blinking after you turn on the developer mode
 	
+### DayDream
 
+Enable Google VR Service from "Settings" => "Apps" => "Google VR Service" make sure it click permissions to enable the permission it required to run.
