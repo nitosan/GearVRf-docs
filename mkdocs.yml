@@ -7,6 +7,10 @@ copyright: 'Copyright &copy; 2016 - 2017 Samsung'
 
 theme: 'material'
 
+google_analytics:
+  - 'UA-105100670-1'
+  - 'auto'
+
 markdown_extensions:
   - admonition
   - codehilite
