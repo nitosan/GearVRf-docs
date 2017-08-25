@@ -39,12 +39,12 @@ pages:
       - Phong Shader Template: programming_guide/features/phong_shader_template.md
       - Built-In Legacy Shader: programming_guide/features/builtin_legacy_shader.md
       - Picking: programming_guide/features/picking.md
-    - API Reference: programming_guide/api_reference.md
     - Build Instructions: programming_guide/build_instructions.md
     - GearVRf Settings File: programming_guide/gearvr_settings_files.md
     - FAQ: programming_guide/faq.md
     - Video Tutorials: programming_guide/video_tutorials.md
     - Sample Code: programming_guide/sample_code.md
+  - API Reference: api_reference.md
   - Blog:
     - GVRF and the X3D file format: blog/2017_4_17_x3d.md
   - About:
