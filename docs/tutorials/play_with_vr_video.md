@@ -124,15 +124,33 @@ Load and play VR video
         gvrContext.getMainScene().addSceneObject(mPlayerObj);
 ```
 
-Add an `onResume` function to the `MainScene` class
+Add `onResume` and `onPause` functions to the `MainScene` class
 ```java
     public void onResume() {
         if(mPlayerObj != null)
             mPlayerObj.onResume();
     }
+
+    public void onPause() {
+        if (mPlayerObj != null)
+            mPlayerObj.onPause();
+    }
 ```
 
-Override `onResume` function in the `MainActivity`
+Override `onResume` and `onPause` functions in the `MainActivity`
+```java
+    @Override
+    protected void onResume() {
+        super.onResume();
+        main.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        main.onPause();
+    }
+```
 
 ## Build and Run
 Build and run the VR app, you should be able to watch the VR video on your device.
