@@ -18,7 +18,7 @@ You can optionally locally build GearVRf from source code using Android Studio.
 Here are the steps:
 
 1. Add __OVR_MOBILE_SDK__ to `gradle.properties` and set it to the path to the Oculus Mobile SDK; recommended to use the global gradle.properties `$HOMEPATH/.gradle/gradle.properties` or `~/.gradle/gradle.properties)`.
-1. Add __ANDROID_NDK_HOM__ to gradle.properties and set it to the path to the Android NDK installation.
+1. Add __ANDROID_NDK_HOME__ to gradle.properties and set it to the path to the Android NDK installation.
 1. Navigate to the GearVR Framework and select the folder, and click __OK__
 1. Click __Make Project__ (from the __Build__ menu)
 
