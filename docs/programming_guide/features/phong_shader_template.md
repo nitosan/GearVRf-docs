@@ -1,4 +1,4 @@
-Phong shader tempates, vertex and fragment shaders, and examples
+## Phong shader tempates, vertex and fragment shaders, and examples
 
 The phong reflectance model is used to calculate how objects reflect light. This model assumes that reflected light is most intense at an angle perpendicular to the light source and falls off in a lobe based on angle from the viewer. The base surface material is assumed to reflect evenly but texture maps can be used to modify the normal per pixel to provide bumps or control reflection per pixel. 
 
@@ -18,9 +18,9 @@ The phong model separates light into several different types and allows differen
 
 Each light type has a corresponding color uniform to define the overall object color and a texture sampler to provide a color at each pixel.
 
-##Phong Shader Example
+## Phong Shader Example
 ```java
-	GVRTexture tex = context.loadTexture(new GVRAndroidResource(mGVRContext, R.drawable.gearvrflogo));
+	GVRTexture tex = context.getAssetLoader().loadTexture(new GVRAndroidResource(mGVRContext, R.drawable.gearvrflogo));
 	GVRSceneObject plane = new GVRSceneObject(context, 10.0f, 4.0f, tex);
 	GVRRenderData rdata = backdrop.getRenderData();
 	GVRMaterial material = new GVRMaterial(context);
@@ -35,7 +35,7 @@ Each light type has a corresponding color uniform to define the overall object c
 	rdata.setShaderTemplate(GVRPhongShader.class);
 ```
 
-##Vertex Shader
+## Vertex Shader
 
 The phong vertex shader supports lighting with multiple light sources, normal mapping and skinning with up to 60 bones. Lighting calculations are done per pixel.
 
