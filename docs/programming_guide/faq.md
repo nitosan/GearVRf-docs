@@ -133,10 +133,14 @@ Maintain a high frame-rate, such as 90+ fps.
 
 On a mobile phone such as Galaxy S6/S7, please keep triangle count in the thousands to tens of thousands range if possible, depending on shader complexities.
 
-### 19. What are some graphics performance tips?
+### 19. How many separate scene objects can I display for a good VR experience?
+
+On OpenGL, each scene object can potentially generate a draw call. On most phones, exceeding 100 draw calls will compromise VR performance. GearVRf attempts to batch together objects which use the same shader when possible.
+
+### 20. What are some graphics performance tips?
 
 Keep draw calls minimal and relatively cheap pixel shader. Keep in mind shadows from shadow map more or less doubles the triangle rendered. Use profiler to see if you are really GPU bound.
 
-### 20. Which phones are compatible with GearVR?
+### 21. Which phones are compatible with GearVR?
 
-Currently, Samsung Galaxy S6, S6 Edge, S6 Edge+, S7, S7 Edge, S7 Edge+, S8, S8+, Note 5
+Currently, Samsung Galaxy S6, S6 Edge, S6 Edge+, S7, S7 Edge, S7 Edge+, S8, S8+, Note 5 and Note 8.
