@@ -1,6 +1,6 @@
-Legacy shaders are included for compatibility with older GearVRF versions and will be deprecated in the future. Lighting support is limited to a single point light or no lights at all.
+Legacy shaders are included for compatibility with older GearVRF versions. Some of these may be deprecated in the future. Lighting support for these shaders is limited to a single point light or no lights at all.
 
-##UNLIT_HORIZONTAL_STEREO_SHADER
+## UNLIT_HORIZONTAL_STEREO_SHADER
 
 The computed fragment color is the product of the diffuse texture, diffuse color and opacity. It requires the vertex to have positions and texture coordinates. Normals are not required because lights in the scene are not used by this shader. The u_right parameter controls whether it displays on the left half or the right half of the output display.
 
@@ -11,7 +11,7 @@ The computed fragment color is the product of the diffuse texture, diffuse color
 |u_opacity|	float |	alpha for transparency|
 |u_right|	int |	1 = right eye, 0 = left|
 
-##UNLIT_VERTICAL_STEREO_SHADER
+## UNLIT_VERTICAL_STEREO_SHADER
 
 The computed fragment color is the product of the diffuse texture, diffuse color and opacity. It requires the vertex to have positions and texture coordinates. Normals are not required because lights in the scene are not used by this shader. The u_right parameter controls whether it displays on the top half or the bottom half of the output display.
 
@@ -22,7 +22,7 @@ The computed fragment color is the product of the diffuse texture, diffuse color
 |u_opacity |	float |	alpha for transparency|
 |u_right |		int |	1 = right eye, 0 = left|
 
-##OES_SHADER
+## OES_SHADER
 
 The computed fragment color is the product of the diffuse texture, diffuse color and opacity. It requires the vertex to have positions and texture coordinates. Normals are not required because lights in the scene are not used by this shader. The texture supplied as u_ texture must be and OES external texture (type GL_TEXTURE_EXTERNAL_OES, not GL_TEXTURE_2D) as this shader uses samplerExternalOES as opposed to sampler2D.
 
@@ -33,7 +33,7 @@ The computed fragment color is the product of the diffuse texture, diffuse color
 |u_opacity 	|float| 	alpha for transparency|
 |u_right 	|int| 	description|
 
-##OES_HORIZONTAL_STEREO_SHADER
+## OES_HORIZONTAL_STEREO_SHADER
 
 The computed fragment color is the product of the diffuse texture, diffuse color and opacity. It requires the vertex to have positions and texture coordinates. Normals are not required because lights in the scene are not used by this shader. The texture supplied as u_ texture must be and OES external texture (type GL_TEXTURE_EXTERNAL_OES, not GL_TEXTURE_2D) as this shader uses samplerExternalOES as opposed to sampler2D.The u_right parameter controls whether it displays on the left half or the right half of the output display.
 
@@ -44,7 +44,7 @@ The computed fragment color is the product of the diffuse texture, diffuse color
 |u_opacity 	|float| 	alpha for transparency|
 |u_right 	|int| 	1 = right eye, 0 = left|
 
-##OES_VERTICAL_STEREO_SHADER
+## OES_VERTICAL_STEREO_SHADER
 
 The computed fragment color is the product of the diffuse texture, diffuse color and opacity. It requires the vertex to have positions and texture coordinates. Normals are not required because lights in the scene are not used by this shader. The texture supplied as u_ texture must be and OES external texture (type GL_TEXTURE_EXTERNAL_OES, not GL_TEXTURE_2D) as this shader uses samplerExternalOES as opposed to sampler2D. The u_right parameter controls whether it displays on the top half or the bottom half of the output display.
 
@@ -55,7 +55,7 @@ The computed fragment color is the product of the diffuse texture, diffuse color
 |u_opacity 	|float |	alpha for transparency|
 |u_right 	|int |	1 = right eye, 0 = left|
 
-##CUBEMAP_SHADER
+## CUBEMAP_SHADER
 
 The computed fragment color is the product of the diffuse texture, diffuse color and opacity. It requires the vertex to have positions and texture coordinates. Normals are not required because lights in the scene are not used by this shader. The diffuse texture must be a cube map texture (six different textures for each face of the cube).
 
@@ -66,7 +66,7 @@ The computed fragment color is the product of the diffuse texture, diffuse color
 |u_opacity 	|float |	alpha for transparency|
 |u_right 	|int |	description|
 
-##CUBEMAP_REFLECTION_SHADER
+## CUBEMAP_REFLECTION_SHADER
 
 The computed fragment color is the product of the diffuse texture, diffuse color and opacity. It requires the vertex to have positions and texture coordinates. Normals are not required because lights in the scene are not used by this shader. The diffuse texture must be a cube map texture (six different textures for each face of the cube).
 
@@ -80,7 +80,7 @@ The computed fragment color is the product of the diffuse texture, diffuse color
 |v_viewspace_position 	|vec3 |	view space position|
 |v_viewspace_normal 	|vec3 |	view space normal|
 
-##TEXTURE_SHADER
+## TEXTURE_SHADER
 
 The computed fragment color is the product of the diffuse texture, diffuse color and opacity as illuminated by a single point light. It requires the vertex to have positions, normals and texture coordinates. If the scene is not lit, the material and light intensity properties are ignored. GVRPhongShader provides the same functionality and supports multiple lights.
 
@@ -100,7 +100,7 @@ The computed fragment color is the product of the diffuse texture, diffuse color
 |v_view_space_light_directionl |	vec4 |	view space light direction|
 
 
-##LIGHTMAP_SHADER
+## LIGHTMAP_SHADER
 
 The computed fragment color is the product of the diffuse texture, diffuse color and opacity as illuminated by a light map. It requires the vertex to have positions, normals and texture coordinates. GVRPhongShader supports light mapping integrated with other surface shading capabilities.
 
@@ -112,7 +112,7 @@ The computed fragment color is the product of the diffuse texture, diffuse color
 |u_lightmap_scale |	vec2 |	light map scal|
 
 
-##ASSIMP_SHADER
+## ASSIMP_SHADER
 
 The computed fragment color is the product of the diffuse texture, diffuse color and opacity. It requires the vertex to have positions and texture coordinates. Normals are not required because lights in the scene are not used by this shader. The GearVRF asset importer no longer uses this shader, it uses GVRPhongShader instead.
 
