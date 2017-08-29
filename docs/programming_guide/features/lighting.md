@@ -1,10 +1,10 @@
-VR lights, classes, shadows, uniforms, and examples
+## VR lights, classes, shadows, uniforms, and examples
 
-Lights control the illumination of visible scene objects. Depending on the color, intensity and position of the lights, objects may appear lighter, darker or shadowed. The final color of an object depends on both Materials and Lighting. Together they provide everything the fragment shader needs to compute the final color. The fragment shader combines the contributions of all the lights in the scene to compute illumination per pixel.
+Lights control the illumination of visible scene objects. Depending on the color, intensity and position of the lights, objects may appear lighter, darker or shadowed. The final color of an object depends on both materials and lighting. Together they provide everything the fragment shader needs to compute the final color. The fragment shader combines the contributions of all the lights in the scene to compute illumination per pixel. At this time, GearVRf does not support vertex lighting.
 
 All lights in the scene are global - they illuminate all the scene objects that have the lighting effect enabled. A light must be attached to a scene object before it can illuminate anything. The scene object determines the position and direction of the light. By default, a light with no transformation points down the positive Z axis towards the viewer.
 
-##Built-in Light Classes
+## Built-in Light Classes
 
 The light's class determines what lighting algorithm is used by the GPU. Three built-in light classes are provided by GearVRF which implement the Phong shading model per pixel. These work together with the Phong surface shader class GVRPhongShader.
 
@@ -18,11 +18,11 @@ Attenuation = 1 / (attenuation_constant + attenuation_linear * distance + attenu
 
 The light object contains the data used by the fragment shader. It is accessed in terms of key / value pairs where the key is a string containing the name of the uniform and the value is a scalar or vector. GearVRF automatically loads these values into the fragment shader uniforms for you.
 
-##Shadows
+## Shadows
 
-GearVRf can calculate shadow maps for directional and spot lights. You can enable shadow mapping get calling GVRLightBase.setCastShadow with a true parameter. Shadow mapping involves considerable overhead per frame because it renders the scene from the viewpoint of the light to calculate the shadow map. It also uses up more uniform variables, reducing the number of available bones for skinning from 60 to 50. If you disable shadow mapping on all lights, GearVRf will free up all resources used for shadow mapping and return to normal performance.
+GearVRf can calculate shadow maps for directional and spot lights. You can enable shadow mapping by calling GVRLightBase.setCastShadow with a true parameter. Shadow mapping involves considerable overhead per frame because it renders the scene from the viewpoint of the light to calculate the shadow map. It also uses up more uniform variables. If you disable shadow mapping on all lights, GearVRf will free up all resources used for shadow mapping and return to normal performance.
 
-##Built-in Light Uniforms
+## Built-in Light Uniforms
 
 This table describes the uniforms used by the built-in Phong lighting implementation.
 
@@ -38,15 +38,17 @@ This table describes the uniforms used by the built-in Phong lighting implementa
 |attenuation_constant 	|float| 	constant attenuation factor|
 |attenuation_linear 	|vec4 |	linear attenuation factor|
 |attenuation_quadratic 	|float| 	quadratic attenuation|
+|inner_cone_angle   |float| spotlight inner cone angle|
+|outer_cone_angle   |float| spotlight outer cone angle|
 
-##Light Construction Example
+## Light Construction Example
 
 A light is a component that is attached to a scene object which gives it both a position and a direction. An individual light can be enabled and disabled programmatically without causing shader compilation. All other light attributes are implementation specific. This example uses the lights built-into GearVRF which implement the Phong lighting model. Here we constructs a red spot light.
 
 ```java
-GVRPhongSpotLight createSpotLight(GVRContext gvrContext)
+GVRSpotLight createSpotLight(GVRContext gvrContext)
 {
-    GVRPhongSpotLight light = new GVRPhongSpotLight(gvrContext);
+    GVRSpotLight light = new GVRSpotLight(gvrContext);
     
     light.setDiffuseIntensity(1, 0, 0);
     light.setSpecularIntensity(1, 0, 0);
@@ -57,10 +59,11 @@ GVRPhongSpotLight createSpotLight(GVRContext gvrContext)
 ```
 You need to attach your light to a GVRSceneObject before it can illuminate anything. To enable multiple lighting support the GVRPhongShader template must be selected. You can also turn the lighting effect on and off for a particular mesh. In this example we light a sphere with the spot light created above.
 ```java
-GVRLightTemplate light = createSpotLight(gvrContext);
+GVRLightBase light = createSpotLight(gvrContext);
 GVRSceneObject lightNode = new GVRSceneObject(gvrContext);
 GVRSceneObject sphereNode = new GVRSphereSceneObject(gvrContext);
 
+sphereNode.attachComponent(light);
 GVRRenderData rdata = sphereNode.getRenderData();
 rdata.enableLight();
 rdata.setShaderTemplate(GVRPhongShader.class);
