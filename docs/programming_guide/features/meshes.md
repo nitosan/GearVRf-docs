@@ -1,4 +1,4 @@
-VR mesh types, access, and examples
+# VR mesh types, access, and examples
 
 Indexed triangle meshes are the only shape definition currently supported by GearVRF. Each mesh contains a set of vertices with the 3D locations of the triangle coordinates. Typically these are unique locations to maximize vertex sharing but this is not a requirement. A triangle has three indices designating which vertices are used by that triangle.
 
@@ -6,7 +6,7 @@ In addition to positions, a mesh may have normals and texture coordinates as wel
 
 ![](/images/GVRf_Mesh.png)
 
-##Skinned Meshes
+## Skinned Meshes
 
 Skinned meshes have vertex bone data to indicate which bones affect which vertices in the mesh. A bone is a transform matrix which affects a subset of vertices in the mesh. Each vertex can be influenced by up to four bones.
 
@@ -16,7 +16,7 @@ GearVRf executes skinning on the GPU but it calculates the bone matrices on the 
 
 ![](/images/GVRf_Skinned_Mesh.png)
 
-##Accessing Mesh Components
+## Accessing Mesh Components
 
 The vertex shader used to render the mesh determines which vertex components are required. The GearVRf build-in shaders rely on positions, normals, texture coordinates and bone information. You can write your own shaders which use other vertex components.
 
@@ -38,7 +38,7 @@ The index array describes an indexed triangle list. Each triangle has three cons
 |float4 |setVec4Vector(String name, float[]) |float[] getVec4Vector(String name)|
 |float |setFloatVector(String name, float[]) |float[] getFloatVectorString name()|
 
-##Mesh Construction Example
+## Mesh Construction Example
 
 Most of the time your code will obtain meshes by loading asset files. You can also construct or modify meshes programmatically. A mesh may contain positions, normal and texture coordinates. Depending on the shader used to display the mesh, some of these vertex components may not be used. For example, a shader which does not do lighting will typically not need normals. You can omit the normals and texture coordinate arrays if your shader doesn't need them.
 
