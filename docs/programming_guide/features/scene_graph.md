@@ -1,5 +1,5 @@
 
-##Setting Up Cameras
+## Setting Up Cameras
 
 GearVRf will create the camera rig by default. Its parameters do not need to be adjusted; however, applications may move the camera rig.
 
@@ -9,14 +9,15 @@ __To set the background of the cameras and the position of the camera rig:__
 
 ```java
 	// set camera background color
-	mGVRContext.getMainScene().getMainCameraRig().getLeftCamera().setBackgroundColor(0.0f, 0.0f, 0.0f, 1.0f);
-	mGVRContext.getMainScene().getMainCameraRig().getRightCamera().setBackgroundColor(0.0f, 0.0f, 0.0f, 1.0f);
+	GVRCameraRig cameraRig = mGVRContext.getMainScene().getMainCameraRig();
+	cameraRig.getLeftCamera().setBackgroundColor(0.0f, 0.0f, 0.0f, 1.0f);
+	cameraRig.getRightCamera().setBackgroundColor(0.0f, 0.0f, 0.0f, 1.0f);
 
 	// set up camerarig position (default)
-	mGVRContext.getMainScene().getMainCameraRig().getOwnerObject().getTransform().setPosition(0.0f, 0.0f, 0.0f);
+	cameraRig.getOwnerObject().getTransform().setPosition(0.0f, 0.0f, 0.0f);
 ```
 
-##Scene Graph
+## Scene Graph
 
 The scene graph - the VR world - is a hierarchical tree of scene objects. Each scene object is a tree node with one parent and one or more child scene objects. Applications must build a scene graph. Your app needs to set up cameraRig for the root scene object of the scene graph, but does not need to set up cameraRig for each lower-level scene object. To create a scene graph at initialization time, get the GearVRf main scene (the root scene object) from GVRContext.
 
@@ -26,7 +27,7 @@ __To create the scene graph by getting its root scene object:__
 	GVRScene scene = mGVRContext.getMainScene();
 ```
 
-###Creating the Scene Objects
+### Creating the Scene Objects
 
 Populate your VR world's scene graph scene object tree by adding scene objects to the root scene object and to other lower-level scene objects.
 
@@ -45,11 +46,10 @@ __To create a scene object with shader-only material via render data:__
 
 ```java
 	// load mesh object
-	GVRMesh sphereMesh = gvrContext.loadMesh("sphere.obj");
+	GVRMesh sphereMesh = gvrContext.getAssetLoader().loadMesh("sphere.obj");
 
 	// get material
-	GVRMaterial sphereMaterial = new GVRMaterial(gvrContext,
-	mScreenShader.getShaderId());
+	GVRMaterial sphereMaterial = new GVRMaterial(gvrContext, mScreenShader.getShaderId());
 
 	// create render data
 	GVRRenderData sphereRenderData = new GVRRenderData(gvrContext);
@@ -63,7 +63,7 @@ __To create a scene object with shader-only material via render data:__
 	sphereObject.attachRenderData(sphereRenderData);
 ```
 
-###Managing Transforms in a Scene Graph
+## Managing Transforms in a Scene Graph
 
 After scene objects are added to the scene graph, each scene object can be controlled by transforms.
 
