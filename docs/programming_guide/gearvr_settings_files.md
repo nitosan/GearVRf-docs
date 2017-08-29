@@ -9,6 +9,7 @@ Before rendering can start, the framework needs to know about the characteristic
 |showLoadingIcon |	Enable / disable loading icon|
 |useProtectedFramebuffer |	Enable / disable use of protected framebuffer|
 |useSrgbFramebuffer |	Enable / disable use of SRGB framebuffer|
+|useMultiview | Enable / disable OVR multiview extension|
 
 |mono-mode-parms | |
 |-|-|
