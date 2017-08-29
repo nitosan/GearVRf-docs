@@ -12,6 +12,7 @@ Before start using GearVR Framework, make sure you download the following SDKs
 GearVR Framework supports following devices
 
 * Gear VR compatible Samsung phone:
+    - Note 8
     - Galaxy S8
     - Galaxy S8+
     - Galaxy S7
