@@ -7,13 +7,18 @@ GearVR framework documentation is generated with [mkdocs](http://www.mkdocs.org/
 To view and publish the documentation, you have to install mkdocs first
 
 1. Install [Python](https://www.python.org/)
-2. Install [mkdocs](http://www.mkdocs.org/) and [mkdocs-material](http://squidfunk.github.io/mkdocs-material/) using following command
+2. Install [pip](https://pip.pypa.io/en/stable/installing/)
+3. Install [mkdocs](http://www.mkdocs.org/) and [mkdocs-material](http://squidfunk.github.io/mkdocs-material/) using following command
 ```
 pip install mkdocs
 pip install mkdocs-material
 ```
 
 ## Editing
+
+You can edit GearVR framework documentation with any editor and review it with any browser.
+
+
 1. Start a local server by
 ```
 mkdocs serve
