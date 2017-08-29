@@ -6,20 +6,26 @@ The render data component is what makes a scene object visible. It provides both
 |disableLighting|Disable light sources in the shader|
 |setAlphaBlend|Enable / disable alpha blending|
 |setAlphaToCoverage|Enable / disable alpha to coverage|
+|setAlphaBlendFunc|Set alpha blend functions|
 |setCullTest|Enable / disable backface culling|
 |setCullFace|Designate back or front faces for culling|
 |setDepthTest|Enable / disable depth testing (Z buffer)|
+|setDepthMask|Enable / disable depth mask|
 |setDrawMode|Designate triangles, lines or points|
 |setRenderMask|Designate rendering left, right or both eyes|
 |setRenderingOrder|Establish rendering order|
 |setSampleCoverage|Specifies coverage of modification mask|
 |setInvertCoverageMask|Designates whether modification mask is inverted|
+|setOffset|Enables /disables polygon fill offset|
+|setOffsetFactor|Specifies polygon fill offset factor|
+|setOffsetUnits|Specifies polygon fill offset units|
+|setCastShadows|Enable / disable shadow casting|
 |setMesh|Designate the mesh to render|
 |setMaterial|Specify material properties for shader|
 |setShaderTemplate|Establish shading model to use 
 
 
-##Render Passes
+## Render Passes
 
 A render pass lets you render the same scene object multiple times with different settings. This is useful to achieve effects like cartoon rendering or adding glow around an object. The benefit of using a render pass as opposed to duplicating the object is that culling, transformation and skinning are only performed once. A render pass encapsulates the material and rendering properties (but not the mesh).
 
@@ -27,26 +33,16 @@ This example shows how to implement a multi-sided material using render passes. 
 
 ```java
 GVRSceneObject cube = new GVRCubeSceneObject(gvrContext);
-
 GVRRenderData rdata = cube.getRenderData();
-
 GVRMaterial red = rdata.getMaterial();
-
 GVRMaterial blue = new GVRMaterial(gvrContext);
-
 GVRRenderPass pass = new GVRRenderPass(gvrContext);
 
 
-
 red.setDiffuseColor(1, 0, 0, 1);
-
 blue.setDiffuseColor(0, 0, 1, 0);
-
 rdata.setCullFace(GVRCullFaceEnum.Front);
-
 pass.setMaterial(blue);
-
 pass.setCullFace(GVRCullFaceEnum.Back);
-
 rdata.addPass(pass);
 ```
