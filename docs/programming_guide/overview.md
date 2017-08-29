@@ -2,15 +2,15 @@
 
 Introduction to GearVRf integration and VR app development
 
-GearVRf provides tools to speed up development of advanced features in high quality VR applications. Available EGL extensions (including dual scan, front buffer, MSAA, and tile rendering) allow the best render quality.
+GearVRf provides tools to speed up development of advanced features in high quality VR applications. Available EGL extensions (including dual scan, front buffer, MSAA, OVR multiview and tile rendering) allow the best render quality.
 
-GearVRf is a native code 3D rendering engine with an Android library interface. You can build non-trivial content using only built-in objects. You can add new objects (such as scene objects with or without GL shaders) derived from classes or by overriding some methods - GearVRf takes care of all hardware handholding. You can do just about everything in Java - all source code is published, so you can easily add to or tweak native code.
+GearVRf is a native code 3D rendering engine with an Android library interface. You can build non-trivial content using only built-in objects. You can add new objects (such as scene objects with or without shaders) derived from classes or by overriding some methods - GearVRf takes care of all hardware handholding. You can do just about everything in Java - all source code is published, so you can easily add to or tweak native code.
 
 ## Anatomy of GearVRf Applications
 
 GearVRf is a framework which controls how and when your code is executed. Subclassing GearVRf objects allows you to add your own code. You can also listen to GearVRf events and provide callbacks that respond to them.
 
-A 3D scene is represented as a hierarchy of GearVRf scene objects. Each visible object has a triangle mesh describing its shape, a material describing its color properties and a transformation matrix controlling its position in the 3D world. You do not explicitly call OpenGL when using GearVRf. Instead, the GearVRF framework manages all rendering, providing a higher level abstraction for graphics.
+A 3D scene is represented as a hierarchy of GearVRf scene objects. Each visible object has a triangle mesh describing its shape, a material describing its appearance properties and a transformation matrix controlling its position in the 3D world. You do not explicitly call the OpenGL or Vulkan API when using GearVRf. Instead, the GearVRF framework manages all rendering, providing a higher level abstraction for graphics.
 
 When constructing an Android application, you subclass the Activity class. Similarly, when constructing a GearVRF application you subclass GVRActivity, providing initialization code to create a GVRMain to set up the initial 3D scene and handle input events.
 
@@ -20,9 +20,9 @@ During initialization, GVRActivity creates a GVRViewManager which does all the h
 
 ## Thread Management
 
-One key constraint of embedded GPU programming is that there is only one GL context. That is, all GPU commands must come from the same thread - the GL thread. The GPU should always be busy; therefore, the GL thread cannot be the main GUI thread.
+One key constraint of embedded GPU programming is that there is only one GL context. That is, all GPU commands must come from the same thread - the GL thread. The GPU should always be busy; therefore, the graphics thread cannot be the main GUI thread. In the future, GearVRf will eventually relax this restriction when using the Vulkan API because that graphics interface permits multiple threads to simultaneously submit work.
 
-When starting GearVRf, your Android app creates the GL thread, puts the phone into stereoscopic mode, and supplies a pair of callback methods that run the app's startup and per-frame code on the GL thread. GearVRf provides methods for any thread to schedule runnable callbacks to the GL thread. All these callbacks mean that GearVRf programming is event-oriented on the GL thread in just the same way that Android programming is event-oriented on the GUI thread. Running two independent event systems on two independent threads does mean that you have to think about IPC whenever your Android Activity code on the GUI thread interacts with the GearVRf code on the GL thread. However, dual-thread operation also creates another huge section of your application that can take advantage of event atomicity. That is, callback events are method calls from a main loop - neither the GUI thread nor the GL thread ever runs more than one callback at one time, and each callback has to run to completion before any other callback can start on that thread. Your GL callbacks do not have to write code to keep other GL callbacks from seeing data structures in a partially updated state.
+When starting GearVRf, your Android app creates the GL thread, puts the phone into stereoscopic mode, and supplies a pair of callback methods that run the app's startup and per-frame code on the graphics thread. GearVRf provides methods for any thread to schedule runnable callbacks to the graphics thread. All these callbacks mean that GearVRf programming is event-oriented on the graphics thread in just the same way that Android programming is event-oriented on the GUI thread. Running two independent event systems on two independent threads does mean that you have to think about IPC whenever your Android Activity code on the GUI thread interacts with the GearVRf code on the graphics thread. However, dual-thread operation also creates another huge section of your application that can take advantage of event atomicity. That is, callback events are method calls from a main loop - neither the GUI thread nor the graphics thread ever runs more than one callback at one time, and each callback has to run to completion before any other callback can start on that thread. Your graphics callbacks do not have to write code to keep other graphics callbacks from seeing data structures in a partially updated state.
 
 ## Scene Graph and Scene Objects
 
@@ -30,7 +30,7 @@ Your startup code builds a scene graph made up of scene objects, and your per-fr
 
 You make a scene object visible by adding a surface geometry and a skin. The geometry is a mesh of 3D triangles. GearVRf provides methods to build simple rectangular quads, and to load more complex meshes from files built by 3D model editors.
 
-Each material class contains the shader type, the GL identifier of a shader, values for all shader parameters, texture, and other uniform mappings. Each shader has two parts: a vertex shader and a fragment shader. The vertex shader is called for each vertex of each visible triangle and can compute triangle-specific values that are passed to the fragment shader, which draws each pixel of each visible triangle. GearVRf contains standard shaders that provide methods, such as simply sampling a texture (a bitmap image in GPU memory), without applying any lighting effects. You can create custom shaders by supplying vertex and fragment shaders and by declaring names to bind Java values to. The GL shader language is very simple and C-like; you can learn a lot by reading a few of the shaders in the sample applications.
+Each material class contains the shader type, values for all shader parameters, texture, and other uniform mappings. Each shader has two parts: a vertex shader and a fragment shader. The vertex shader is called for each vertex of each visible triangle and can compute triangle-specific values that are passed to the fragment shader, which draws each pixel of each visible triangle. GearVRf contains standard shaders that provide methods, such as simply sampling a texture (a bitmap image in GPU memory), without applying any lighting effects. You can create custom shaders by supplying vertex and fragment shaders and by declaring names to bind Java values to. The GLSL shader language is very simple and C-like; you can learn a lot by reading a few of the shaders in the sample applications. GearVRf also supports sharing specially constructed shaders between OpenGL and Vulkan.
 
 ## Scene Graph
 
@@ -40,9 +40,7 @@ Here we see a scene graph for a butterfly with a body and two wings. Each scene 
 
 ![](/images/gvrf_scene_graph.png)
 
-The form of your scene graph can have implications for the performance of your application. Typically, having lots of small objects performs poorly compared to several large objects with a similar total vertex count. This is because there is a considerable amount of overhead in rendering a single object. GearVRf attempts to batch objects that do not move together to improve performance.
-
-Picking will work better on a spatially sorted scene graph. Grouping objects that are physically close together under a common ancestor will improve picking performance.
+The form of your scene graph can have implications for the performance of your application. Typically, having lots of small objects performs poorly compared to several large objects with a similar total vertex count. This is because there is a considerable amount of overhead in rendering a single object. GearVRf attempts to batch objects together that do not move in order to improve performance.
 
 ## Types of Scene Objects
 
@@ -55,6 +53,7 @@ In addition to displaying geometry, a scene object can display text, 360 photos,
 | Scene Object Class | Description |
 |--------------------|-------------|
 | GVRSphereSceneObject	| 	constructs sphere geometry |
+| GVRCubeSceneObject	|	construct cube geometry |
 | GVRConeSceneObject	| 	constructs cone geometry |
 | GVRCylinderSceneObject| 	constructs cylinder geometry |
 | GVRTextViewSceneObject| 	displays text |
@@ -67,7 +66,7 @@ In addition to displaying geometry, a scene object can display text, 360 photos,
 Constructing the initial GearVRF scene usually involves importing a set of assets and placing them relative to one another. In this example we make a simple butterfly with an ellipsoid for a body and textured planes for wings.
 ```java
 	GVRContext context;
-	GVRTexture wingtex = context.loadTexture(new GVRAndroidResource(context, R.drawable.wingtex));
+	GVRTexture wingtex = context.getAssetLoader().loadTexture(new GVRAndroidResource(context, R.drawable.wingtex));
 	GVRSceneObject body = new GVRSphereObject(context);
 	GVRSceneObject leftwing = new GVRSceneObject(context, wingtex);
 	GVRSceneObject rightwing = new GVRSceneObject(context, wingtex);
@@ -94,10 +93,11 @@ Each scene object can only have one component of a particular type. For example,
 
 | GVRSceneObject  function | Description |
 |--------------------|-------------|
-|GVRComponent getComponent(int type) |	Get the component of the specified class attached to the owner scene object.|
+|GVRComponent getComponent(long type) |	Get the component of the specified class attached to the owner scene object.|
 |void attachComponent(GVRComponent) |	Attach the given component to the scene object.|
 |void detachComponent(GVRComponent) |	Detach the given component from the scene object.|
-|void detachComponenet(int type) |	Detach the component of the specified type from the scene object.|
-|List getAllComponents(int type) |	Get all components of the given type from the scene object and its children.|
+|void detachComponenet(long type) |	Detach the component of the specified type from the scene object.|
+|List getAllComponents(long type) |	Get all components of the given type from the scene object and its children.|
+|void forAllComponents(ComponentVisitor visitor, long type) | Visit all components of the given type from the scene object and its children. |
 
 
