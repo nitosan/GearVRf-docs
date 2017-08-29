@@ -439,6 +439,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#3d-object-picking-colliders-and-examples" title="3D object picking, colliders, and examples" class="md-nav__link">
+    3D object picking, colliders, and examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#types-of-colliders" title="Types of Colliders" class="md-nav__link">
     Types of Colliders
   </a>
@@ -751,6 +758,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#3d-object-picking-colliders-and-examples" title="3D object picking, colliders, and examples" class="md-nav__link">
+    3D object picking, colliders, and examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#types-of-colliders" title="Types of Colliders" class="md-nav__link">
     Types of Colliders
   </a>
@@ -802,7 +816,7 @@
                 
                   <h1>Picking</h1>
                 
-                <p>3D object picking, colliders, and examples</p>
+                <h2 id="3d-object-picking-colliders-and-examples">3D object picking, colliders, and examples<a class="headerlink" href="#3d-object-picking-colliders-and-examples" title="Permanent link">&para;</a></h2>
 <p>For a scene object to be pickable, it must have a collider component attached. The collider typically references collision geometry that is simpler than the scene object's mesh. For example, the collider might be a sphere or an axially aligned bounding box.</p>
 <p>To pick a 3D object GearVRf casts a ray from the camera viewpoint in the direction the viewer is looking through the entire scene looking only at the geometry in the colliders. When the ray penetrates the collider geometry, the scene object that owns it is "picked". The list of picked objects is sorted based on distance from the camera so it is easy to choose the closest object to the viewer.</p>
 <p><img alt="" src="../../../images/gvrf_picking.png" /></p>
@@ -810,12 +824,13 @@
 <p>GearVRf provides several types of colliders to use depending on how accurate you want picking to be.</p>
 <ul>
 <li><em>GVRSphereCollider</em> is the fastest collision to compute but is the least accurate because it approximates the shape of the scene object as spherical. For meshes that are larger in one dimension than another, the picker might register false positives.</li>
+<li><em>GVRBoxCollider</em> approximates the scene object shape as a rectangular box. It is slightly less efficient than the sphere collider but may bound the mesh more tightly.</li>
 <li><em>GVRMeshCollider</em> can be used in several ways. You can direct it to use the mesh of the scene object that owns it or you can provide your own collision mesh. You can also request the mesh collider to use the bounding box of the scene object's mesh. This is usually a lot faster and sufficient for a lot of picking needs. It accommodates irregularly shaped objects better than the sphere collider.</li>
 </ul>
 <h2 id="picking">Picking<a class="headerlink" href="#picking" title="Permanent link">&para;</a></h2>
 <p>The picking operation is performed by the GVRPicker class. The picker can operate in two modes. You can call the pickObjects function directly to get back the list of objects that were picked and information about the collision. You can also attach the picker to a scene object and it will automatically cast a ray from that scene object and generate events indicating what was picked.</p>
 <h2 id="procedural-picking">Procedural Picking<a class="headerlink" href="#procedural-picking" title="Permanent link">&para;</a></h2>
-<p>To use the picker procedurally you must provide the origin and direction of the pick ray in world coordinates and the GVRScene you want to pick against. The picker returns an array of GVRPickedObject instances that indicate what was picked and where it was hit. The hit position returned will be in the coordinate system of the collider geometry - not in world coordinates. To transform it to world coordinates you must multiply it by the model matrix of the scene object hit.</p>
+<p>To use the picker procedurally you must provide the origin and direction of the pick ray in world coordinates and the GVRScene you want to pick against. The picker returns an array of GVRPickedObject instances that indicate what was picked and where it was hit. The hit position returned will be in the coordinate system of the collider geometry - not in world coordinates. To transform it to world coordinates you must multiply it by the model matrix of the scene object hit. This is not the most efficient method of picking and should only be called once per frame.</p>
 <table>
 <thead>
 <tr>

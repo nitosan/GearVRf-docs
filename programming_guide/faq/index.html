@@ -600,15 +600,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#19-what-are-some-graphics-performance-tips" title="19. What are some graphics performance tips?" class="md-nav__link">
-    19. What are some graphics performance tips?
+  <a href="#19-how-many-separate-scene-objects-can-i-display-for-a-good-vr-experience" title="19. How many separate scene objects can I display for a good VR experience?" class="md-nav__link">
+    19. How many separate scene objects can I display for a good VR experience?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#20-which-phones-are-compatible-with-gearvr" title="20. Which phones are compatible with GearVR?" class="md-nav__link">
-    20. Which phones are compatible with GearVR?
+  <a href="#20-what-are-some-graphics-performance-tips" title="20. What are some graphics performance tips?" class="md-nav__link">
+    20. What are some graphics performance tips?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-which-phones-are-compatible-with-gearvr" title="21. Which phones are compatible with GearVR?" class="md-nav__link">
+    21. Which phones are compatible with GearVR?
   </a>
   
 </li>
@@ -976,15 +983,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#19-what-are-some-graphics-performance-tips" title="19. What are some graphics performance tips?" class="md-nav__link">
-    19. What are some graphics performance tips?
+  <a href="#19-how-many-separate-scene-objects-can-i-display-for-a-good-vr-experience" title="19. How many separate scene objects can I display for a good VR experience?" class="md-nav__link">
+    19. How many separate scene objects can I display for a good VR experience?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#20-which-phones-are-compatible-with-gearvr" title="20. Which phones are compatible with GearVR?" class="md-nav__link">
-    20. Which phones are compatible with GearVR?
+  <a href="#20-what-are-some-graphics-performance-tips" title="20. What are some graphics performance tips?" class="md-nav__link">
+    20. What are some graphics performance tips?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-which-phones-are-compatible-with-gearvr" title="21. Which phones are compatible with GearVR?" class="md-nav__link">
+    21. Which phones are compatible with GearVR?
   </a>
   
 </li>
@@ -1105,10 +1119,12 @@ java.lang.UnsatisfiedLinkError: dalvik.system.PathClassLoader[DexPathList[[zip f
 <p>Maintain a high frame-rate, such as 90+ fps.</p>
 <h3 id="18-how-many-triangles-can-i-display-max-for-a-good-vr-experience-with-high-frame-rate">18. How many triangles can I display max for a good VR experience with high frame rate?<a class="headerlink" href="#18-how-many-triangles-can-i-display-max-for-a-good-vr-experience-with-high-frame-rate" title="Permanent link">&para;</a></h3>
 <p>On a mobile phone such as Galaxy S6/S7, please keep triangle count in the thousands to tens of thousands range if possible, depending on shader complexities.</p>
-<h3 id="19-what-are-some-graphics-performance-tips">19. What are some graphics performance tips?<a class="headerlink" href="#19-what-are-some-graphics-performance-tips" title="Permanent link">&para;</a></h3>
+<h3 id="19-how-many-separate-scene-objects-can-i-display-for-a-good-vr-experience">19. How many separate scene objects can I display for a good VR experience?<a class="headerlink" href="#19-how-many-separate-scene-objects-can-i-display-for-a-good-vr-experience" title="Permanent link">&para;</a></h3>
+<p>On OpenGL, each scene object can potentially generate a draw call. On most phones, exceeding 100 draw calls will compromise VR performance. GearVRf attempts to batch together objects which use the same shader when possible.</p>
+<h3 id="20-what-are-some-graphics-performance-tips">20. What are some graphics performance tips?<a class="headerlink" href="#20-what-are-some-graphics-performance-tips" title="Permanent link">&para;</a></h3>
 <p>Keep draw calls minimal and relatively cheap pixel shader. Keep in mind shadows from shadow map more or less doubles the triangle rendered. Use profiler to see if you are really GPU bound.</p>
-<h3 id="20-which-phones-are-compatible-with-gearvr">20. Which phones are compatible with GearVR?<a class="headerlink" href="#20-which-phones-are-compatible-with-gearvr" title="Permanent link">&para;</a></h3>
-<p>Currently, Samsung Galaxy S6, S6 Edge, S6 Edge+, S7, S7 Edge, S7 Edge+, S8, S8+, Note 5</p>
+<h3 id="21-which-phones-are-compatible-with-gearvr">21. Which phones are compatible with GearVR?<a class="headerlink" href="#21-which-phones-are-compatible-with-gearvr" title="Permanent link">&para;</a></h3>
+<p>Currently, Samsung Galaxy S6, S6 Edge, S6 Edge+, S7, S7 Edge, S7 Edge+, S8, S8+, Note 5 and Note 8.</p>
                 
                   
                 

@@ -403,6 +403,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#vr-lights-classes-shadows-uniforms-and-examples" title="VR lights, classes, shadows, uniforms, and examples" class="md-nav__link">
+    VR lights, classes, shadows, uniforms, and examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#built-in-light-classes" title="Built-in Light Classes" class="md-nav__link">
     Built-in Light Classes
   </a>
@@ -744,6 +751,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#vr-lights-classes-shadows-uniforms-and-examples" title="VR lights, classes, shadows, uniforms, and examples" class="md-nav__link">
+    VR lights, classes, shadows, uniforms, and examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#built-in-light-classes" title="Built-in Light Classes" class="md-nav__link">
     Built-in Light Classes
   </a>
@@ -788,8 +802,8 @@
                 
                   <h1>Lighting</h1>
                 
-                <p>VR lights, classes, shadows, uniforms, and examples</p>
-<p>Lights control the illumination of visible scene objects. Depending on the color, intensity and position of the lights, objects may appear lighter, darker or shadowed. The final color of an object depends on both Materials and Lighting. Together they provide everything the fragment shader needs to compute the final color. The fragment shader combines the contributions of all the lights in the scene to compute illumination per pixel.</p>
+                <h2 id="vr-lights-classes-shadows-uniforms-and-examples">VR lights, classes, shadows, uniforms, and examples<a class="headerlink" href="#vr-lights-classes-shadows-uniforms-and-examples" title="Permanent link">&para;</a></h2>
+<p>Lights control the illumination of visible scene objects. Depending on the color, intensity and position of the lights, objects may appear lighter, darker or shadowed. The final color of an object depends on both materials and lighting. Together they provide everything the fragment shader needs to compute the final color. The fragment shader combines the contributions of all the lights in the scene to compute illumination per pixel. At this time, GearVRf does not support vertex lighting.</p>
 <p>All lights in the scene are global - they illuminate all the scene objects that have the lighting effect enabled. A light must be attached to a scene object before it can illuminate anything. The scene object determines the position and direction of the light. By default, a light with no transformation points down the positive Z axis towards the viewer.</p>
 <h2 id="built-in-light-classes">Built-in Light Classes<a class="headerlink" href="#built-in-light-classes" title="Permanent link">&para;</a></h2>
 <p>The light's class determines what lighting algorithm is used by the GPU. Three built-in light classes are provided by GearVRF which implement the Phong shading model per pixel. These work together with the Phong surface shader class GVRPhongShader.</p>
@@ -802,7 +816,7 @@
 <p>Attenuation = 1 / (attenuation_constant + attenuation_linear * distance + attenuation_quadratic * distance * distance)</p>
 <p>The light object contains the data used by the fragment shader. It is accessed in terms of key / value pairs where the key is a string containing the name of the uniform and the value is a scalar or vector. GearVRF automatically loads these values into the fragment shader uniforms for you.</p>
 <h2 id="shadows">Shadows<a class="headerlink" href="#shadows" title="Permanent link">&para;</a></h2>
-<p>GearVRf can calculate shadow maps for directional and spot lights. You can enable shadow mapping get calling GVRLightBase.setCastShadow with a true parameter. Shadow mapping involves considerable overhead per frame because it renders the scene from the viewpoint of the light to calculate the shadow map. It also uses up more uniform variables, reducing the number of available bones for skinning from 60 to 50. If you disable shadow mapping on all lights, GearVRf will free up all resources used for shadow mapping and return to normal performance.</p>
+<p>GearVRf can calculate shadow maps for directional and spot lights. You can enable shadow mapping by calling GVRLightBase.setCastShadow with a true parameter. Shadow mapping involves considerable overhead per frame because it renders the scene from the viewpoint of the light to calculate the shadow map. It also uses up more uniform variables. If you disable shadow mapping on all lights, GearVRf will free up all resources used for shadow mapping and return to normal performance.</p>
 <h2 id="built-in-light-uniforms">Built-in Light Uniforms<a class="headerlink" href="#built-in-light-uniforms" title="Permanent link">&para;</a></h2>
 <p>This table describes the uniforms used by the built-in Phong lighting implementation.</p>
 <table>
@@ -864,13 +878,23 @@
 <td>float</td>
 <td>quadratic attenuation</td>
 </tr>
+<tr>
+<td>inner_cone_angle</td>
+<td>float</td>
+<td>spotlight inner cone angle</td>
+</tr>
+<tr>
+<td>outer_cone_angle</td>
+<td>float</td>
+<td>spotlight outer cone angle</td>
+</tr>
 </tbody>
 </table>
 <h2 id="light-construction-example">Light Construction Example<a class="headerlink" href="#light-construction-example" title="Permanent link">&para;</a></h2>
 <p>A light is a component that is attached to a scene object which gives it both a position and a direction. An individual light can be enabled and disabled programmatically without causing shader compilation. All other light attributes are implementation specific. This example uses the lights built-into GearVRF which implement the Phong lighting model. Here we constructs a red spot light.</p>
-<div class="codehilite"><pre><span></span><span class="n">GVRPhongSpotLight</span> <span class="nf">createSpotLight</span><span class="o">(</span><span class="n">GVRContext</span> <span class="n">gvrContext</span><span class="o">)</span>
+<div class="codehilite"><pre><span></span><span class="n">GVRSpotLight</span> <span class="nf">createSpotLight</span><span class="o">(</span><span class="n">GVRContext</span> <span class="n">gvrContext</span><span class="o">)</span>
 <span class="o">{</span>
-    <span class="n">GVRPhongSpotLight</span> <span class="n">light</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRPhongSpotLight</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">);</span>
+    <span class="n">GVRSpotLight</span> <span class="n">light</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRSpotLight</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">);</span>
 
     <span class="n">light</span><span class="o">.</span><span class="na">setDiffuseIntensity</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
     <span class="n">light</span><span class="o">.</span><span class="na">setSpecularIntensity</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
@@ -882,10 +906,11 @@
 
 
 <p>You need to attach your light to a GVRSceneObject before it can illuminate anything. To enable multiple lighting support the GVRPhongShader template must be selected. You can also turn the lighting effect on and off for a particular mesh. In this example we light a sphere with the spot light created above.</p>
-<div class="codehilite"><pre><span></span><span class="n">GVRLightTemplate</span> <span class="n">light</span> <span class="o">=</span> <span class="n">createSpotLight</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">);</span>
+<div class="codehilite"><pre><span></span><span class="n">GVRLightBase</span> <span class="n">light</span> <span class="o">=</span> <span class="n">createSpotLight</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">);</span>
 <span class="n">GVRSceneObject</span> <span class="n">lightNode</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRSceneObject</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">);</span>
 <span class="n">GVRSceneObject</span> <span class="n">sphereNode</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRSphereSceneObject</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">);</span>
 
+<span class="n">sphereNode</span><span class="o">.</span><span class="na">attachComponent</span><span class="o">(</span><span class="n">light</span><span class="o">);</span>
 <span class="n">GVRRenderData</span> <span class="n">rdata</span> <span class="o">=</span> <span class="n">sphereNode</span><span class="o">.</span><span class="na">getRenderData</span><span class="o">();</span>
 <span class="n">rdata</span><span class="o">.</span><span class="na">enableLight</span><span class="o">();</span>
 <span class="n">rdata</span><span class="o">.</span><span class="na">setShaderTemplate</span><span class="o">(</span><span class="n">GVRPhongShader</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>

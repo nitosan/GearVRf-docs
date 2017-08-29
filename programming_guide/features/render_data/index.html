@@ -772,6 +772,10 @@
 <td>Enable / disable alpha to coverage</td>
 </tr>
 <tr>
+<td>setAlphaBlendFunc</td>
+<td>Set alpha blend functions</td>
+</tr>
+<tr>
 <td>setCullTest</td>
 <td>Enable / disable backface culling</td>
 </tr>
@@ -782,6 +786,10 @@
 <tr>
 <td>setDepthTest</td>
 <td>Enable / disable depth testing (Z buffer)</td>
+</tr>
+<tr>
+<td>setDepthMask</td>
+<td>Enable / disable depth mask</td>
 </tr>
 <tr>
 <td>setDrawMode</td>
@@ -804,6 +812,22 @@
 <td>Designates whether modification mask is inverted</td>
 </tr>
 <tr>
+<td>setOffset</td>
+<td>Enables /disables polygon fill offset</td>
+</tr>
+<tr>
+<td>setOffsetFactor</td>
+<td>Specifies polygon fill offset factor</td>
+</tr>
+<tr>
+<td>setOffsetUnits</td>
+<td>Specifies polygon fill offset units</td>
+</tr>
+<tr>
+<td>setCastShadows</td>
+<td>Enable / disable shadow casting</td>
+</tr>
+<tr>
 <td>setMesh</td>
 <td>Designate the mesh to render</td>
 </tr>
@@ -821,27 +845,17 @@
 <p>A render pass lets you render the same scene object multiple times with different settings. This is useful to achieve effects like cartoon rendering or adding glow around an object. The benefit of using a render pass as opposed to duplicating the object is that culling, transformation and skinning are only performed once. A render pass encapsulates the material and rendering properties (but not the mesh).</p>
 <p>This example shows how to implement a multi-sided material using render passes. It uses a red material for the front faces and a blue material for the back faces. </p>
 <div class="codehilite"><pre><span></span><span class="n">GVRSceneObject</span> <span class="n">cube</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRCubeSceneObject</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">);</span>
-
 <span class="n">GVRRenderData</span> <span class="n">rdata</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="na">getRenderData</span><span class="o">();</span>
-
 <span class="n">GVRMaterial</span> <span class="n">red</span> <span class="o">=</span> <span class="n">rdata</span><span class="o">.</span><span class="na">getMaterial</span><span class="o">();</span>
-
 <span class="n">GVRMaterial</span> <span class="n">blue</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRMaterial</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">);</span>
-
 <span class="n">GVRRenderPass</span> <span class="n">pass</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRRenderPass</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">);</span>
 
 
-
 <span class="n">red</span><span class="o">.</span><span class="na">setDiffuseColor</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
-
 <span class="n">blue</span><span class="o">.</span><span class="na">setDiffuseColor</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
-
 <span class="n">rdata</span><span class="o">.</span><span class="na">setCullFace</span><span class="o">(</span><span class="n">GVRCullFaceEnum</span><span class="o">.</span><span class="na">Front</span><span class="o">);</span>
-
 <span class="n">pass</span><span class="o">.</span><span class="na">setMaterial</span><span class="o">(</span><span class="n">blue</span><span class="o">);</span>
-
 <span class="n">pass</span><span class="o">.</span><span class="na">setCullFace</span><span class="o">(</span><span class="n">GVRCullFaceEnum</span><span class="o">.</span><span class="na">Back</span><span class="o">);</span>
-
 <span class="n">rdata</span><span class="o">.</span><span class="na">addPass</span><span class="o">(</span><span class="n">pass</span><span class="o">);</span>
 </pre></div>
                 

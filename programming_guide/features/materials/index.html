@@ -391,6 +391,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#vr-materials-access-and-examples" title="VR materials, access, and examples" class="md-nav__link">
+    VR materials, access, and examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#accessing-material-parameters" title="Accessing Material Parameters" class="md-nav__link">
     Accessing Material Parameters
   </a>
@@ -730,6 +737,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#vr-materials-access-and-examples" title="VR materials, access, and examples" class="md-nav__link">
+    VR materials, access, and examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#accessing-material-parameters" title="Accessing Material Parameters" class="md-nav__link">
     Accessing Material Parameters
   </a>
@@ -760,7 +774,7 @@
                 
                   <h1>Materials</h1>
                 
-                <p>VR materials, access, and examples</p>
+                <h2 id="vr-materials-access-and-examples">VR materials, access, and examples<a class="headerlink" href="#vr-materials-access-and-examples" title="Permanent link">&para;</a></h2>
 <p>A material dictates how a scene object will be colored and textured. The visual appearance of a mesh in the scene is controlled by a fragment shader program in the GPU. GearVRf will automatically construct a shader for common use cases but you can also provide your own shader code.</p>
 <p>The GVRMaterial object encapsulates the fragment shader and all of its associated data. This usually includes one or more texture maps and lighting properties that affect how the surface reacts to lights in the scene. Because you can write custom shaders, you can attach your own custom data to a material that your shader can use in computations. This data can be scalar numbers (float or int), arrays or textures. Each custom data element has a string key used to look up or modify its value. When the object is rendered, these values are passed to the shader program.</p>
 <p>This picture shows a material with two custom data parameters - a diffuse color with an alpha (4 floats) and an integer enabling transparency. </p>
@@ -804,7 +818,7 @@
 <div class="codehilite"><pre><span></span><span class="n">GVRMaterial</span> <span class="nf">createMaterial</span><span class="o">(</span><span class="n">GVRContext</span> <span class="n">gvrContext</span><span class="o">)</span>
 <span class="o">{</span>
    <span class="n">GVRMaterial</span> <span class="n">material</span> <span class="o">=</span> <span class="n">createMaterial</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">);</span>
-   <span class="n">GVRTexture</span> <span class="n">tex</span> <span class="o">=</span> <span class="n">gvrContext</span><span class="o">.</span><span class="na">loadTexture</span><span class="o">(</span><span class="k">new</span> <span class="n">GVRAndroidResource</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">,</span><span class="n">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">gearvr_logo</span><span class="o">));</span>
+   <span class="n">GVRTexture</span> <span class="n">tex</span> <span class="o">=</span> <span class="n">gvrContext</span><span class="o">.</span><span class="na">getAssetLoader</span><span class="o">().</span><span class="na">loadTexture</span><span class="o">(</span><span class="k">new</span> <span class="n">GVRAndroidResource</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">,</span><span class="n">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">gearvr_logo</span><span class="o">));</span>
 
    <span class="n">material</span><span class="o">.</span><span class="na">setDiffuseColor</span><span class="o">(</span><span class="mf">0.5f</span><span class="o">,</span> <span class="mf">0.5f</span><span class="o">,</span> <span class="mf">0.5f</span><span class="o">);</span>
    <span class="n">material</span><span class="o">.</span><span class="na">setAmbientColor</span><span class="o">(</span><span class="mf">1.0f</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">);</span>

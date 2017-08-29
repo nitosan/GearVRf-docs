@@ -764,16 +764,17 @@
 <h2 id="loading-a-3d-model">Loading a 3D Model<a class="headerlink" href="#loading-a-3d-model" title="Permanent link">&para;</a></h2>
 <p>Loading models is handled by the GVRAssetLoader class which is accessible from the context by calling GVRContext.getAssetLoader(). The asset loader can load models from a variety of places. You use the volume type to indicate where you are reading the model from.</p>
 <ul>
-<li>GVRResourceLoader.VolumeType.ANDROID_ASSETS designates the model is in the "assets" directory.</li>
-<li>GVRResourceLoader.VolumeType.ANDROID_SDCARD designates the model on the phone SD card.</li>
-<li>GVRResourceLoader.VolumeType.NETWORK designates the model is on the internet.</li>
+<li>GVRResourceVolume.VolumeType.ANDROID_ASSETS designates the model is in the "assets" directory.</li>
+<li>GVRResourceVolume.VolumeType.ANDROID_SDCARD designates the model on the phone SD card.</li>
+<li>GVRResourceVolume.VolumeType.NETWORK designates the model is on the internet.</li>
+<li>GVRResourceVolume.VolumeType.INPUT_STREAM designates the model comes from an open stream.</li>
 </ul>
 <p>The <code>GVRAssetLoader.loadModel</code> function loads a model from a device and returns as soon as the model geometry has been parsed and accumulated. This model may not have been added to the scene yet. If you pass the current GVRScene as an argument, the asset loader will wait until all of the textures in the model have been loaded and then add it to the scene. If you omit the argument, the model is not added to the scene and you will need to add it in your own code.</p>
 <h2 id="model-loading-example">Model Loading Example<a class="headerlink" href="#model-loading-example" title="Permanent link">&para;</a></h2>
 <p>This example shows how to load a model which lives in the assets directory of your application. The path name for the asset is relative to that directory. The asset is loaded in the background in another thread and added to the scene when all of its textures have completed loading. The model returned may not be completely loaded but all of the geometry will be accessible. Usually assets are loaded in the onInit function of your main script.</p>
 <div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">onInit</span><span class="o">(</span><span class="n">GVRContext</span> <span class="n">context</span><span class="o">)</span>
 <span class="o">{</span>
-    <span class="n">GVRScene</span> <span class="n">scene</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="na">getNextMainScene</span><span class="o">();</span>
+    <span class="n">GVRScene</span> <span class="n">scene</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="na">getMainScene</span><span class="o">();</span>
     <span class="k">try</span>
     <span class="o">{</span>
         <span class="n">String</span> <span class="n">url</span> <span class="o">=</span> <span class="s">&quot;https://raw.githubusercontent.com/gearvrf/GearVRf-Demos/master/gvrjassimpmodelloader/assets/trees/trees9.3ds&quot;</span><span class="o">;</span>

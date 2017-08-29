@@ -361,6 +361,8 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
+      
+    
     
       <label class="md-nav__link md-nav__link--active" for="toc">
         Meshes
@@ -373,6 +375,8 @@
       
 <nav class="md-nav md-nav--secondary">
   
+  
+    
   
   
     <label class="md-nav__title" for="toc">Table of contents</label>
@@ -732,6 +736,8 @@
 <nav class="md-nav md-nav--secondary">
   
   
+    
+  
   
     <label class="md-nav__title" for="toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
@@ -772,9 +778,7 @@
               
                 
                 
-                  <h1>Meshes</h1>
-                
-                <p>VR mesh types, access, and examples</p>
+                <h1 id="vr-mesh-types-access-and-examples">VR mesh types, access, and examples<a class="headerlink" href="#vr-mesh-types-access-and-examples" title="Permanent link">&para;</a></h1>
 <p>Indexed triangle meshes are the only shape definition currently supported by GearVRF. Each mesh contains a set of vertices with the 3D locations of the triangle coordinates. Typically these are unique locations to maximize vertex sharing but this is not a requirement. A triangle has three indices designating which vertices are used by that triangle.</p>
 <p>In addition to positions, a mesh may have normals and texture coordinates as well. These arrays, if present, must follow the same ordering as the vertices. There is only one set of triangle indices to reference the position, normal and texture coordinate. This is unlike some systems which permit multiple index tables. </p>
 <p><img alt="" src="../../../images/GVRf_Mesh.png" /></p>

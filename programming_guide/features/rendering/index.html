@@ -751,13 +751,9 @@ GearVRf includes animation and periodic engines that use frame listeners to run 
 <p>GearVRf renders the scene graph twice, once for each eye.</p>
 <ol>
 <li>Rendering determines what a camera can see and draws each visible triangle to a buffer in GPU memory.</li>
-<li>
-<p>Any post-effects you have registered for an eye are applied the buffer for step 4.a in registration order. (Typically, you will use per-eye registration to run the same effect with different per-eye parameters, but you can run different effects on each eye, perhaps adding different debugging info to each eye.).
-A post-effect is a shader that is a lot like the shaders that draw scene objects' skins; the big difference is that while a material shader's vertex shader may be quite complex (adding in lighting and reflections), a post-effect is a 2D effect, and all the action is in the fragment shader, which draws each pixel. GearVRf includes pre-defined post-effect shaders, and it is easy to add your own.</p>
-</li>
-<li>
-<p>One last shader applies barrel distortion to the render buffer, and draws the barrel distortion to the screen. When the user views the screen though a fish-eye lens, the undistorted image will (nearly) fill the field of view. This step is not programmable, except in so far as you provide an XML file with screen size information at start-up time.</p>
-</li>
+<li>Any post-effects you have registered for an eye are applied the buffer for step 4.a in registration order. (Typically, you will use per-eye registration to run the same effect with different per-eye parameters, but you can run different effects on each eye, perhaps adding different debugging info to each eye.).
+A post-effect is a shader that is a lot like the shaders that draw scene objects' skins; the big difference is that while a material shader's vertex shader may be quite complex (adding in lighting and reflections), a post-effect is a 2D effect, and all the action is in the fragment shader, which draws each pixel. GearVRf includes pre-defined post-effect shaders, and it is easy to add your own.</li>
+<li>One last shader applies barrel distortion to the render buffer, and draws the barrel distortion to the screen. When the user views the screen though a fish-eye lens, the undistorted image will (nearly) fill the field of view. This step is not programmable, except in so far as you provide an XML file with screen size information at start-up time.</li>
 </ol>
 </li>
 </ol>

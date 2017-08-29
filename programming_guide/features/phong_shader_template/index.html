@@ -415,6 +415,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#phong-shader-tempates-vertex-and-fragment-shaders-and-examples" title="Phong shader tempates, vertex and fragment shaders, and examples" class="md-nav__link">
+    Phong shader tempates, vertex and fragment shaders, and examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#phong-shader-example" title="Phong Shader Example" class="md-nav__link">
     Phong Shader Example
   </a>
@@ -737,6 +744,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#phong-shader-tempates-vertex-and-fragment-shaders-and-examples" title="Phong shader tempates, vertex and fragment shaders, and examples" class="md-nav__link">
+    Phong shader tempates, vertex and fragment shaders, and examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#phong-shader-example" title="Phong Shader Example" class="md-nav__link">
     Phong Shader Example
   </a>
@@ -774,7 +788,7 @@
                 
                   <h1>Phong Shader Template</h1>
                 
-                <p>Phong shader tempates, vertex and fragment shaders, and examples</p>
+                <h2 id="phong-shader-tempates-vertex-and-fragment-shaders-and-examples">Phong shader tempates, vertex and fragment shaders, and examples<a class="headerlink" href="#phong-shader-tempates-vertex-and-fragment-shaders-and-examples" title="Permanent link">&para;</a></h2>
 <p>The phong reflectance model is used to calculate how objects reflect light. This model assumes that reflected light is most intense at an angle perpendicular to the light source and falls off in a lobe based on angle from the viewer. The base surface material is assumed to reflect evenly but texture maps can be used to modify the normal per pixel to provide bumps or control reflection per pixel. </p>
 <p><img alt="" src="../../../images/gvrf_phong_reflectance.png" /></p>
 <p>Instead of implementing an extremely complex single shader to handle all of the many combinations of texture maps, lighting and materials, GearVRF supports the concept of shader templates. A shader template is a complex shader with a lot of #ifdef statements which allow it to be compiled in different ways depending on what features are required to render an object. GearVRF will examine your meshes, materials and lights and set the #ifdefs to generate a custom shader for each case.</p>
@@ -788,7 +802,7 @@
 </ul>
 <p>Each light type has a corresponding color uniform to define the overall object color and a texture sampler to provide a color at each pixel.</p>
 <h2 id="phong-shader-example">Phong Shader Example<a class="headerlink" href="#phong-shader-example" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span>    <span class="n">GVRTexture</span> <span class="n">tex</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="na">loadTexture</span><span class="o">(</span><span class="k">new</span> <span class="n">GVRAndroidResource</span><span class="o">(</span><span class="n">mGVRContext</span><span class="o">,</span> <span class="n">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">gearvrflogo</span><span class="o">));</span>
+<div class="codehilite"><pre><span></span>    <span class="n">GVRTexture</span> <span class="n">tex</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="na">getAssetLoader</span><span class="o">().</span><span class="na">loadTexture</span><span class="o">(</span><span class="k">new</span> <span class="n">GVRAndroidResource</span><span class="o">(</span><span class="n">mGVRContext</span><span class="o">,</span> <span class="n">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">gearvrflogo</span><span class="o">));</span>
     <span class="n">GVRSceneObject</span> <span class="n">plane</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRSceneObject</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="mf">10.0f</span><span class="o">,</span> <span class="mf">4.0f</span><span class="o">,</span> <span class="n">tex</span><span class="o">);</span>
     <span class="n">GVRRenderData</span> <span class="n">rdata</span> <span class="o">=</span> <span class="n">backdrop</span><span class="o">.</span><span class="na">getRenderData</span><span class="o">();</span>
     <span class="n">GVRMaterial</span> <span class="n">material</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRMaterial</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>

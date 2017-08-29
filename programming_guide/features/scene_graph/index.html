@@ -352,15 +352,15 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#managing-transforms-in-a-scene-graph" title="Managing Transforms in a Scene Graph" class="md-nav__link">
     Managing Transforms in a Scene Graph
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -771,15 +771,15 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#managing-transforms-in-a-scene-graph" title="Managing Transforms in a Scene Graph" class="md-nav__link">
     Managing Transforms in a Scene Graph
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -805,11 +805,12 @@
 <p>The HMD sensor automatically adjusts camera orientation; your app does not need code for this. Camera background color can be set for each eye; however, they are typically the same. Camera background color and post-effect data can be set by the application. Post-effects are applied to each camera.</p>
 <p><strong>To set the background of the cameras and the position of the camera rig:</strong></p>
 <div class="codehilite"><pre><span></span>    <span class="c1">// set camera background color</span>
-    <span class="n">mGVRContext</span><span class="o">.</span><span class="na">getMainScene</span><span class="o">().</span><span class="na">getMainCameraRig</span><span class="o">().</span><span class="na">getLeftCamera</span><span class="o">().</span><span class="na">setBackgroundColor</span><span class="o">(</span><span class="mf">0.0f</span><span class="o">,</span> <span class="mf">0.0f</span><span class="o">,</span> <span class="mf">0.0f</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">);</span>
-    <span class="n">mGVRContext</span><span class="o">.</span><span class="na">getMainScene</span><span class="o">().</span><span class="na">getMainCameraRig</span><span class="o">().</span><span class="na">getRightCamera</span><span class="o">().</span><span class="na">setBackgroundColor</span><span class="o">(</span><span class="mf">0.0f</span><span class="o">,</span> <span class="mf">0.0f</span><span class="o">,</span> <span class="mf">0.0f</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">);</span>
+    <span class="n">GVRCameraRig</span> <span class="n">cameraRig</span> <span class="o">=</span> <span class="n">mGVRContext</span><span class="o">.</span><span class="na">getMainScene</span><span class="o">().</span><span class="na">getMainCameraRig</span><span class="o">();</span>
+    <span class="n">cameraRig</span><span class="o">.</span><span class="na">getLeftCamera</span><span class="o">().</span><span class="na">setBackgroundColor</span><span class="o">(</span><span class="mf">0.0f</span><span class="o">,</span> <span class="mf">0.0f</span><span class="o">,</span> <span class="mf">0.0f</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">);</span>
+    <span class="n">cameraRig</span><span class="o">.</span><span class="na">getRightCamera</span><span class="o">().</span><span class="na">setBackgroundColor</span><span class="o">(</span><span class="mf">0.0f</span><span class="o">,</span> <span class="mf">0.0f</span><span class="o">,</span> <span class="mf">0.0f</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">);</span>
 
     <span class="c1">// set up camerarig position (default)</span>
-    <span class="n">mGVRContext</span><span class="o">.</span><span class="na">getMainScene</span><span class="o">().</span><span class="na">getMainCameraRig</span><span class="o">().</span><span class="na">getOwnerObject</span><span class="o">().</span><span class="na">getTransform</span><span class="o">().</span><span class="na">setPosition</span><span class="o">(</span><span class="mf">0.0f</span><span class="o">,</span> <span class="mf">0.0f</span><span class="o">,</span> <span class="mf">0.0f</span><span class="o">);</span>
+    <span class="n">cameraRig</span><span class="o">.</span><span class="na">getOwnerObject</span><span class="o">().</span><span class="na">getTransform</span><span class="o">().</span><span class="na">setPosition</span><span class="o">(</span><span class="mf">0.0f</span><span class="o">,</span> <span class="mf">0.0f</span><span class="o">,</span> <span class="mf">0.0f</span><span class="o">);</span>
 </pre></div>
 
 
@@ -832,11 +833,10 @@
 <p>You can also load only a mesh and construct the scene object, material and render data programmatically.</p>
 <p><strong>To create a scene object with shader-only material via render data:</strong></p>
 <div class="codehilite"><pre><span></span>    <span class="c1">// load mesh object</span>
-    <span class="n">GVRMesh</span> <span class="n">sphereMesh</span> <span class="o">=</span> <span class="n">gvrContext</span><span class="o">.</span><span class="na">loadMesh</span><span class="o">(</span><span class="s">&quot;sphere.obj&quot;</span><span class="o">);</span>
+    <span class="n">GVRMesh</span> <span class="n">sphereMesh</span> <span class="o">=</span> <span class="n">gvrContext</span><span class="o">.</span><span class="na">getAssetLoader</span><span class="o">().</span><span class="na">loadMesh</span><span class="o">(</span><span class="s">&quot;sphere.obj&quot;</span><span class="o">);</span>
 
     <span class="c1">// get material</span>
-    <span class="n">GVRMaterial</span> <span class="n">sphereMaterial</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRMaterial</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">,</span>
-    <span class="n">mScreenShader</span><span class="o">.</span><span class="na">getShaderId</span><span class="o">());</span>
+    <span class="n">GVRMaterial</span> <span class="n">sphereMaterial</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRMaterial</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">,</span> <span class="n">mScreenShader</span><span class="o">.</span><span class="na">getShaderId</span><span class="o">());</span>
 
     <span class="c1">// create render data</span>
     <span class="n">GVRRenderData</span> <span class="n">sphereRenderData</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRRenderData</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">);</span>
@@ -851,7 +851,7 @@
 </pre></div>
 
 
-<h3 id="managing-transforms-in-a-scene-graph">Managing Transforms in a Scene Graph<a class="headerlink" href="#managing-transforms-in-a-scene-graph" title="Permanent link">&para;</a></h3>
+<h2 id="managing-transforms-in-a-scene-graph">Managing Transforms in a Scene Graph<a class="headerlink" href="#managing-transforms-in-a-scene-graph" title="Permanent link">&para;</a></h2>
 <p>After scene objects are added to the scene graph, each scene object can be controlled by transforms.</p>
 <p><strong>To set the position of a scene object and rotate it about an axis with a pivot point:</strong></p>
 <div class="codehilite"><pre><span></span>    <span class="n">GVRSceneObject</span> <span class="n">rotator</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRSceneObject</span><span class="o">(</span><span class="n">mGVRContext</span><span class="o">,</span> <span class="mf">2.0f</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">,</span> <span class="n">rotatorTextures</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
