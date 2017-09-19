@@ -176,6 +176,7 @@ def gen_all_docs(out_path, api_template_path, version_num):
 def main():
     parser = argparse.ArgumentParser(description='Generate the documentation site for GearVR Framework')
     parser.add_argument('-v', metavar='Version', dest='version', help='specify GVRF version')
+    parser.add_argument('-deploy', metavar='Deploy', dest='deploy', help='specify deploy target: github')
 
     args = parser.parse_args()
 
@@ -204,6 +205,11 @@ def main():
         print '==> Add API reference'
     else:
         print '=> Error: Failed to find site directory please make sure mkdocs is setup correctly'
+        return
+
+    if args.deploy == 'github':
+        from deploy import gh_deploy
+        gh_deploy()
 
 
 if __name__ == "__main__":
