@@ -4,10 +4,34 @@ import os
 import shutil
 import subprocess
 import glob
+import argparse
 
 
 def get_curr_path():
     return os.path.dirname(os.path.realpath(__file__))
+
+
+def which(program):
+    def is_exe(cmd_path):
+        return os.path.exists(cmd_path) and os.access(cmd_path, os.X_OK)
+
+    def ext_candidates(cmd_path):
+        yield cmd_path
+        for ext in os.environ.get("PATHEXT", "").split(os.pathsep):
+            yield cmd_path + ext
+
+    fpath, fname = os.path.split(program)
+    if fpath:
+        if is_exe(program):
+            return program
+    else:
+        for path in os.environ["PATH"].split(os.pathsep):
+            exe_file = os.path.join(path, program)
+            for candidate in ext_candidates(exe_file):
+                if is_exe(candidate):
+                    return candidate
+
+    return None
 
 
 def copy_all(src, dst):
@@ -31,6 +55,19 @@ def del_tree(path):
         print 'Invalid path: ' + path
 
 
+def update_version(file_path, version_num):
+    fh = open(file_path, 'r')
+    html_content = fh.read()
+
+    from string import Template
+    s = Template(html_content)
+    replaced_content = s.substitute(gvrf_version=version_num)
+
+    fh = open(file_path, 'w')
+    fh.write(replaced_content)
+    fh.close()
+
+
 def gen_javadoc(src_path, out_path, package_name):
     cmd = ['javadoc', '-Xdoclint:none']
     cmd.extend(['-d', out_path])
@@ -38,7 +75,20 @@ def gen_javadoc(src_path, out_path, package_name):
     cmd.extend(['-subpackages', package_name])
     cmd.extend(['-encoding', 'UTF-8'])
     cmd.extend(['-charset', 'UTF-8'])
+    cmd.append('-quiet')
     subprocess.call(cmd)
+
+
+def update_template(out_path, version_num):
+    curr_path = get_curr_path()
+    full_out_path = os.path.join(curr_path, out_path)
+    version_out_path = os.path.join(full_out_path, version_num)
+
+    index2_path = os.path.join(full_out_path, 'index2.html')
+    update_version(index2_path, version_num)
+
+    java_doc_index_path = os.path.join(version_out_path, 'index.html')
+    update_version(java_doc_index_path, version_num)
 
 
 def gen_java_docs(base_path, out_path):
@@ -81,6 +131,17 @@ def gen_java_docs(base_path, out_path):
 
 
 def gen_all_docs(out_path, version_num):
+    # Check required commands
+    javadoc_path = which('javadoc')
+    if javadoc_path is None:
+        print '==> Error: Failed to find javadoc, please check your java setup'
+        return
+
+    mkdocs_path = which('mkdocs')
+    if mkdocs_path is None:
+        print '==> Error: Failed to find mkdocs, please follow the Readme to set it up'
+        return
+
     # Search for GVRF folder
     # Search for GVRF_SOURCE_PATH
     gvrf_path = os.environ.get('GVRF_SOURCE_PATH')
@@ -105,17 +166,35 @@ def gen_all_docs(out_path, version_num):
     print '==> copy template'
     copy_all(template_path, full_out_path)
 
+    # Update versions in template
+    update_template(out_path, version_num)
+
 
 def main():
+    parser = argparse.ArgumentParser(description='Generate the documentation site for GearVR Framework')
+    parser.add_argument('-v', metavar='Version', dest='version', help='specify GVRF version')
+
+    args = parser.parse_args()
+
+    if args.version is None:
+        print 'GVRF version is not specified, using default version v3.3'
+        args.version = 'v3.3'
+    elif not args.version.startswith('v'):
+        args.version = 'v' + args.version
+
+    print '=> GVRF version: ' + args.version
+
     # Generate site with mkdocs
     from subprocess import call
     call(['mkdocs', 'build'])
-    print '==> Generating Documentation site'
+    print '=> Generating Documentation site'
 
     # Generate API reference from GVRF source
-    gen_all_docs('api_reference', 'v3.3')
+    print '=> Generating API reference site'
+    gen_all_docs('api_reference', args.version)
 
     # Copy api_reference and replace the placeholder api_reference in site
+    print '=> Merging API reference with documentation'
     if os.path.isdir('site'):
         if os.path.isdir('site/api_reference'):
             shutil.rmtree('site/api_reference')
