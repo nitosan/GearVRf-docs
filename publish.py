@@ -130,7 +130,7 @@ def gen_java_docs(base_path, out_path):
     gen_javadoc(src_path, sub_out_path, 'org.gearvrf')
 
 
-def gen_all_docs(out_path, version_num):
+def gen_all_docs(out_path, api_template_path, version_num):
     # Check required commands
     javadoc_path = which('javadoc')
     if javadoc_path is None:
@@ -142,12 +142,15 @@ def gen_all_docs(out_path, version_num):
         print '==> Error: Failed to find mkdocs, please follow the Readme to set it up'
         return
 
+    del_tree(out_path)
+    copy_tree(api_template_path, out_path)
+
     # Search for GVRF folder
     # Search for GVRF_SOURCE_PATH
     gvrf_path = os.environ.get('GVRF_SOURCE_PATH')
     curr_path = get_curr_path()
     full_out_path = os.path.join(curr_path, out_path, version_num)
-    template_path = os.path.join(curr_path, 'api_reference', 'template')
+    template_path = os.path.join(curr_path, api_template_path, 'template')
 
     print "==> Setting up environment"
     if gvrf_path is None:
@@ -191,15 +194,16 @@ def main():
 
     # Generate API reference from GVRF source
     print '=> Generating API reference site'
-    gen_all_docs('api_reference', args.version)
+    gen_all_docs('temp', 'api_reference', args.version)
 
     # Copy api_reference and replace the placeholder api_reference in site
     print '=> Merging API reference with documentation'
     if os.path.isdir('site'):
-        if os.path.isdir('site/api_reference'):
-            shutil.rmtree('site/api_reference')
-        shutil.copytree('api_reference', 'site/api_reference')
+        del_tree('site/api_reference')
+        copy_tree('temp', 'site/api_reference')
         print '==> Add API reference'
+    else:
+        print '=> Error: Failed to find site directory please make sure mkdocs is setup correctly'
 
 
 if __name__ == "__main__":
