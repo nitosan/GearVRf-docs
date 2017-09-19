@@ -1,3 +1,5 @@
 site/
 temp/
 .idea/
+
+*.pyc

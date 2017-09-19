@@ -175,15 +175,12 @@ def gen_all_docs(out_path, api_template_path, version_num):
 
 def main():
     parser = argparse.ArgumentParser(description='Generate the documentation site for GearVR Framework')
-    parser.add_argument('-v', metavar='Version', dest='version', help='specify GVRF version')
+    parser.add_argument('-v', metavar='Version', dest='version', help='specify GVRF version', default='v3.3')
     parser.add_argument('-deploy', metavar='Deploy', dest='deploy', help='specify deploy target: github')
 
     args = parser.parse_args()
 
-    if args.version is None:
-        print 'GVRF version is not specified, using default version v3.3'
-        args.version = 'v3.3'
-    elif not args.version.startswith('v'):
+    if not args.version.startswith('v'):
         args.version = 'v' + args.version
 
     print '=> GVRF version: ' + args.version
@@ -208,6 +205,7 @@ def main():
         return
 
     if args.deploy == 'github':
+        print '=> Deploy to github'
         from deploy import gh_deploy
         gh_deploy()
 
