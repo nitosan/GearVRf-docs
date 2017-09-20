@@ -5,6 +5,9 @@ site_author: GearVR Framework Team
 # Copyright
 copyright: 'Copyright &copy; 2016 - 2017 Samsung'
 
+repo_url: https://github.com/nitosan/GearVRf-docs
+edit_uri: edit/master/docs/
+
 theme: 'material'
 
 google_analytics:
