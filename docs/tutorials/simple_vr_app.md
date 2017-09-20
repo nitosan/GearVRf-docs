@@ -3,7 +3,7 @@
 After setting up GearVR Framework, let's create our first VR app and learn a few very important concepts in the process.
 
 ## Create Project
-Create a GearVR Framework project by copying the [template project](https://github.com/nitosan/GearVRf-template) 
+Create a GearVR Framework project by copying the [template project](https://github.com/gearvrf/GearVRf-Demos/tree/master/template/GVRFApplication) 
 
 Perform the following steps to make sure your project runs correctly
 
@@ -86,11 +86,11 @@ Add the following code to the `onStep()` function
 
 ![](/images/3d_rotation.png)
 
-By [opengl_tutorials](http://www.opengl-tutorial.org/), [CC-BY-NC-ND](https://creativecommons.org/licenses/by-nc-nd/3.0/fr/deed.en)
+>By [opengl_tutorials](http://www.opengl-tutorial.org/), [CC-BY-NC-ND](https://creativecommons.org/licenses/by-nc-nd/3.0/fr/deed.en)
 
 Build and run the app, you should be able to see a rotating cube.
 
 Now that you have a rotating cube in VR, feel free to try different things: change its color, make it scale up and down or move it around.
 
 ## Source Code
-Complete [Source Code](https://github.com/nitosan/GearVRf-Demos/tree/master/tutorials/tutorial_1_simple_app) for this sample
+Complete [Source Code](https://github.com/gearvrf/GearVRf-Demos/tree/master/tutorials/tutorial_1_simple_app) for this sample

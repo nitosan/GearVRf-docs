@@ -3,7 +3,7 @@
 Now that you've learnt how to use 3D model and animation with GearVR Framework. We are going to learn how to use controllers to make VR app more interactive.
 
 ##Create Project
-Create a GearVR Framework project by copying the [template project](https://github.com/nitosan/GearVRf-template) 
+Create a GearVR Framework project by copying the [template project](https://github.com/gearvrf/GearVRf-Demos/tree/master/template/GVRFApplication) 
 
 Perform the following steps to make sure your project runs correctly
 
@@ -158,4 +158,4 @@ Gear VR controller provides better user experience and more precise tracking. Th
 
 
 ## Source Code
-Complete [Source Code](https://github.com/nitosan/GearVRf-Demos/tree/master/tutorials/tutorial_4_controller) for this sample
+Complete [Source Code](https://github.com/gearvrf/GearVRf-Demos/tree/master/tutorials/tutorial_3_model_animation) for this sample

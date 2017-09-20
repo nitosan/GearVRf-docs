@@ -29,7 +29,7 @@ GearVR Framework supports following devices
 
 Getting started with GearVR Framework in few simple steps
 
-1. Download the [template project](https://github.com/nitosan/GearVRf-template)
+1. Download the [template project](https://github.com/gearvrf/GearVRf-Demos/tree/master/template/GVRFApplication)
 1. Rename your project by changine the folder name
 1. Open the project with Android Studio
 1. Rename your Android App by updating `app_name` field of `app/src/main/res/values/strings.xml`
@@ -47,7 +47,7 @@ Getting started with GearVR Framework in few simple steps
     <meta-data android:name="com.samsung.android.vr.application.mode" android:value="vr_only"/>
         ```
 
-1. Update the applicationID in app/build.gradle to avoid conflict between other GearVR Framework apps.
+1. Update the applicationID in `app/build.gradle` to avoid conflict between other GearVR Framework apps.
 1. Click Run button and put on your VR device
 
 ## Device Setup
@@ -68,4 +68,4 @@ After you build the application, click `Start` and your device will install Ocul
 	
 ### DayDream
 
-Enable Google VR Service from "Settings" => "Apps" => "Google VR Service" make sure it click permissions to enable the permission it required to run.
+Enable Google VR Service from "Settings" => "Apps" => "Google VR Service" make sure it has the permission it required to run.

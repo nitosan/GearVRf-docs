@@ -3,7 +3,7 @@
 Now that you've created your first VR app with GearVR Framework. We are going to learn how to create things that look much better in VR.
 
 ##Create Project
-Create a GearVR Framework project by copying the [template project](https://github.com/nitosan/GearVRf-template) 
+Create a GearVR Framework project by copying the [template project](https://github.com/gearvrf/GearVRf-Demos/tree/master/template/GVRFApplication) 
 
 Perform the following steps to make sure your project runs correctly
 
@@ -18,7 +18,7 @@ For example with the correct material, you can make your 3D objects looks like b
 
 ![](/images/tutorial_material_2.png)
 
-By CaliCoastReplay - Own work, [CC BY 4.0](https://commons.wikimedia.org/w/index.php?curid=55131278)
+>By CaliCoastReplay - Own work, [CC BY 4.0](https://commons.wikimedia.org/w/index.php?curid=55131278)
 
 ## Create SceneObjects
 First, let's create one cube and one sphere
@@ -141,5 +141,5 @@ Add the following code to the `onStep()` function to make the cube move.
 ```
 
 ## Source Code
-Complete [Source Code](https://github.com/nitosan/GearVRf-Demos/tree/master/tutorials/tutorial_2_materials) for this sample
+Complete [Source Code](https://github.com/gearvrf/GearVRf-Demos/tree/master/tutorials/tutorial_2_materials) for this sample
 

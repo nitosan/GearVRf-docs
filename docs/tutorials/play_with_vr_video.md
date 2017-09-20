@@ -3,7 +3,7 @@
 Now that you've learned how to use controllers with GearVR Framework. We are going to learn how to play VR video in VR
 
 ##Create Project
-Create a GearVR Framework project by copying the [template project](https://github.com/nitosan/GearVRf-template) 
+Create a GearVR Framework project by copying the [template project](https://github.com/gearvrf/GearVRf-Demos/tree/master/template/GVRFApplication) 
 
 Perform the following steps to make sure your project runs correctly
 
@@ -157,4 +157,4 @@ Build and run the VR app, you should be able to watch the VR video on your devic
 
 
 ## Source Code
-Complete [Source Code](https://github.com/nitosan/GearVRf-Demos/tree/master/tutorials/tutorial_5_vr_video) for this sample
+Complete [Source Code](https://github.com/gearvrf/GearVRf-Demos/tree/master/tutorials/tutorial_5_vr_video) for this sample
