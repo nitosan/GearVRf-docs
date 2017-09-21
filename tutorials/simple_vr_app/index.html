@@ -41,6 +41,8 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
     
   </head>
   
@@ -52,6 +54,8 @@
     <svg class="md-svg">
       <defs>
         
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
         
       </defs>
     </svg>
@@ -113,6 +117,30 @@
         
       </div>
       
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/nitosan/GearVRf-docs" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
     </div>
   </nav>
 </header>
@@ -136,6 +164,28 @@
     </div>
     GearVR Framework
   </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/nitosan/GearVRf-docs" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -836,13 +886,15 @@
             <article class="md-content__inner md-typeset">
               
                 
+                  <a href="https://github.com/nitosan/GearVRf-docs/edit/master/docs/tutorials\simple_vr_app.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
                 
                   <h1>Simple VR app</h1>
                 
                 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>After setting up GearVR Framework, let's create our first VR app and learn a few very important concepts in the process.</p>
 <h2 id="create-project">Create Project<a class="headerlink" href="#create-project" title="Permanent link">&para;</a></h2>
-<p>Create a GearVR Framework project by copying the <a href="https://github.com/nitosan/GearVRf-template">template project</a> </p>
+<p>Create a GearVR Framework project by copying the <a href="https://github.com/gearvrf/GearVRf-Demos/tree/master/template/GVRFApplication">template project</a> </p>
 <p>Perform the following steps to make sure your project runs correctly</p>
 <ol>
 <li>(if developing for Gear VR) Copy your <a href="https://developer.oculus.com/osig/">Oculus signature file</a> to <code>app/src/main/assets</code> folder.</li>
@@ -918,11 +970,13 @@
 
 <p><code>rotateByAxis()</code> has 4 parameters, the first specifies the rotation angle while the rest 3 defines the rotation axis.</p>
 <p><img alt="" src="../../images/3d_rotation.png" /></p>
+<blockquote>
 <p>By <a href="http://www.opengl-tutorial.org/">opengl_tutorials</a>, <a href="https://creativecommons.org/licenses/by-nc-nd/3.0/fr/deed.en">CC-BY-NC-ND</a></p>
+</blockquote>
 <p>Build and run the app, you should be able to see a rotating cube.</p>
 <p>Now that you have a rotating cube in VR, feel free to try different things: change its color, make it scale up and down or move it around.</p>
 <h2 id="source-code">Source Code<a class="headerlink" href="#source-code" title="Permanent link">&para;</a></h2>
-<p>Complete <a href="https://github.com/nitosan/GearVRf-Demos/tree/master/tutorials/tutorial_1_simple_app">Source Code</a> for this sample</p>
+<p>Complete <a href="https://github.com/gearvrf/GearVRf-Demos/tree/master/tutorials/tutorial_1_simple_app">Source Code</a> for this sample</p>
                 
                   
                 
