@@ -28,7 +28,13 @@ mkdocs serve
 
 
 ## Deployment
-Use the following command to publish document to live
+Use the following command to publish document
+
+use -v to specify version of GearVRf release
+use -deploy to specify where to upload the release
+
+A release version of GearVRf documentation site will be genereted in the `site` folder
+
 ```
-mkdocs gh-deploy --clean
+python publish.py -v 3.3 -deploy github
 ```
