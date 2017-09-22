@@ -15,8 +15,85 @@ Perform the following steps to make sure your project runs correctly
 
 Being able to interact with in the VR environment helps a lot with the immersion. Currently, there are two ways to interact with VR content
 
-1. Gaze controller
-2. GearVR controller
+1. GearVR controller
+2. Gaze controller
+
+## Gear VR Controller
+Gear VR controller provides 3 degrees of freedom orientation tracking and trackpad control, it's highly recommended for a more immersive VR experience
+
+
+![](/images/gear_vr_controller.jpg)
+
+### 1. Enable Controller
+Add the following code in `init` class to enable the controller
+```java
+        GVRInputManager input = gvrContext.getInputManager();
+        input.addCursorControllerListener(listener);
+
+        //Add controller if detected any
+        for (GVRCursorController cursor : input.getCursorControllers()) {
+            listener.onCursorControllerAdded(cursor);
+        }
+```
+
+### 2. Create the controller listener
+By define the `CursorControllerListener`, you can specify what happens when controller gets connect/disconnected or when user presses a button.
+
+Notice we also created a `GVRGearControllerSceneObject`, it is a SceneObject that acts exactly like a GearVR controller in VR. It's highly recommended for a better user experience.
+
+```java
+    //Listener for controller event
+    private static GVRCursorController.ControllerEventListener controllerEventListener = new
+            GVRCursorController.ControllerEventListener() {
+                @Override
+                public void onEvent(GVRCursorController gvrCursorController) {
+                    KeyEvent keyEvent = gvrCursorController.getKeyEvent();
+                    if(keyEvent != null){
+                        //TODO: add logic to handle controller key press here
+                    }
+                }
+            };
+
+    //Listener for add/removal of a controller
+    private static CursorControllerListener listener = new CursorControllerListener() {
+
+        @Override
+        public void onCursorControllerAdded(GVRCursorController controller) {
+
+            //Setup GearVR Controller
+            if (controller.getControllerType() == GVRControllerType.CONTROLLER) {
+                //Create cursor
+                GVRSceneObject cursor = createQuad(1f, 1f, R.raw.cursor);
+                cursor.getRenderData().setDepthTest(false);
+                cursor.getRenderData().setRenderingOrder(100000);
+
+                //Create GearController
+                GVRGearControllerSceneObject ctrObj = new GVRGearControllerSceneObject(s_Context);
+                ctrObj.setCursorController(controller);
+                ctrObj.setCursor(cursor);
+
+                //Setup picking
+                ctrObj.setRayDepth(8.0f);
+
+                controller.addControllerEventListener(controllerEventListener);
+
+            }else{
+                controller.setEnable(false);
+            }
+        }
+
+        @Override
+        public void onCursorControllerRemoved(GVRCursorController controller) {
+            if (controller.getControllerType() == GVRControllerType.CONTROLLER) {
+                controller.removeControllerEventListener(controllerEventListener);
+                controller.resetSceneObject();
+            }
+        }
+    };
+```
+
+### 3. Build
+Build and run the project, you should be able to see a Gear VR controller in VR that mirrors your move
 
 ## Gaze Controller
 Gaze controller is available by default from GearVR headset, you can enable gaze controller with following steps
@@ -30,43 +107,13 @@ Add the following line to `gvr.xml` file, under `vr-app-settings` section
 Your `gvr.xml` file should look like this
 ```xml
 <lens name="N4" >
-
+    ...
+    
     <vr-app-settings
-        framebufferPixelsHigh="DEFAULT"
-        framebufferPixelsWide="DEFAULT"
-        showLoadingIcon="true"
-        useProtectedFramebuffer="false"
         useGazeCursorController="true"
         useSrgbFramebuffer="false" >
 
-        <mono-mode-parms
-            monoFullScreen="false"
-            monoMode="false" />
-
-        <mode-parms
-            allowPowerSave="true"
-            resetWindowFullScreen="true" />
-
-        <performance-parms
-            cpuLevel="1"
-            gpuLevel="1" />
-
-        <eye-buffer-parms
-            colorFormat="COLOR_8888"
-            depthFormat="DEPTH_24"
-            fov-y="DEFAULT"
-            multiSamples="2"
-            resolutionWidth="DEFAULT"
-            resolutionHeight="DEFAULT"
-            resolveDepth="false" />
-
-        <head-model-parms
-            eyeHeight="DEFAULT"
-            headModelDepth="DEFAULT"
-            headModelHeight="DEFAULT"
-            interpupillaryDistance="DEFAULT" />
-    </vr-app-settings>
-
+    ...
 </lens>
 ```
 ### 2. Load Config file
@@ -90,7 +137,7 @@ Add following code to `MainScene.java` to create a controller listener. We use `
     make sure to place these code inside `MainScene` class
 
 ```java
-private GVRContext mContext;
+    private GVRContext mContext;
     private GVRScene mMainScene;
     private static final float DEPTH = -1.5f;
 
@@ -101,14 +148,13 @@ private GVRContext mContext;
 
         @Override
         public void onCursorControllerAdded(GVRCursorController controller) {
-            Log.i("GUI", "Add Controller");
+
             // Gaze Controller
             if (controller.getControllerType() == GVRControllerType.GAZE) {
 
                 //Add controller cursor
-                cursor = new GVRSceneObject(mContext,
-                        new FutureWrapper<GVRMesh>(mContext.createQuad(0.1f, 0.1f)),
-                        mContext.getAssetLoader().loadFutureTexture(new GVRAndroidResource(mContext, R.raw.cursor)));
+                GVRTexture cursor_texture = mContext.getAssetLoader().loadTexture(new GVRAndroidResource(mContext, R.raw.cursor));
+                cursor = new GVRSceneObject(mContext, mContext.createQuad(0.1f, 0.1f), cursor_texture);
                 cursor.getTransform().setPosition(0.0f, 0.0f, DEPTH);
                 mMainScene.getMainCameraRig().addChildObject(cursor);
                 cursor.getRenderData().setDepthTest(false);
@@ -153,8 +199,6 @@ Add following code to the `onInit` function to initialize Gaze controller.
 ### 5. Build
 Build and run the project, you should be able to see a cursor on the center of the screen
 
-## Gear VR Controller
-Gear VR controller provides better user experience and more precise tracking. The GearVR cursor controller functionality tutorial is still under development. See [this demo](https://github.com/gearvrf/GearVRf-Demos/tree/master/gvr-controller) for using Gear VR controller
 
 
 ## Source Code
