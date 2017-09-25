@@ -320,6 +320,40 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#gear-vr-controller" title="Gear VR Controller" class="md-nav__link">
+    Gear VR Controller
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-enable-controller" title="1. Enable Controller" class="md-nav__link">
+    1. Enable Controller
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-the-controller-listener" title="2. Create the controller listener" class="md-nav__link">
+    2. Create the controller listener
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-build" title="3. Build" class="md-nav__link">
+    3. Build
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#gaze-controller" title="Gaze Controller" class="md-nav__link">
     Gaze Controller
   </a>
@@ -364,13 +398,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gear-vr-controller" title="Gear VR Controller" class="md-nav__link">
-    Gear VR Controller
-  </a>
   
 </li>
       
@@ -867,6 +894,40 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#gear-vr-controller" title="Gear VR Controller" class="md-nav__link">
+    Gear VR Controller
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-enable-controller" title="1. Enable Controller" class="md-nav__link">
+    1. Enable Controller
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-the-controller-listener" title="2. Create the controller listener" class="md-nav__link">
+    2. Create the controller listener
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-build" title="3. Build" class="md-nav__link">
+    3. Build
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#gaze-controller" title="Gaze Controller" class="md-nav__link">
     Gaze Controller
   </a>
@@ -915,13 +976,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#gear-vr-controller" title="Gear VR Controller" class="md-nav__link">
-    Gear VR Controller
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#source-code" title="Source Code" class="md-nav__link">
     Source Code
   </a>
@@ -960,9 +1014,80 @@
 <h2 id="intro">Intro<a class="headerlink" href="#intro" title="Permanent link">&para;</a></h2>
 <p>Being able to interact with in the VR environment helps a lot with the immersion. Currently, there are two ways to interact with VR content</p>
 <ol>
-<li>Gaze controller</li>
 <li>GearVR controller</li>
+<li>Gaze controller</li>
 </ol>
+<h2 id="gear-vr-controller">Gear VR Controller<a class="headerlink" href="#gear-vr-controller" title="Permanent link">&para;</a></h2>
+<p>Gear VR controller provides 3 degrees of freedom orientation tracking and trackpad control, it's highly recommended for a more immersive VR experience</p>
+<p><img alt="" src="../../images/gear_vr_controller.jpg" /></p>
+<h3 id="1-enable-controller">1. Enable Controller<a class="headerlink" href="#1-enable-controller" title="Permanent link">&para;</a></h3>
+<p>Add the following code in <code>init</code> class to enable the controller</p>
+<div class="codehilite"><pre><span></span>        <span class="n">GVRInputManager</span> <span class="n">input</span> <span class="o">=</span> <span class="n">gvrContext</span><span class="o">.</span><span class="na">getInputManager</span><span class="o">();</span>
+        <span class="n">input</span><span class="o">.</span><span class="na">addCursorControllerListener</span><span class="o">(</span><span class="n">listener</span><span class="o">);</span>
+
+        <span class="c1">//Add controller if detected any</span>
+        <span class="k">for</span> <span class="o">(</span><span class="n">GVRCursorController</span> <span class="n">cursor</span> <span class="o">:</span> <span class="n">input</span><span class="o">.</span><span class="na">getCursorControllers</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">listener</span><span class="o">.</span><span class="na">onCursorControllerAdded</span><span class="o">(</span><span class="n">cursor</span><span class="o">);</span>
+        <span class="o">}</span>
+</pre></div>
+
+
+<h3 id="2-create-the-controller-listener">2. Create the controller listener<a class="headerlink" href="#2-create-the-controller-listener" title="Permanent link">&para;</a></h3>
+<p>By define the <code>CursorControllerListener</code>, you can specify what happens when controller gets connect/disconnected or when user presses a button.</p>
+<p>Notice we also created a <code>GVRGearControllerSceneObject</code>, it is a SceneObject that acts exactly like a GearVR controller in VR. It's highly recommended for a better user experience.</p>
+<div class="codehilite"><pre><span></span>    <span class="c1">//Listener for controller event</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">GVRCursorController</span><span class="o">.</span><span class="na">ControllerEventListener</span> <span class="n">controllerEventListener</span> <span class="o">=</span> <span class="k">new</span>
+            <span class="n">GVRCursorController</span><span class="o">.</span><span class="na">ControllerEventListener</span><span class="o">()</span> <span class="o">{</span>
+                <span class="nd">@Override</span>
+                <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onEvent</span><span class="o">(</span><span class="n">GVRCursorController</span> <span class="n">gvrCursorController</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">KeyEvent</span> <span class="n">keyEvent</span> <span class="o">=</span> <span class="n">gvrCursorController</span><span class="o">.</span><span class="na">getKeyEvent</span><span class="o">();</span>
+                    <span class="k">if</span><span class="o">(</span><span class="n">keyEvent</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">){</span>
+                        <span class="c1">//TODO: add logic to handle controller key press here</span>
+                    <span class="o">}</span>
+                <span class="o">}</span>
+            <span class="o">};</span>
+
+    <span class="c1">//Listener for add/removal of a controller</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">CursorControllerListener</span> <span class="n">listener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CursorControllerListener</span><span class="o">()</span> <span class="o">{</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCursorControllerAdded</span><span class="o">(</span><span class="n">GVRCursorController</span> <span class="n">controller</span><span class="o">)</span> <span class="o">{</span>
+
+            <span class="c1">//Setup GearVR Controller</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">controller</span><span class="o">.</span><span class="na">getControllerType</span><span class="o">()</span> <span class="o">==</span> <span class="n">GVRControllerType</span><span class="o">.</span><span class="na">CONTROLLER</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">//Create cursor</span>
+                <span class="n">GVRSceneObject</span> <span class="n">cursor</span> <span class="o">=</span> <span class="n">createQuad</span><span class="o">(</span><span class="mf">1f</span><span class="o">,</span> <span class="mf">1f</span><span class="o">,</span> <span class="n">R</span><span class="o">.</span><span class="na">raw</span><span class="o">.</span><span class="na">cursor</span><span class="o">);</span>
+                <span class="n">cursor</span><span class="o">.</span><span class="na">getRenderData</span><span class="o">().</span><span class="na">setDepthTest</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+                <span class="n">cursor</span><span class="o">.</span><span class="na">getRenderData</span><span class="o">().</span><span class="na">setRenderingOrder</span><span class="o">(</span><span class="mi">100000</span><span class="o">);</span>
+
+                <span class="c1">//Create GearController</span>
+                <span class="n">GVRGearControllerSceneObject</span> <span class="n">ctrObj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRGearControllerSceneObject</span><span class="o">(</span><span class="n">s_Context</span><span class="o">);</span>
+                <span class="n">ctrObj</span><span class="o">.</span><span class="na">setCursorController</span><span class="o">(</span><span class="n">controller</span><span class="o">);</span>
+                <span class="n">ctrObj</span><span class="o">.</span><span class="na">setCursor</span><span class="o">(</span><span class="n">cursor</span><span class="o">);</span>
+
+                <span class="c1">//Setup picking</span>
+                <span class="n">ctrObj</span><span class="o">.</span><span class="na">setRayDepth</span><span class="o">(</span><span class="mf">8.0f</span><span class="o">);</span>
+
+                <span class="n">controller</span><span class="o">.</span><span class="na">addControllerEventListener</span><span class="o">(</span><span class="n">controllerEventListener</span><span class="o">);</span>
+
+            <span class="o">}</span><span class="k">else</span><span class="o">{</span>
+                <span class="n">controller</span><span class="o">.</span><span class="na">setEnable</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCursorControllerRemoved</span><span class="o">(</span><span class="n">GVRCursorController</span> <span class="n">controller</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">controller</span><span class="o">.</span><span class="na">getControllerType</span><span class="o">()</span> <span class="o">==</span> <span class="n">GVRControllerType</span><span class="o">.</span><span class="na">CONTROLLER</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">controller</span><span class="o">.</span><span class="na">removeControllerEventListener</span><span class="o">(</span><span class="n">controllerEventListener</span><span class="o">);</span>
+                <span class="n">controller</span><span class="o">.</span><span class="na">resetSceneObject</span><span class="o">();</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">};</span>
+</pre></div>
+
+
+<h3 id="3-build">3. Build<a class="headerlink" href="#3-build" title="Permanent link">&para;</a></h3>
+<p>Build and run the project, you should be able to see a Gear VR controller in VR that mirrors your move</p>
 <h2 id="gaze-controller">Gaze Controller<a class="headerlink" href="#gaze-controller" title="Permanent link">&para;</a></h2>
 <p>Gaze controller is available by default from GearVR headset, you can enable gaze controller with following steps</p>
 <h3 id="1-enable-gaze-config">1. Enable Gaze Config<a class="headerlink" href="#1-enable-gaze-config" title="Permanent link">&para;</a></h3>
@@ -973,43 +1098,13 @@
 
 <p>Your <code>gvr.xml</code> file should look like this</p>
 <div class="codehilite"><pre><span></span><span class="nt">&lt;lens</span> <span class="na">name=</span><span class="s">&quot;N4&quot;</span> <span class="nt">&gt;</span>
+    ...
 
     <span class="nt">&lt;vr-app-settings</span>
-        <span class="na">framebufferPixelsHigh=</span><span class="s">&quot;DEFAULT&quot;</span>
-        <span class="na">framebufferPixelsWide=</span><span class="s">&quot;DEFAULT&quot;</span>
-        <span class="na">showLoadingIcon=</span><span class="s">&quot;true&quot;</span>
-        <span class="na">useProtectedFramebuffer=</span><span class="s">&quot;false&quot;</span>
         <span class="na">useGazeCursorController=</span><span class="s">&quot;true&quot;</span>
         <span class="na">useSrgbFramebuffer=</span><span class="s">&quot;false&quot;</span> <span class="nt">&gt;</span>
 
-        <span class="nt">&lt;mono-mode-parms</span>
-            <span class="na">monoFullScreen=</span><span class="s">&quot;false&quot;</span>
-            <span class="na">monoMode=</span><span class="s">&quot;false&quot;</span> <span class="nt">/&gt;</span>
-
-        <span class="nt">&lt;mode-parms</span>
-            <span class="na">allowPowerSave=</span><span class="s">&quot;true&quot;</span>
-            <span class="na">resetWindowFullScreen=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
-
-        <span class="nt">&lt;performance-parms</span>
-            <span class="na">cpuLevel=</span><span class="s">&quot;1&quot;</span>
-            <span class="na">gpuLevel=</span><span class="s">&quot;1&quot;</span> <span class="nt">/&gt;</span>
-
-        <span class="nt">&lt;eye-buffer-parms</span>
-            <span class="na">colorFormat=</span><span class="s">&quot;COLOR_8888&quot;</span>
-            <span class="na">depthFormat=</span><span class="s">&quot;DEPTH_24&quot;</span>
-            <span class="na">fov-y=</span><span class="s">&quot;DEFAULT&quot;</span>
-            <span class="na">multiSamples=</span><span class="s">&quot;2&quot;</span>
-            <span class="na">resolutionWidth=</span><span class="s">&quot;DEFAULT&quot;</span>
-            <span class="na">resolutionHeight=</span><span class="s">&quot;DEFAULT&quot;</span>
-            <span class="na">resolveDepth=</span><span class="s">&quot;false&quot;</span> <span class="nt">/&gt;</span>
-
-        <span class="nt">&lt;head-model-parms</span>
-            <span class="na">eyeHeight=</span><span class="s">&quot;DEFAULT&quot;</span>
-            <span class="na">headModelDepth=</span><span class="s">&quot;DEFAULT&quot;</span>
-            <span class="na">headModelHeight=</span><span class="s">&quot;DEFAULT&quot;</span>
-            <span class="na">interpupillaryDistance=</span><span class="s">&quot;DEFAULT&quot;</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;/vr-app-settings&gt;</span>
-
+    ...
 <span class="nt">&lt;/lens&gt;</span>
 </pre></div>
 
@@ -1030,7 +1125,7 @@
 <p class="admonition-title">Note</p>
 <p>make sure to place these code inside <code>MainScene</code> class</p>
 </div>
-<div class="codehilite"><pre><span></span><span class="kd">private</span> <span class="n">GVRContext</span> <span class="n">mContext</span><span class="o">;</span>
+<div class="codehilite"><pre><span></span>    <span class="kd">private</span> <span class="n">GVRContext</span> <span class="n">mContext</span><span class="o">;</span>
     <span class="kd">private</span> <span class="n">GVRScene</span> <span class="n">mMainScene</span><span class="o">;</span>
     <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">float</span> <span class="n">DEPTH</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.5f</span><span class="o">;</span>
 
@@ -1041,14 +1136,13 @@
 
         <span class="nd">@Override</span>
         <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCursorControllerAdded</span><span class="o">(</span><span class="n">GVRCursorController</span> <span class="n">controller</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">&quot;GUI&quot;</span><span class="o">,</span> <span class="s">&quot;Add Controller&quot;</span><span class="o">);</span>
+
             <span class="c1">// Gaze Controller</span>
             <span class="k">if</span> <span class="o">(</span><span class="n">controller</span><span class="o">.</span><span class="na">getControllerType</span><span class="o">()</span> <span class="o">==</span> <span class="n">GVRControllerType</span><span class="o">.</span><span class="na">GAZE</span><span class="o">)</span> <span class="o">{</span>
 
                 <span class="c1">//Add controller cursor</span>
-                <span class="n">cursor</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRSceneObject</span><span class="o">(</span><span class="n">mContext</span><span class="o">,</span>
-                        <span class="k">new</span> <span class="n">FutureWrapper</span><span class="o">&lt;</span><span class="n">GVRMesh</span><span class="o">&gt;(</span><span class="n">mContext</span><span class="o">.</span><span class="na">createQuad</span><span class="o">(</span><span class="mf">0.1f</span><span class="o">,</span> <span class="mf">0.1f</span><span class="o">)),</span>
-                        <span class="n">mContext</span><span class="o">.</span><span class="na">getAssetLoader</span><span class="o">().</span><span class="na">loadFutureTexture</span><span class="o">(</span><span class="k">new</span> <span class="n">GVRAndroidResource</span><span class="o">(</span><span class="n">mContext</span><span class="o">,</span> <span class="n">R</span><span class="o">.</span><span class="na">raw</span><span class="o">.</span><span class="na">cursor</span><span class="o">)));</span>
+                <span class="n">GVRTexture</span> <span class="n">cursor_texture</span> <span class="o">=</span> <span class="n">mContext</span><span class="o">.</span><span class="na">getAssetLoader</span><span class="o">().</span><span class="na">loadTexture</span><span class="o">(</span><span class="k">new</span> <span class="n">GVRAndroidResource</span><span class="o">(</span><span class="n">mContext</span><span class="o">,</span> <span class="n">R</span><span class="o">.</span><span class="na">raw</span><span class="o">.</span><span class="na">cursor</span><span class="o">));</span>
+                <span class="n">cursor</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRSceneObject</span><span class="o">(</span><span class="n">mContext</span><span class="o">,</span> <span class="n">mContext</span><span class="o">.</span><span class="na">createQuad</span><span class="o">(</span><span class="mf">0.1f</span><span class="o">,</span> <span class="mf">0.1f</span><span class="o">),</span> <span class="n">cursor_texture</span><span class="o">);</span>
                 <span class="n">cursor</span><span class="o">.</span><span class="na">getTransform</span><span class="o">().</span><span class="na">setPosition</span><span class="o">(</span><span class="mf">0.0f</span><span class="o">,</span> <span class="mf">0.0f</span><span class="o">,</span> <span class="n">DEPTH</span><span class="o">);</span>
                 <span class="n">mMainScene</span><span class="o">.</span><span class="na">getMainCameraRig</span><span class="o">().</span><span class="na">addChildObject</span><span class="o">(</span><span class="n">cursor</span><span class="o">);</span>
                 <span class="n">cursor</span><span class="o">.</span><span class="na">getRenderData</span><span class="o">().</span><span class="na">setDepthTest</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
@@ -1093,8 +1187,6 @@
 
 <h3 id="5-build">5. Build<a class="headerlink" href="#5-build" title="Permanent link">&para;</a></h3>
 <p>Build and run the project, you should be able to see a cursor on the center of the screen</p>
-<h2 id="gear-vr-controller">Gear VR Controller<a class="headerlink" href="#gear-vr-controller" title="Permanent link">&para;</a></h2>
-<p>Gear VR controller provides better user experience and more precise tracking. The GearVR cursor controller functionality tutorial is still under development. See <a href="https://github.com/gearvrf/GearVRf-Demos/tree/master/gvr-controller">this demo</a> for using Gear VR controller</p>
 <h2 id="source-code">Source Code<a class="headerlink" href="#source-code" title="Permanent link">&para;</a></h2>
 <p>Complete <a href="https://github.com/gearvrf/GearVRf-Demos/tree/master/tutorials/tutorial_3_model_animation">Source Code</a> for this sample</p>
                 
