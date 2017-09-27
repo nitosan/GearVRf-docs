@@ -1,5 +1,7 @@
 # GearVR Framework Project
 
+![](/images/GearVRf_Architecture.png)
+
 The Gear VR Framework (GearVRf) Project is a lightweight, powerful, open source rendering engine with a Java interface for developing mobile VR games and applications for Gear VR and Google Daydream View.
 
 __GearVRf is:__
@@ -14,6 +16,7 @@ __GearVRf is:__
 
 * __Efficient__ - GearVRf's interface layer is abstracted from the target mobile VR platform SDK. You can write code once and build for both Gear VR and Daydream/Cardboard. Default build options create a single apk that works for both, with run-time flow checks for Oculus service that revert to Daydream if Oculus not available. Google Cardboard is even supported, as Daydream's backend reverts to the Google Cardboard service if the mobile device does not support Daydream!
 
-![](/images/GearVRf_Architecture.png)
 
-[Get Started](getting_started.md)
+<div class="white_text">
+	<a href="getting_started" class="startButton">Getting Started</a>
+</div>
