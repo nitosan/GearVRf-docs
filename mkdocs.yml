@@ -30,6 +30,7 @@ pages:
     - Simple VR app: tutorials/simple_vr_app.md
     - Play With Materials: tutorials/play_with_material.md
     - Play With 3D Models: tutorials/play_with_3d_models.md
+    - Play With Animation: tutorials/play_with_animation.md
     - Play With Controller: tutorials/play_with_controller.md
     - Play With VR Video: tutorials/play_with_vr_video.md
   - Programming Guide:
