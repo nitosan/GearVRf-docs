@@ -33,6 +33,7 @@ pages:
     - Play With Animation: tutorials/play_with_animation.md
     - Play With Controller: tutorials/play_with_controller.md
     - Play With VR Video: tutorials/play_with_vr_video.md
+    - Play With Billboard: tutorials/play_with_billboard.md
   - Programming Guide:
     - Overview: programming_guide/overview.md
     - Features:
