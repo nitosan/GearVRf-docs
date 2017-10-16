@@ -53,6 +53,7 @@ pages:
     - Video Tutorials: programming_guide/video_tutorials.md
     - Sample Code: programming_guide/sample_code.md
   - API Reference: api_reference.md
+  - Community: community.md
   - Blog:
     - GVRF and the X3D file format: blog/2017_4_17_x3d.md
   - About:
