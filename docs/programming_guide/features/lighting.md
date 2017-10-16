@@ -14,7 +14,9 @@ The light's class determines what lighting algorithm is used by the GPU. Three b
 
 All lights have an enabled uniform which enables or disables the light. The point and spot lights support attenuation factors which control how the light falls off with distance according to this equation:
 
+``
 Attenuation = 1 / (attenuation_constant + attenuation_linear * distance + attenuation_quadratic * distance * distance)
+``
 
 The light object contains the data used by the fragment shader. It is accessed in terms of key / value pairs where the key is a string containing the name of the uniform and the value is a scalar or vector. GearVRF automatically loads these values into the fragment shader uniforms for you.
 
@@ -49,7 +51,7 @@ A light is a component that is attached to a scene object which gives it both a 
 GVRSpotLight createSpotLight(GVRContext gvrContext)
 {
     GVRSpotLight light = new GVRSpotLight(gvrContext);
-    
+
     light.setDiffuseIntensity(1, 0, 0);
     light.setSpecularIntensity(1, 0, 0);
     light.setInnerCone(10);
@@ -61,10 +63,13 @@ You need to attach your light to a GVRSceneObject before it can illuminate anyth
 ```java
 GVRLightBase light = createSpotLight(gvrContext);
 GVRSceneObject lightNode = new GVRSceneObject(gvrContext);
-GVRSceneObject sphereNode = new GVRSphereSceneObject(gvrContext);
+GVRMaterial material = new new GVRMaterial(gvrContext, GVRMaterial.GVRShaderType.Phong.ID);
+GVRSceneObject sphereNode = new GVRSphereSceneObject(gvrContext, material);
 
+material.setVec4("diffuse_color", 1.0f, 0.8f, 0.5f, 1.0f);
+material.setVec4("specular_color", 1.0, 1.0, 1.0, 1.0f);
+material.setFloat("specular_exponent", 5.0f);
 sphereNode.attachComponent(light);
 GVRRenderData rdata = sphereNode.getRenderData();
 rdata.enableLight();
-rdata.setShaderTemplate(GVRPhongShader.class);
 ```

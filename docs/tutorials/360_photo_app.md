@@ -20,8 +20,8 @@ In order to display the image we need to load the image into the memory first. A
 
 1. load image with the following code
 ```java
-Future<GVRTexture> texture = 
-	gvrContext.getAssetLoader().loadFutureTexture(
+GVRTexture texture = 
+	gvrContext.getAssetLoader().loadTexture(
 		new GVRAndroidResource(gvrContext, R.raw.photosphere)
 	);
 ```

@@ -28,10 +28,9 @@ Make sure to copy both files into `app/src/main/assets` folder
 You can learn how to load 3D models with following [play with 3D models tutorial](play_with_3d_models), here we'll just highlight the code for billboard
 
 ```java
-mTrexObj = gvrContext.getAssetLoader().loadModel("trex_mesh.fbx");
+mTrexObj = gvrContext.getAssetLoader().loadModel("trex_mesh.fbx", gvrContext.getMainScene());
 mTrexObj.getTransform().setPosition(4,-6,-8);
 mTrexObj.attachComponent(new GVRBillboard(gvrContext, new Vector3f(0f,1f,0f)));
-mNode.addChildObject(mTrexObj);
 ```
 
 !!!note

@@ -22,7 +22,6 @@ The render data component is what makes a scene object visible. It provides both
 |setCastShadows|Enable / disable shadow casting|
 |setMesh|Designate the mesh to render|
 |setMaterial|Specify material properties for shader|
-|setShaderTemplate|Establish shading model to use 
 
 
 ## Render Passes
@@ -37,7 +36,6 @@ GVRRenderData rdata = cube.getRenderData();
 GVRMaterial red = rdata.getMaterial();
 GVRMaterial blue = new GVRMaterial(gvrContext);
 GVRRenderPass pass = new GVRRenderPass(gvrContext);
-
 
 red.setDiffuseColor(1, 0, 0, 1);
 blue.setDiffuseColor(0, 0, 1, 0);

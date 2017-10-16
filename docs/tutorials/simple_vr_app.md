@@ -52,10 +52,8 @@ First, let's add a new member variable for the Cube to the `MainScene`
 Then add the cube to our scene with following code in `onInit()` function
 ```java
     //Create a cube
-    mCube = new GVRCubeSceneObject(gvrContext);
-
-    //Set shader for the cube
-    mCube.getRenderData().setShaderTemplate(GVRPhongShader.class);
+    mCube = new GVRCubeSceneObject(gvrContext, true,
+    		     new GVRMaterial(gvrContext, GVRMaterial.GVRShaderType.Phong.ID);
 
     //Set position of the cube at (0, -2, -3)
     mCube.getTransform().setPosition(0, -2, -3);
