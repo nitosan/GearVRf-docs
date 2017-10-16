@@ -127,11 +127,13 @@ Yes, in your phone's Settings->Applications->Application Manager->Gear VR Servic
 
 ### 17. How to reduce nausea?
 
-Maintain a high frame-rate, such as 90+ fps.
+Maintain a high frame-rate, at least 60 fps.
+Avoid rapidly turning the camera.
+Move slowly are carefully when teleporting.
 
 ### 18. How many triangles can I display max for a good VR experience with high frame rate?
 
-On a mobile phone such as Galaxy S6/S7, please keep triangle count in the thousands to tens of thousands range if possible, depending on shader complexities.
+On a mobile phone such as Galaxy S6/S7, please keep triangle count in the thousands to tens of thousands range if possible, depending on shader complexities. A mobile GPU can display around 100,000 vertices with a simple shader, about half that if using real-time shadow mapping from a single light source.
 
 ### 19. How many separate scene objects can I display for a good VR experience?
 
@@ -139,7 +141,9 @@ On OpenGL, each scene object can potentially generate a draw call. On most phone
 
 ### 20. What are some graphics performance tips?
 
-Keep draw calls minimal and relatively cheap pixel shader. Keep in mind shadows from shadow map more or less doubles the triangle rendered. Use profiler to see if you are really GPU bound.
+Keep draw calls minimal and relatively cheap pixel shader. A mobile GPU can execute about 100 draw calls per frame. It can display about 100,000 vertices before it becomes difficult to maintain 60fps.
+
+Keep in mind shadows from shadow map more or less doubles the number of draw calls and vertices rendered. Use profiler to see if you are really GPU bound.
 
 ### 21. Which phones are compatible with GearVR?
 

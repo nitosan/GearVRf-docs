@@ -9,9 +9,11 @@ This picture shows a material with two custom data parameters - a diffuse color 
 ![](/images/GVR_Material.png)
 
 
-## Accessing Material Parameters
+## Accessing Shader Uniforms
 
-The GVRMaterial provides access to the fragment shader uniforms by name. Setting the value of a material parameter will set the correspondingly named uniform variable in the fragment shader associated with that material. GVRMaterial has a set of functions that read and write the material parameters based on type.
+The GVRMaterial object provides access to the fragment shader uniforms by name. Setting the value of a material parameter will set the correspondingly named uniform variable in the fragment shader associated with that material. GVRMaterial has a set of functions that read and write the material parameters based on type.
+
+You also use GVRMaterial to bind textures to samplers in the shader. Adding a texture by name to a material binds that texture to the sampler of the same name in the shader.
 
 |Shader Type| GVRMaterial Setter| GVRMaterial Getter|
 |-----------|---------------|---------------|
@@ -19,6 +21,11 @@ The GVRMaterial provides access to the fragment shader uniforms by name. Setting
 |float2 |	setVec2(String name, float[] v) |	float[] getVec2(String name)|
 |float3 |	setVec3(String name, float[] v) |	float[] getVec3(String name)|
 |float4 |	setVec4(String name, float[] v) |	float[] getVec4(String name)|
+|float[] |	setFloatArray(String name, float[] v) | float[] getFloatVec(String name)|
+|int[]  |	setIntArray(String name, int[] v) |   int[] getIntVec(String name) |
+|int    |   setInt(String name, int v)      |   int getInt(String name) |
+|mat4   |   setMat4(String name, float m00, .. float m33) | float[] getFloatArray(String name) |
+|sampler2D | setTexture(String name, GVRTexture t) | GVRTexture getTexture(String name) |
 
 ## Material Construction Example
 
@@ -30,12 +37,14 @@ In this example we construct a GVRMaterial to be used with the phong shader. Thi
 GVRMaterial createMaterial(GVRContext gvrContext)
 {
    GVRMaterial material = createMaterial(gvrContext);
-   GVRTexture tex = gvrContext.getAssetLoader().loadTexture(new GVRAndroidResource(gvrContext,R.drawable.gearvr_logo));
+   GVRTexture tex = gvrContext.getAssetLoader().loadTexture(
+   		new GVRAndroidResource(gvrContext,R.drawable.gearvr_logo));
 
-   material.setDiffuseColor(0.5f, 0.5f, 0.5f);
-   material.setAmbientColor(1.0f, 1.0f, 1.0f, 1.0f);
-   material.setSpecularColor(1.0f, 1.0f, 1.0f, 1.0f);
-   material.setSpecularExponent(128.0f);
+   material.setVec4("diffuse_color", 0.5f, 0.5f, 0.5f, 1.0f);
+   material.setVec4("ambient_color", 0.2f, 0.2f, 0.2f, 1.0f);
+   material.setVec4("specular_color", 1.0f, 1.0f, 1.0f, 1.0f);
+   material.setFloat(128.0f);
+   material.setTexture("diffuseTexture", tex);
    return material;
 }
 ```

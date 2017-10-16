@@ -31,11 +31,10 @@ Make sure to copy both files into `app/src/main/assets` folder
 
 You can load the animated model with following code
 ```java
-    GVRModelSceneObject character = gvrContext.getAssetLoader().loadModel("astro_boy.dae");
+    GVRModelSceneObject character = gvrContext.getAssetLoader().loadModel("astro_boy.dae", 																								gvrContext.getMainScene());
     character.getTransform().setRotationByAxis(45.0f, 0.0f, 1.0f, 0.0f);
     character.getTransform().setScale(3, 3, 3);
     character.getTransform().setPosition(0.0f, -0.4f, -0.5f);
-    gvrContext.getMainScene().addSceneObject(character);
 ```
 
 And play the animation with `GVRAnimator`, here we make sure the animation in looping forever with the `setRepeatCount` set to -1

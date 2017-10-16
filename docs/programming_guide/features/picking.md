@@ -17,18 +17,25 @@ GearVRf provides several types of colliders to use depending on how accurate you
 
 ## Picking
 
-The picking operation is performed by the GVRPicker class. The picker can operate in two modes. You can call the pickObjects function directly to get back the list of objects that were picked and information about the collision. You can also attach the picker to a scene object and it will automatically cast a ray from that scene object and generate events indicating what was picked.
+The picking operation is performed by the GVRPicker class. The picker can operate in two modes. You can call the *GVRPicker.pickObjects* function directly to get back the list of objects that were picked and information about the collision. You can also attach the picker to a scene object and it will automatically cast a ray from that scene object and generate events indicating what was picked.
 
 ## Procedural Picking
 
 To use the picker procedurally you must provide the origin and direction of the pick ray in world coordinates and the GVRScene you want to pick against. The picker returns an array of GVRPickedObject instances that indicate what was picked and where it was hit. The hit position returned will be in the coordinate system of the collider geometry - not in world coordinates. To transform it to world coordinates you must multiply it by the model matrix of the scene object hit. This is not the most efficient method of picking and should only be called once per frame.
 
-|GVRPicker.GVRPickedObject|||
-|-|-|-|
-|HitObject |	GVRSceneObject |	the scene object that was hit|
-|HitCollider |	GVRCollider |	the collider that was hit|
-|HitPosition |	float[3] |	X, Y, Z coordinates of where collider was hit|
-|HitDistance |	float |	distance from camera in world coordinates|
+For mesh colliders, you can enable coordinate picking in the constructor and the picker will provide additional information with the barycentric coordinates, texture coordinates and normal at the hit location.
+
+|Field|Type|Description|
+|-----|----|-----------|
+|hitObject |	GVRSceneObject |	the scene object that was hit|
+|hitCollider |	GVRCollider |	the collider that was hit|
+|hitPosition |	float[3] |	X, Y, Z coordinates of where collider was hit|
+|hitDistance |	float |	distance from camera in world coordinates|
+|faceIndex*   | int    | index of face hit|
+|barycentricCoordinates* | float[3] | barycentric coordinates of the hit location on the collided face |
+|textureCoordinates* | float[2] | U,V coordinates of the hit location on the mesh |
+|normalCoordinates* | float[3] | normalized surface normal at the hit location |
+
 
 ## Picking Events
 

@@ -21,18 +21,16 @@ Each light type has a corresponding color uniform to define the overall object c
 ## Phong Shader Example
 ```java
 	GVRTexture tex = context.getAssetLoader().loadTexture(new GVRAndroidResource(mGVRContext, R.drawable.gearvrflogo));
-	GVRSceneObject plane = new GVRSceneObject(context, 10.0f, 4.0f, tex);
-	GVRRenderData rdata = backdrop.getRenderData();
-	GVRMaterial material = new GVRMaterial(context);
-	        
+	GVRMaterial material = new GVRMaterial(context, GVRMaterial.GVRShaderType.Phong.ID);
+	GVRSceneObject plane = new GVRSceneObject(context, 10.0f, 4.0f,
+    										 "float3 a_position float2 a_texcoord float3 a_normal", material);
+
 	material.setVec4("diffuse_color", 0.8f, 0.8f, 0.8f, 1.0f);
 	material.setVec4("ambient_color", 0.3f, 0.3f, 0.3f, 1.0f);
 	material.setVec4("specular_color", 1.0f, 1.0f, 1.0f, 1.0f);
 	material.setVec4("emissive_color", 0.0f, 0.0f, 0.0f, 0.0f);
 	material.setFloat("specular_exponent", 10.0f);
 	material.setTexture("diffuseTexture", tex);
-	rdata.setMaterial(material);
-	rdata.setShaderTemplate(GVRPhongShader.class);
 ```
 
 ## Vertex Shader
@@ -45,7 +43,10 @@ Phong Shader Vertex Attributes
 |---------|---------|--------------|
 |a_position |	vec3| 	X, Y, Z position in model space|
 |a_normal |	vec3 |	normal vector in model space|
-|a_texcoord |	vec2 |	U, V texture coordinate for diffuse texture|
+|a_texcoord |	vec2 |	first U, V texture coordinate set |
+|a_texcoord1 |	vec2 |	second U, V texture coordinate set|
+|a_texcoord2 |	vec2 |	third U, V texture coordinate set|
+|a_texcoord3 |	vec2 |	fourth U, V texture coordinate set|
 |a_tangent |	vec3 |	tangent for normal mapping|
 |a_bitangent |	vec3 |	bitangent for normal mapping|
 |a_bone_weights |	vec4 |	weights for 4 bones for skinning|
@@ -76,9 +77,11 @@ Phong Texture Maps
 |-|-|
 |diffuseTexture |	Supplies diffuse color per pixel|
 |ambientTexture |	Supplies ambient color per pixel|
+|opacityTexture |   Supplies alpha per pixel|
 |specularTexture |	Supplies specular color per pixel|
 |emissiveTexture |	Supplies emissive color per pixel|
 |normalTexture |	Supplies normal per pixel|
+|lightmapTexture |  Supplies lighting per pixel|
 
 Materials used with the phong shader template support these uniforms. Each different type of light has its own set of uniforms used to define the light properties.
 

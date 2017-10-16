@@ -51,17 +51,16 @@ Let's create a red material with the following code.
 
 ```java
     GVRMaterial flatMaterial;
-    flatMaterial = new GVRMaterial(gvrContext);
+    flatMaterial = new GVRMaterial(gvrContext, GVRMaterial.GVRShaderType.Phong.ID);
     flatMaterial.setColor(1.0f, 0.0f, 0.0f);
 ```
 
 !!!note
-    GearVR Framework uses [RGB color model](https://en.wikipedia.org/wiki/RGB_color_model) and the range of each color is from 0 to 1 
+    GearVR Framework uses [RGB color model](https://en.wikipedia.org/wiki/RGB_color_model) and the range of each color is from 0 to 1.
 
 Now that we created the material, let's apply it to the sphere.
 ```java
     mSphere.getRenderData().setMaterial(flatMaterial);
-    mSphere.getRenderData().setShaderTemplate(GVRPhongShader.class);
 ```
 
 Build and run your app and see if you can find the red sphere.
@@ -88,9 +87,8 @@ You can create a material with texture using following code.
 
 ```java
     GVRMaterial textureMaterial;
-    textureMaterial = new GVRMaterial(gvrContext);
-    textureMaterial.setMainTexture(texture);
-
+    textureMaterial = new GVRMaterial(gvrContext, GVRMaterial.GVRShaderType.Phong.ID);
+    textureMaterial.setTexture("diffuseTexture", texture);
     mCube.getRenderData().setMaterial(textureMaterial);
 ```
 
@@ -124,7 +122,6 @@ There is one more thing we need to do to make the light work - ensure all the sc
 Add the following line to the cube object:
 ```java
 textureMaterial.setTexture("diffuseTexture", texture);
-mCube.getRenderData().setShaderTemplate(GVRPhongShader.class);
 ```
 
 Build and run the app, you should be able to see the lighting on the sphere and crate box, feel free to tweak with the light to make it look better.

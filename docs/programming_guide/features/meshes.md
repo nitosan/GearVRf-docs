@@ -18,25 +18,26 @@ GearVRf executes skinning on the GPU but it calculates the bone matrices on the 
 
 ## Accessing Mesh Components
 
-The vertex shader used to render the mesh determines which vertex components are required. The GearVRf build-in shaders rely on positions, normals, texture coordinates and bone information. You can write your own shaders which use other vertex components.
+The vertex shader used to render the mesh determines which vertex components are required. The GearVRf built-in shaders rely on positions, normals, texture coordinates and bone information. You can write your own shaders which use other vertex components.
 
-Each vertex component has a unique name and type. GearVRf vertex components are vectors containing between one and four floats. Each component has a function wh|ich can get or set that component for the entire vertex array. GVRMesh provides convenience functions for the built-in types. Reading or writing the vertex array is a high overhead operation and should not be done every frame.
+Each vertex component has a unique name and type. GearVRf vertex components are vectors containing between one and four floats. Each component has a function wh|ich can get or set that component for the entire vertex array. *GVRMesh* provides convenience functions for the built-in types. Reading or writing the vertex array is a high overhead operation and should not be done every frame.
 
-The index array describes an indexed triangle list. Each triangle has three consecutive 32-bit indices in the array designating the vertices from the vertex array that represent that triangle. The setIndices andgetIndices function provide access to the GVRMesh triangle data.
+The index array describes an indexed triangle list. Each triangle has three consecutive indices in the array designating the vertices from the vertex array that represent that triangle. The index array may either be 16-bit or 32-bit.
 
-|Shader Name| GVRMesh Setter| GVRMesh Getter|
+|Attribute Name| GVRMesh Setter| GVRMesh Getter|
 |-----------|---------------|---------------|
-|a_position |setVertices(float) |float[] getVertices()|
+|a_position |setVertices(float[]) |float[] getVertices()|
 |a_normal |setNormals(float[]) |float[] getNormals()|
 |a_texcoord |setTexCoords(float[]) |float[] getTexCoords()|
 
-
-|Shader Type| GVRMesh Setter| GVRMesh Getter|
-|-----------|---------------|---------------|
-|float3 |setVec3Vector(String name, float[]) |float[] getVec3Vector(String name)|
-|float2 |setVec2Vector(String name, float[]) |float[] getVec2Vector(String name)|
-|float4 |setVec4Vector(String name, float[]) |float[] getVec4Vector(String name)|
-|float |setFloatVector(String name, float[]) |float[] getFloatVectorString name()|
+| GVRMesh Setter| GVRMesh Getter|
+|---------------|---------------|
+|setFloatArray(String name, float[]) |float[] getFloatArray(String name)|
+|setFloatVec(String name, FloatBuffer) | getFloatVec(String name, FloatBuffer)|
+|setIntArray(String name, int[]) |int[] getIntArray(String name)|
+|setIntVec(String name, IntBuffer) | getIntVec(String name, IntBuffer)|
+|setIndices(int[]) | int[] getIndices() |
+|setTriangles(char[]) | char[] getTriangles() |
 
 ## Mesh Construction Example
 
@@ -77,5 +78,32 @@ GVRMesh mesh = createMesh(gvrContext);
 GVRSceneObject obj = new GVRSceneObject(gvrContext, mesh);
 GVRRenderData rdata = obj.getRenderData();
 rdata.setMaterial(material);
+```
+## Vertex and Index Buffers
+
+The vertices and indices of the mesh are actually kept as separate GearVRf objects and they can be shared across meshes. *GVRVertexBuffer* contains a set of vertices that can be used by a mesh. *GVRIndexBuffer* contains a set of face indices.
+
+The layout of the vertices in the vertex buffer is established at construction time and cannot be changed. The vertex descriptor string describes the name and type of each vertex component. The supported types are *float, float2, float3, float4, int, int2, int3 and int4*. The default vertex descriptor if none is specified is "float3 a_position float2 a_texcoord float3 a_normal" which will work with all of the built-in shaders.
+
+The size of the indices in the index buffer is also fixed at construction time. Indices may be either 2 bytes or 4 bytes.
+
+In this example, we create two scene objects representing different faces of a cube which share the same vertex array.
+```java
+float[] pos = new float[] { 1, 1, 1, 1, -1, 1, -1, 1, 1, -1, -1, 1,
+                            1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1,};
+float[] uv = new float[] { 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 1, 0 };
+GVRVertexBuffer cubeVerts = new GVRVertexBuffer(context, "float3 a_position float2 a_texcoord");
+GVRIndexBuffer face1Tris = new GVRIndexBuffer(context, 2, 6);
+GVRIndexBuffer face2Tris = new GVRIndexBuffer(context, 2, 6);
+GVRMesh mesh1 = new GVRMesh(cubeVerts, face1Tris);
+GVRMesh mesh2 = new GVRMesh(cubeVerts, face2Tris);
+
+cubeVerts.setFloatArray("a_position", pos);
+cubeVerts.setFloatArray("a_texcoord", uv);
+face1Tris.setShortVec(new char[] { 0, 1, 2, 2, 1, 3 });
+face2Tris.setShortVec(new char[] { 4, 5, 6, 6, 5, 7 });
+
+GVRSceneObject object1 = new GVRSceneObject(context, mesh1);
+GVRSceneObject object2 = new GVRSceneObject(context, mesh2);
 ```
 

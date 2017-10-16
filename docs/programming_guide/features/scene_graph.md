@@ -14,7 +14,7 @@ __To set the background of the cameras and the position of the camera rig:__
 	cameraRig.getRightCamera().setBackgroundColor(0.0f, 0.0f, 0.0f, 1.0f);
 
 	// set up camerarig position (default)
-	cameraRig.getOwnerObject().getTransform().setPosition(0.0f, 0.0f, 0.0f);
+	cameraRig.getHeadTransform().setPosition(0.0f, 0.0f, 0.0f);
 ```
 
 ## Scene Graph
@@ -37,10 +37,10 @@ __To create a scene object from from a file:__
 
 ```java
 	// load mesh using assimp
-	GVRModelSceneObject model = gvrContext.getAssetLoader().loadModel("sphere.obj", GVRResourceVolume.VolumeType.ANDROID_ASSETS, gvrScene);
+	GVRSceneObject model = gvrContext.getAssetLoader().loadModel("sphere.obj", GVRResourceVolume.VolumeType.ANDROID_ASSETS, gvrScene);
 ```
 
-You can also load only a mesh and construct the scene object, material and render data programmatically.
+Usually it is more efficient to let the asset loader create the meshes and textures for you. Bu you can also load only a mesh and construct the scene object, material and render data programmatically. 
 
 __To create a scene object with shader-only material via render data:__
 
