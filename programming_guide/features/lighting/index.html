@@ -278,6 +278,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../tutorials/play_with_animation/" title="Play With Animation" class="md-nav__link">
+      Play With Animation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../tutorials/play_with_controller/" title="Play With Controller" class="md-nav__link">
       Play With Controller
     </a>
@@ -292,6 +304,18 @@
   <li class="md-nav__item">
     <a href="../../../tutorials/play_with_vr_video/" title="Play With VR Video" class="md-nav__link">
       Play With VR Video
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../tutorials/play_with_billboard/" title="Play With Billboard" class="md-nav__link">
+      Play With Billboard
     </a>
   </li>
 
@@ -868,7 +892,7 @@
 <li>GVRSpotLight: A spot light illuminates in a cone radiating from a point. It has color, position and direction.</li>
 </ul>
 <p>All lights have an enabled uniform which enables or disables the light. The point and spot lights support attenuation factors which control how the light falls off with distance according to this equation:</p>
-<p>Attenuation = 1 / (attenuation_constant + attenuation_linear * distance + attenuation_quadratic * distance * distance)</p>
+<p><code>Attenuation = 1 / (attenuation_constant + attenuation_linear * distance + attenuation_quadratic * distance * distance)</code></p>
 <p>The light object contains the data used by the fragment shader. It is accessed in terms of key / value pairs where the key is a string containing the name of the uniform and the value is a scalar or vector. GearVRF automatically loads these values into the fragment shader uniforms for you.</p>
 <h2 id="shadows">Shadows<a class="headerlink" href="#shadows" title="Permanent link">&para;</a></h2>
 <p>GearVRf can calculate shadow maps for directional and spot lights. You can enable shadow mapping by calling GVRLightBase.setCastShadow with a true parameter. Shadow mapping involves considerable overhead per frame because it renders the scene from the viewpoint of the light to calculate the shadow map. It also uses up more uniform variables. If you disable shadow mapping on all lights, GearVRf will free up all resources used for shadow mapping and return to normal performance.</p>
@@ -963,12 +987,15 @@
 <p>You need to attach your light to a GVRSceneObject before it can illuminate anything. To enable multiple lighting support the GVRPhongShader template must be selected. You can also turn the lighting effect on and off for a particular mesh. In this example we light a sphere with the spot light created above.</p>
 <div class="codehilite"><pre><span></span><span class="n">GVRLightBase</span> <span class="n">light</span> <span class="o">=</span> <span class="n">createSpotLight</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">);</span>
 <span class="n">GVRSceneObject</span> <span class="n">lightNode</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRSceneObject</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">);</span>
-<span class="n">GVRSceneObject</span> <span class="n">sphereNode</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRSphereSceneObject</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">);</span>
+<span class="n">GVRMaterial</span> <span class="n">material</span> <span class="o">=</span> <span class="k">new</span> <span class="k">new</span> <span class="n">GVRMaterial</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">,</span> <span class="n">GVRMaterial</span><span class="o">.</span><span class="na">GVRShaderType</span><span class="o">.</span><span class="na">Phong</span><span class="o">.</span><span class="na">ID</span><span class="o">);</span>
+<span class="n">GVRSceneObject</span> <span class="n">sphereNode</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRSphereSceneObject</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">,</span> <span class="n">material</span><span class="o">);</span>
 
+<span class="n">material</span><span class="o">.</span><span class="na">setVec4</span><span class="o">(</span><span class="s">&quot;diffuse_color&quot;</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">,</span> <span class="mf">0.8f</span><span class="o">,</span> <span class="mf">0.5f</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">);</span>
+<span class="n">material</span><span class="o">.</span><span class="na">setVec4</span><span class="o">(</span><span class="s">&quot;specular_color&quot;</span><span class="o">,</span> <span class="mf">1.0</span><span class="o">,</span> <span class="mf">1.0</span><span class="o">,</span> <span class="mf">1.0</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">);</span>
+<span class="n">material</span><span class="o">.</span><span class="na">setFloat</span><span class="o">(</span><span class="s">&quot;specular_exponent&quot;</span><span class="o">,</span> <span class="mf">5.0f</span><span class="o">);</span>
 <span class="n">sphereNode</span><span class="o">.</span><span class="na">attachComponent</span><span class="o">(</span><span class="n">light</span><span class="o">);</span>
 <span class="n">GVRRenderData</span> <span class="n">rdata</span> <span class="o">=</span> <span class="n">sphereNode</span><span class="o">.</span><span class="na">getRenderData</span><span class="o">();</span>
 <span class="n">rdata</span><span class="o">.</span><span class="na">enableLight</span><span class="o">();</span>
-<span class="n">rdata</span><span class="o">.</span><span class="na">setShaderTemplate</span><span class="o">(</span><span class="n">GVRPhongShader</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
 </pre></div>
                 
                   

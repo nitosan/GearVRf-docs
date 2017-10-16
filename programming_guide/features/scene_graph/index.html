@@ -278,6 +278,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../tutorials/play_with_animation/" title="Play With Animation" class="md-nav__link">
+      Play With Animation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../tutorials/play_with_controller/" title="Play With Controller" class="md-nav__link">
       Play With Controller
     </a>
@@ -292,6 +304,18 @@
   <li class="md-nav__item">
     <a href="../../../tutorials/play_with_vr_video/" title="Play With VR Video" class="md-nav__link">
       Play With VR Video
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../tutorials/play_with_billboard/" title="Play With Billboard" class="md-nav__link">
+      Play With Billboard
     </a>
   </li>
 
@@ -865,7 +889,7 @@
     <span class="n">cameraRig</span><span class="o">.</span><span class="na">getRightCamera</span><span class="o">().</span><span class="na">setBackgroundColor</span><span class="o">(</span><span class="mf">0.0f</span><span class="o">,</span> <span class="mf">0.0f</span><span class="o">,</span> <span class="mf">0.0f</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">);</span>
 
     <span class="c1">// set up camerarig position (default)</span>
-    <span class="n">cameraRig</span><span class="o">.</span><span class="na">getOwnerObject</span><span class="o">().</span><span class="na">getTransform</span><span class="o">().</span><span class="na">setPosition</span><span class="o">(</span><span class="mf">0.0f</span><span class="o">,</span> <span class="mf">0.0f</span><span class="o">,</span> <span class="mf">0.0f</span><span class="o">);</span>
+    <span class="n">cameraRig</span><span class="o">.</span><span class="na">getHeadTransform</span><span class="o">().</span><span class="na">setPosition</span><span class="o">(</span><span class="mf">0.0f</span><span class="o">,</span> <span class="mf">0.0f</span><span class="o">,</span> <span class="mf">0.0f</span><span class="o">);</span>
 </pre></div>
 
 
@@ -881,11 +905,11 @@
 <p>The most common way is to load models using the GearVRf wrapped Assimp library.Assimp can load many 3D file formats and construct GearVRf scene object hierarchies from them. The materials, textures and shaders are automatically attached to the appropriate scene object and the model is added to the scene. The <a href="../programming_guide/features/loading_assets">asset loader</a> uses the GVRPhongShader class as the shader template for all imported objects.</p>
 <p><strong>To create a scene object from from a file:</strong></p>
 <div class="codehilite"><pre><span></span>    <span class="c1">// load mesh using assimp</span>
-    <span class="n">GVRModelSceneObject</span> <span class="n">model</span> <span class="o">=</span> <span class="n">gvrContext</span><span class="o">.</span><span class="na">getAssetLoader</span><span class="o">().</span><span class="na">loadModel</span><span class="o">(</span><span class="s">&quot;sphere.obj&quot;</span><span class="o">,</span> <span class="n">GVRResourceVolume</span><span class="o">.</span><span class="na">VolumeType</span><span class="o">.</span><span class="na">ANDROID_ASSETS</span><span class="o">,</span> <span class="n">gvrScene</span><span class="o">);</span>
+    <span class="n">GVRSceneObject</span> <span class="n">model</span> <span class="o">=</span> <span class="n">gvrContext</span><span class="o">.</span><span class="na">getAssetLoader</span><span class="o">().</span><span class="na">loadModel</span><span class="o">(</span><span class="s">&quot;sphere.obj&quot;</span><span class="o">,</span> <span class="n">GVRResourceVolume</span><span class="o">.</span><span class="na">VolumeType</span><span class="o">.</span><span class="na">ANDROID_ASSETS</span><span class="o">,</span> <span class="n">gvrScene</span><span class="o">);</span>
 </pre></div>
 
 
-<p>You can also load only a mesh and construct the scene object, material and render data programmatically.</p>
+<p>Usually it is more efficient to let the asset loader create the meshes and textures for you. Bu you can also load only a mesh and construct the scene object, material and render data programmatically. </p>
 <p><strong>To create a scene object with shader-only material via render data:</strong></p>
 <div class="codehilite"><pre><span></span>    <span class="c1">// load mesh object</span>
     <span class="n">GVRMesh</span> <span class="n">sphereMesh</span> <span class="o">=</span> <span class="n">gvrContext</span><span class="o">.</span><span class="na">getAssetLoader</span><span class="o">().</span><span class="na">loadMesh</span><span class="o">(</span><span class="s">&quot;sphere.obj&quot;</span><span class="o">);</span>

@@ -278,6 +278,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../tutorials/play_with_animation/" title="Play With Animation" class="md-nav__link">
+      Play With Animation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../tutorials/play_with_controller/" title="Play With Controller" class="md-nav__link">
       Play With Controller
     </a>
@@ -292,6 +304,18 @@
   <li class="md-nav__item">
     <a href="../../../tutorials/play_with_vr_video/" title="Play With VR Video" class="md-nav__link">
       Play With VR Video
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../tutorials/play_with_billboard/" title="Play With Billboard" class="md-nav__link">
+      Play With Billboard
     </a>
   </li>
 
@@ -858,9 +882,9 @@
 <p>Each light type has a corresponding color uniform to define the overall object color and a texture sampler to provide a color at each pixel.</p>
 <h2 id="phong-shader-example">Phong Shader Example<a class="headerlink" href="#phong-shader-example" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span>    <span class="n">GVRTexture</span> <span class="n">tex</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="na">getAssetLoader</span><span class="o">().</span><span class="na">loadTexture</span><span class="o">(</span><span class="k">new</span> <span class="n">GVRAndroidResource</span><span class="o">(</span><span class="n">mGVRContext</span><span class="o">,</span> <span class="n">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">gearvrflogo</span><span class="o">));</span>
-    <span class="n">GVRSceneObject</span> <span class="n">plane</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRSceneObject</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="mf">10.0f</span><span class="o">,</span> <span class="mf">4.0f</span><span class="o">,</span> <span class="n">tex</span><span class="o">);</span>
-    <span class="n">GVRRenderData</span> <span class="n">rdata</span> <span class="o">=</span> <span class="n">backdrop</span><span class="o">.</span><span class="na">getRenderData</span><span class="o">();</span>
-    <span class="n">GVRMaterial</span> <span class="n">material</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRMaterial</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
+    <span class="n">GVRMaterial</span> <span class="n">material</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRMaterial</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">GVRMaterial</span><span class="o">.</span><span class="na">GVRShaderType</span><span class="o">.</span><span class="na">Phong</span><span class="o">.</span><span class="na">ID</span><span class="o">);</span>
+    <span class="n">GVRSceneObject</span> <span class="n">plane</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRSceneObject</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="mf">10.0f</span><span class="o">,</span> <span class="mf">4.0f</span><span class="o">,</span>
+                                             <span class="s">&quot;float3 a_position float2 a_texcoord float3 a_normal&quot;</span><span class="o">,</span> <span class="n">material</span><span class="o">);</span>
 
     <span class="n">material</span><span class="o">.</span><span class="na">setVec4</span><span class="o">(</span><span class="s">&quot;diffuse_color&quot;</span><span class="o">,</span> <span class="mf">0.8f</span><span class="o">,</span> <span class="mf">0.8f</span><span class="o">,</span> <span class="mf">0.8f</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">);</span>
     <span class="n">material</span><span class="o">.</span><span class="na">setVec4</span><span class="o">(</span><span class="s">&quot;ambient_color&quot;</span><span class="o">,</span> <span class="mf">0.3f</span><span class="o">,</span> <span class="mf">0.3f</span><span class="o">,</span> <span class="mf">0.3f</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">);</span>
@@ -868,8 +892,6 @@
     <span class="n">material</span><span class="o">.</span><span class="na">setVec4</span><span class="o">(</span><span class="s">&quot;emissive_color&quot;</span><span class="o">,</span> <span class="mf">0.0f</span><span class="o">,</span> <span class="mf">0.0f</span><span class="o">,</span> <span class="mf">0.0f</span><span class="o">,</span> <span class="mf">0.0f</span><span class="o">);</span>
     <span class="n">material</span><span class="o">.</span><span class="na">setFloat</span><span class="o">(</span><span class="s">&quot;specular_exponent&quot;</span><span class="o">,</span> <span class="mf">10.0f</span><span class="o">);</span>
     <span class="n">material</span><span class="o">.</span><span class="na">setTexture</span><span class="o">(</span><span class="s">&quot;diffuseTexture&quot;</span><span class="o">,</span> <span class="n">tex</span><span class="o">);</span>
-    <span class="n">rdata</span><span class="o">.</span><span class="na">setMaterial</span><span class="o">(</span><span class="n">material</span><span class="o">);</span>
-    <span class="n">rdata</span><span class="o">.</span><span class="na">setShaderTemplate</span><span class="o">(</span><span class="n">GVRPhongShader</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
 </pre></div>
 
 
@@ -898,7 +920,22 @@
 <tr>
 <td>a_texcoord</td>
 <td>vec2</td>
-<td>U, V texture coordinate for diffuse texture</td>
+<td>first U, V texture coordinate set</td>
+</tr>
+<tr>
+<td>a_texcoord1</td>
+<td>vec2</td>
+<td>second U, V texture coordinate set</td>
+</tr>
+<tr>
+<td>a_texcoord2</td>
+<td>vec2</td>
+<td>third U, V texture coordinate set</td>
+</tr>
+<tr>
+<td>a_texcoord3</td>
+<td>vec2</td>
+<td>fourth U, V texture coordinate set</td>
 </tr>
 <tr>
 <td>a_tangent</td>
@@ -981,6 +1018,10 @@
 <td>Supplies ambient color per pixel</td>
 </tr>
 <tr>
+<td>opacityTexture</td>
+<td>Supplies alpha per pixel</td>
+</tr>
+<tr>
 <td>specularTexture</td>
 <td>Supplies specular color per pixel</td>
 </tr>
@@ -991,6 +1032,10 @@
 <tr>
 <td>normalTexture</td>
 <td>Supplies normal per pixel</td>
+</tr>
+<tr>
+<td>lightmapTexture</td>
+<td>Supplies lighting per pixel</td>
 </tr>
 </tbody>
 </table>

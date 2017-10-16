@@ -356,6 +356,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../play_with_animation/" title="Play With Animation" class="md-nav__link">
+      Play With Animation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../play_with_controller/" title="Play With Controller" class="md-nav__link">
       Play With Controller
     </a>
@@ -370,6 +382,18 @@
   <li class="md-nav__item">
     <a href="../play_with_vr_video/" title="Play With VR Video" class="md-nav__link">
       Play With VR Video
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../play_with_billboard/" title="Play With Billboard" class="md-nav__link">
+      Play With Billboard
     </a>
   </li>
 
@@ -942,10 +966,8 @@
 
 <p>Then add the cube to our scene with following code in <code>onInit()</code> function</p>
 <div class="codehilite"><pre><span></span>    <span class="c1">//Create a cube</span>
-    <span class="n">mCube</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRCubeSceneObject</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">);</span>
-
-    <span class="c1">//Set shader for the cube</span>
-    <span class="n">mCube</span><span class="o">.</span><span class="na">getRenderData</span><span class="o">().</span><span class="na">setShaderTemplate</span><span class="o">(</span><span class="n">GVRPhongShader</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+    <span class="n">mCube</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRCubeSceneObject</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span>
+                 <span class="k">new</span> <span class="n">GVRMaterial</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">,</span> <span class="n">GVRMaterial</span><span class="o">.</span><span class="na">GVRShaderType</span><span class="o">.</span><span class="na">Phong</span><span class="o">.</span><span class="na">ID</span><span class="o">);</span>
 
     <span class="c1">//Set position of the cube at (0, -2, -3)</span>
     <span class="n">mCube</span><span class="o">.</span><span class="na">getTransform</span><span class="o">().</span><span class="na">setPosition</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="o">-</span><span class="mi">2</span><span class="o">,</span> <span class="o">-</span><span class="mi">3</span><span class="o">);</span>

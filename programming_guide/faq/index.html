@@ -274,6 +274,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../tutorials/play_with_animation/" title="Play With Animation" class="md-nav__link">
+      Play With Animation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../tutorials/play_with_controller/" title="Play With Controller" class="md-nav__link">
       Play With Controller
     </a>
@@ -288,6 +300,18 @@
   <li class="md-nav__item">
     <a href="../../tutorials/play_with_vr_video/" title="Play With VR Video" class="md-nav__link">
       Play With VR Video
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/play_with_billboard/" title="Play With Billboard" class="md-nav__link">
+      Play With Billboard
     </a>
   </li>
 
@@ -1171,13 +1195,16 @@ java.lang.UnsatisfiedLinkError: dalvik.system.PathClassLoader[DexPathList[[zip f
 <h3 id="16-can-you-run-gearvr-app-on-your-phone-without-gearvr">16. Can you run GearVR app on your phone without GearVR?<a class="headerlink" href="#16-can-you-run-gearvr-app-on-your-phone-without-gearvr" title="Permanent link">&para;</a></h3>
 <p>Yes, in your phone's Settings-&gt;Applications-&gt;Application Manager-&gt;Gear VR Service-&gt;Manage Storage Tab on VR Service Version multiple times until the 'Developer Options' menu appears. Then flick on the 'Developer mode' switch. You may need to do this every time when the phone restarts</p>
 <h3 id="17-how-to-reduce-nausea">17. How to reduce nausea?<a class="headerlink" href="#17-how-to-reduce-nausea" title="Permanent link">&para;</a></h3>
-<p>Maintain a high frame-rate, such as 90+ fps.</p>
+<p>Maintain a high frame-rate, at least 60 fps.
+Avoid rapidly turning the camera.
+Move slowly are carefully when teleporting.</p>
 <h3 id="18-how-many-triangles-can-i-display-max-for-a-good-vr-experience-with-high-frame-rate">18. How many triangles can I display max for a good VR experience with high frame rate?<a class="headerlink" href="#18-how-many-triangles-can-i-display-max-for-a-good-vr-experience-with-high-frame-rate" title="Permanent link">&para;</a></h3>
-<p>On a mobile phone such as Galaxy S6/S7, please keep triangle count in the thousands to tens of thousands range if possible, depending on shader complexities.</p>
+<p>On a mobile phone such as Galaxy S6/S7, please keep triangle count in the thousands to tens of thousands range if possible, depending on shader complexities. A mobile GPU can display around 100,000 vertices with a simple shader, about half that if using real-time shadow mapping from a single light source.</p>
 <h3 id="19-how-many-separate-scene-objects-can-i-display-for-a-good-vr-experience">19. How many separate scene objects can I display for a good VR experience?<a class="headerlink" href="#19-how-many-separate-scene-objects-can-i-display-for-a-good-vr-experience" title="Permanent link">&para;</a></h3>
 <p>On OpenGL, each scene object can potentially generate a draw call. On most phones, exceeding 100 draw calls will compromise VR performance. GearVRf attempts to batch together objects which use the same shader when possible.</p>
 <h3 id="20-what-are-some-graphics-performance-tips">20. What are some graphics performance tips?<a class="headerlink" href="#20-what-are-some-graphics-performance-tips" title="Permanent link">&para;</a></h3>
-<p>Keep draw calls minimal and relatively cheap pixel shader. Keep in mind shadows from shadow map more or less doubles the triangle rendered. Use profiler to see if you are really GPU bound.</p>
+<p>Keep draw calls minimal and relatively cheap pixel shader. A mobile GPU can execute about 100 draw calls per frame. It can display about 100,000 vertices before it becomes difficult to maintain 60fps.</p>
+<p>Keep in mind shadows from shadow map more or less doubles the number of draw calls and vertices rendered. Use profiler to see if you are really GPU bound.</p>
 <h3 id="21-which-phones-are-compatible-with-gearvr">21. Which phones are compatible with GearVR?<a class="headerlink" href="#21-which-phones-are-compatible-with-gearvr" title="Permanent link">&para;</a></h3>
 <p>Currently, Samsung Galaxy S6, S6 Edge, S6 Edge+, S7, S7 Edge, S7 Edge+, S8, S8+, Note 5 and Note 8.</p>
                 

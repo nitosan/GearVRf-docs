@@ -364,6 +364,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../play_with_animation/" title="Play With Animation" class="md-nav__link">
+      Play With Animation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../play_with_controller/" title="Play With Controller" class="md-nav__link">
       Play With Controller
     </a>
@@ -378,6 +390,18 @@
   <li class="md-nav__item">
     <a href="../play_with_vr_video/" title="Play With VR Video" class="md-nav__link">
       Play With VR Video
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../play_with_billboard/" title="Play With Billboard" class="md-nav__link">
+      Play With Billboard
     </a>
   </li>
 
@@ -948,18 +972,17 @@
 <p>Material with solid color can be used to create simple 3D objects, such as a red ball, a white cube.</p>
 <p>Let's create a red material with the following code.</p>
 <div class="codehilite"><pre><span></span>    <span class="n">GVRMaterial</span> <span class="n">flatMaterial</span><span class="o">;</span>
-    <span class="n">flatMaterial</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRMaterial</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">);</span>
+    <span class="n">flatMaterial</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRMaterial</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">,</span> <span class="n">GVRMaterial</span><span class="o">.</span><span class="na">GVRShaderType</span><span class="o">.</span><span class="na">Phong</span><span class="o">.</span><span class="na">ID</span><span class="o">);</span>
     <span class="n">flatMaterial</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="mf">1.0f</span><span class="o">,</span> <span class="mf">0.0f</span><span class="o">,</span> <span class="mf">0.0f</span><span class="o">);</span>
 </pre></div>
 
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>GearVR Framework uses <a href="https://en.wikipedia.org/wiki/RGB_color_model">RGB color model</a> and the range of each color is from 0 to 1 </p>
+<p>GearVR Framework uses <a href="https://en.wikipedia.org/wiki/RGB_color_model">RGB color model</a> and the range of each color is from 0 to 1.</p>
 </div>
 <p>Now that we created the material, let's apply it to the sphere.</p>
 <div class="codehilite"><pre><span></span>    <span class="n">mSphere</span><span class="o">.</span><span class="na">getRenderData</span><span class="o">().</span><span class="na">setMaterial</span><span class="o">(</span><span class="n">flatMaterial</span><span class="o">);</span>
-    <span class="n">mSphere</span><span class="o">.</span><span class="na">getRenderData</span><span class="o">().</span><span class="na">setShaderTemplate</span><span class="o">(</span><span class="n">GVRPhongShader</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
 </pre></div>
 
 
@@ -977,9 +1000,8 @@
 
 <p>You can create a material with texture using following code.</p>
 <div class="codehilite"><pre><span></span>    <span class="n">GVRMaterial</span> <span class="n">textureMaterial</span><span class="o">;</span>
-    <span class="n">textureMaterial</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRMaterial</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">);</span>
-    <span class="n">textureMaterial</span><span class="o">.</span><span class="na">setMainTexture</span><span class="o">(</span><span class="n">texture</span><span class="o">);</span>
-
+    <span class="n">textureMaterial</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRMaterial</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">,</span> <span class="n">GVRMaterial</span><span class="o">.</span><span class="na">GVRShaderType</span><span class="o">.</span><span class="na">Phong</span><span class="o">.</span><span class="na">ID</span><span class="o">);</span>
+    <span class="n">textureMaterial</span><span class="o">.</span><span class="na">setTexture</span><span class="o">(</span><span class="s">&quot;diffuseTexture&quot;</span><span class="o">,</span> <span class="n">texture</span><span class="o">);</span>
     <span class="n">mCube</span><span class="o">.</span><span class="na">getRenderData</span><span class="o">().</span><span class="na">setMaterial</span><span class="o">(</span><span class="n">textureMaterial</span><span class="o">);</span>
 </pre></div>
 
@@ -1006,7 +1028,6 @@
 <p>There is one more thing we need to do to make the light work - ensure all the scene objects uses PhongShader and uses diffuse texture.</p>
 <p>Add the following line to the cube object:</p>
 <div class="codehilite"><pre><span></span><span class="n">textureMaterial</span><span class="o">.</span><span class="na">setTexture</span><span class="o">(</span><span class="s">&quot;diffuseTexture&quot;</span><span class="o">,</span> <span class="n">texture</span><span class="o">);</span>
-<span class="n">mCube</span><span class="o">.</span><span class="na">getRenderData</span><span class="o">().</span><span class="na">setShaderTemplate</span><span class="o">(</span><span class="n">GVRPhongShader</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
 </pre></div>
 
 

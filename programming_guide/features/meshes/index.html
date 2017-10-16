@@ -278,6 +278,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../tutorials/play_with_animation/" title="Play With Animation" class="md-nav__link">
+      Play With Animation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../tutorials/play_with_controller/" title="Play With Controller" class="md-nav__link">
       Play With Controller
     </a>
@@ -292,6 +304,18 @@
   <li class="md-nav__item">
     <a href="../../../tutorials/play_with_vr_video/" title="Play With VR Video" class="md-nav__link">
       Play With VR Video
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../tutorials/play_with_billboard/" title="Play With Billboard" class="md-nav__link">
+      Play With Billboard
     </a>
   </li>
 
@@ -452,6 +476,13 @@
         <li class="md-nav__item">
   <a href="#mesh-construction-example" title="Mesh Construction Example" class="md-nav__link">
     Mesh Construction Example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vertex-and-index-buffers" title="Vertex and Index Buffers" class="md-nav__link">
+    Vertex and Index Buffers
   </a>
   
 </li>
@@ -816,6 +847,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#vertex-and-index-buffers" title="Vertex and Index Buffers" class="md-nav__link">
+    Vertex and Index Buffers
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -843,13 +881,13 @@
 <p>GearVRf executes skinning on the GPU but it calculates the bone matrices on the CPU.</p>
 <p><img alt="" src="../../../images/GVRf_Skinned_Mesh.png" /></p>
 <h2 id="accessing-mesh-components">Accessing Mesh Components<a class="headerlink" href="#accessing-mesh-components" title="Permanent link">&para;</a></h2>
-<p>The vertex shader used to render the mesh determines which vertex components are required. The GearVRf build-in shaders rely on positions, normals, texture coordinates and bone information. You can write your own shaders which use other vertex components.</p>
-<p>Each vertex component has a unique name and type. GearVRf vertex components are vectors containing between one and four floats. Each component has a function wh|ich can get or set that component for the entire vertex array. GVRMesh provides convenience functions for the built-in types. Reading or writing the vertex array is a high overhead operation and should not be done every frame.</p>
-<p>The index array describes an indexed triangle list. Each triangle has three consecutive 32-bit indices in the array designating the vertices from the vertex array that represent that triangle. The setIndices andgetIndices function provide access to the GVRMesh triangle data.</p>
+<p>The vertex shader used to render the mesh determines which vertex components are required. The GearVRf built-in shaders rely on positions, normals, texture coordinates and bone information. You can write your own shaders which use other vertex components.</p>
+<p>Each vertex component has a unique name and type. GearVRf vertex components are vectors containing between one and four floats. Each component has a function wh|ich can get or set that component for the entire vertex array. <em>GVRMesh</em> provides convenience functions for the built-in types. Reading or writing the vertex array is a high overhead operation and should not be done every frame.</p>
+<p>The index array describes an indexed triangle list. Each triangle has three consecutive indices in the array designating the vertices from the vertex array that represent that triangle. The index array may either be 16-bit or 32-bit.</p>
 <table>
 <thead>
 <tr>
-<th>Shader Name</th>
+<th>Attribute Name</th>
 <th>GVRMesh Setter</th>
 <th>GVRMesh Getter</th>
 </tr>
@@ -857,7 +895,7 @@
 <tbody>
 <tr>
 <td>a_position</td>
-<td>setVertices(float)</td>
+<td>setVertices(float[])</td>
 <td>float[] getVertices()</td>
 </tr>
 <tr>
@@ -875,31 +913,34 @@
 <table>
 <thead>
 <tr>
-<th>Shader Type</th>
 <th>GVRMesh Setter</th>
 <th>GVRMesh Getter</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>float3</td>
-<td>setVec3Vector(String name, float[])</td>
-<td>float[] getVec3Vector(String name)</td>
+<td>setFloatArray(String name, float[])</td>
+<td>float[] getFloatArray(String name)</td>
 </tr>
 <tr>
-<td>float2</td>
-<td>setVec2Vector(String name, float[])</td>
-<td>float[] getVec2Vector(String name)</td>
+<td>setFloatVec(String name, FloatBuffer)</td>
+<td>getFloatVec(String name, FloatBuffer)</td>
 </tr>
 <tr>
-<td>float4</td>
-<td>setVec4Vector(String name, float[])</td>
-<td>float[] getVec4Vector(String name)</td>
+<td>setIntArray(String name, int[])</td>
+<td>int[] getIntArray(String name)</td>
 </tr>
 <tr>
-<td>float</td>
-<td>setFloatVector(String name, float[])</td>
-<td>float[] getFloatVectorString name()</td>
+<td>setIntVec(String name, IntBuffer)</td>
+<td>getIntVec(String name, IntBuffer)</td>
+</tr>
+<tr>
+<td>setIndices(int[])</td>
+<td>int[] getIndices()</td>
+</tr>
+<tr>
+<td>setTriangles(char[])</td>
+<td>char[] getTriangles()</td>
 </tr>
 </tbody>
 </table>
@@ -937,6 +978,30 @@
 <span class="n">GVRSceneObject</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRSceneObject</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">,</span> <span class="n">mesh</span><span class="o">);</span>
 <span class="n">GVRRenderData</span> <span class="n">rdata</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="na">getRenderData</span><span class="o">();</span>
 <span class="n">rdata</span><span class="o">.</span><span class="na">setMaterial</span><span class="o">(</span><span class="n">material</span><span class="o">);</span>
+</pre></div>
+
+
+<h2 id="vertex-and-index-buffers">Vertex and Index Buffers<a class="headerlink" href="#vertex-and-index-buffers" title="Permanent link">&para;</a></h2>
+<p>The vertices and indices of the mesh are actually kept as separate GearVRf objects and they can be shared across meshes. <em>GVRVertexBuffer</em> contains a set of vertices that can be used by a mesh. <em>GVRIndexBuffer</em> contains a set of face indices.</p>
+<p>The layout of the vertices in the vertex buffer is established at construction time and cannot be changed. The vertex descriptor string describes the name and type of each vertex component. The supported types are <em>float, float2, float3, float4, int, int2, int3 and int4</em>. The default vertex descriptor if none is specified is "float3 a_position float2 a_texcoord float3 a_normal" which will work with all of the built-in shaders.</p>
+<p>The size of the indices in the index buffer is also fixed at construction time. Indices may be either 2 bytes or 4 bytes.</p>
+<p>In this example, we create two scene objects representing different faces of a cube which share the same vertex array.</p>
+<div class="codehilite"><pre><span></span><span class="kt">float</span><span class="o">[]</span> <span class="n">pos</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">float</span><span class="o">[]</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span>
+                            <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,};</span>
+<span class="kt">float</span><span class="o">[]</span> <span class="n">uv</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">float</span><span class="o">[]</span> <span class="o">{</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span> <span class="o">};</span>
+<span class="n">GVRVertexBuffer</span> <span class="n">cubeVerts</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRVertexBuffer</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="s">&quot;float3 a_position float2 a_texcoord&quot;</span><span class="o">);</span>
+<span class="n">GVRIndexBuffer</span> <span class="n">face1Tris</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRIndexBuffer</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">6</span><span class="o">);</span>
+<span class="n">GVRIndexBuffer</span> <span class="n">face2Tris</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRIndexBuffer</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">6</span><span class="o">);</span>
+<span class="n">GVRMesh</span> <span class="n">mesh1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRMesh</span><span class="o">(</span><span class="n">cubeVerts</span><span class="o">,</span> <span class="n">face1Tris</span><span class="o">);</span>
+<span class="n">GVRMesh</span> <span class="n">mesh2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRMesh</span><span class="o">(</span><span class="n">cubeVerts</span><span class="o">,</span> <span class="n">face2Tris</span><span class="o">);</span>
+
+<span class="n">cubeVerts</span><span class="o">.</span><span class="na">setFloatArray</span><span class="o">(</span><span class="s">&quot;a_position&quot;</span><span class="o">,</span> <span class="n">pos</span><span class="o">);</span>
+<span class="n">cubeVerts</span><span class="o">.</span><span class="na">setFloatArray</span><span class="o">(</span><span class="s">&quot;a_texcoord&quot;</span><span class="o">,</span> <span class="n">uv</span><span class="o">);</span>
+<span class="n">face1Tris</span><span class="o">.</span><span class="na">setShortVec</span><span class="o">(</span><span class="k">new</span> <span class="kt">char</span><span class="o">[]</span> <span class="o">{</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">3</span> <span class="o">});</span>
+<span class="n">face2Tris</span><span class="o">.</span><span class="na">setShortVec</span><span class="o">(</span><span class="k">new</span> <span class="kt">char</span><span class="o">[]</span> <span class="o">{</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">7</span> <span class="o">});</span>
+
+<span class="n">GVRSceneObject</span> <span class="n">object1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRSceneObject</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">mesh1</span><span class="o">);</span>
+<span class="n">GVRSceneObject</span> <span class="n">object2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRSceneObject</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">mesh2</span><span class="o">);</span>
 </pre></div>
                 
                   

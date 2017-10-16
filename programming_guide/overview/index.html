@@ -274,6 +274,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../tutorials/play_with_animation/" title="Play With Animation" class="md-nav__link">
+      Play With Animation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../tutorials/play_with_controller/" title="Play With Controller" class="md-nav__link">
       Play With Controller
     </a>
@@ -288,6 +300,18 @@
   <li class="md-nav__item">
     <a href="../../tutorials/play_with_vr_video/" title="Play With VR Video" class="md-nav__link">
       Play With VR Video
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/play_with_billboard/" title="Play With Billboard" class="md-nav__link">
+      Play With Billboard
     </a>
   </li>
 
@@ -949,12 +973,17 @@
 <td>GVRCameraSceneObject</td>
 <td>displays video from the phone camera</td>
 </tr>
+<tr>
+<td>GVRKeyboardSceneObject</td>
+<td>displays 3D interactive keyboard</td>
+</tr>
 </tbody>
 </table>
 <h2 id="scene-construction-example">Scene Construction Example<a class="headerlink" href="#scene-construction-example" title="Permanent link">&para;</a></h2>
 <p>Constructing the initial GearVRF scene usually involves importing a set of assets and placing them relative to one another. In this example we make a simple butterfly with an ellipsoid for a body and textured planes for wings.</p>
 <div class="codehilite"><pre><span></span>    <span class="n">GVRContext</span> <span class="n">context</span><span class="o">;</span>
-    <span class="n">GVRTexture</span> <span class="n">wingtex</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="na">getAssetLoader</span><span class="o">().</span><span class="na">loadTexture</span><span class="o">(</span><span class="k">new</span> <span class="n">GVRAndroidResource</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">wingtex</span><span class="o">));</span>
+    <span class="n">GVRTexture</span> <span class="n">wingtex</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="na">getAssetLoader</span><span class="o">().</span><span class="na">loadTexture</span><span class="o">(</span>
+        <span class="k">new</span> <span class="n">GVRAndroidResource</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">wingtex</span><span class="o">));</span>
     <span class="n">GVRSceneObject</span> <span class="n">body</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRSphereObject</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
     <span class="n">GVRSceneObject</span> <span class="n">leftwing</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRSceneObject</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">wingtex</span><span class="o">);</span>
     <span class="n">GVRSceneObject</span> <span class="n">rightwing</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRSceneObject</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">wingtex</span><span class="o">);</span>
@@ -975,6 +1004,9 @@
 <li>GVRCameraRig - stereoscopic camera rig</li>
 <li>GVRCollider - collision geometry</li>
 <li>GVRBehavior - user defined component</li>
+<li>GVRPicker - pick from this viewpoint</li>
+<li>GVRBaseSensor - marshal pick events from children</li>
+<li>GVRRenderTarget - render to texture</li>
 </ul>
 <p>Each scene object can only have one component of a particular type. For example, you cannot attach two lights or two cameras to a single scene object. Components are retrieved and removed based on their type. When a component is attached to a scene object, it derives its position and orientation from the GVRTransform attached to that scene object.</p>
 <table>
@@ -1029,7 +1061,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../tutorials/play_with_vr_video/" title="Play With VR Video" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../tutorials/play_with_billboard/" title="Play With Billboard" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1038,7 +1070,7 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Play With VR Video
+                Play With Billboard
               </span>
             </div>
           </a>

@@ -278,6 +278,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../tutorials/play_with_animation/" title="Play With Animation" class="md-nav__link">
+      Play With Animation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../tutorials/play_with_controller/" title="Play With Controller" class="md-nav__link">
       Play With Controller
     </a>
@@ -292,6 +304,18 @@
   <li class="md-nav__item">
     <a href="../../../tutorials/play_with_vr_video/" title="Play With VR Video" class="md-nav__link">
       Play With VR Video
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../tutorials/play_with_billboard/" title="Play With Billboard" class="md-nav__link">
+      Play With Billboard
     </a>
   </li>
 
@@ -451,8 +475,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#accessing-material-parameters" title="Accessing Material Parameters" class="md-nav__link">
-    Accessing Material Parameters
+  <a href="#accessing-shader-uniforms" title="Accessing Shader Uniforms" class="md-nav__link">
+    Accessing Shader Uniforms
   </a>
   
 </li>
@@ -797,8 +821,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#accessing-material-parameters" title="Accessing Material Parameters" class="md-nav__link">
-    Accessing Material Parameters
+  <a href="#accessing-shader-uniforms" title="Accessing Shader Uniforms" class="md-nav__link">
+    Accessing Shader Uniforms
   </a>
   
 </li>
@@ -834,8 +858,9 @@
 <p>The GVRMaterial object encapsulates the fragment shader and all of its associated data. This usually includes one or more texture maps and lighting properties that affect how the surface reacts to lights in the scene. Because you can write custom shaders, you can attach your own custom data to a material that your shader can use in computations. This data can be scalar numbers (float or int), arrays or textures. Each custom data element has a string key used to look up or modify its value. When the object is rendered, these values are passed to the shader program.</p>
 <p>This picture shows a material with two custom data parameters - a diffuse color with an alpha (4 floats) and an integer enabling transparency. </p>
 <p><img alt="" src="../../../images/GVR_Material.png" /></p>
-<h2 id="accessing-material-parameters">Accessing Material Parameters<a class="headerlink" href="#accessing-material-parameters" title="Permanent link">&para;</a></h2>
-<p>The GVRMaterial provides access to the fragment shader uniforms by name. Setting the value of a material parameter will set the correspondingly named uniform variable in the fragment shader associated with that material. GVRMaterial has a set of functions that read and write the material parameters based on type.</p>
+<h2 id="accessing-shader-uniforms">Accessing Shader Uniforms<a class="headerlink" href="#accessing-shader-uniforms" title="Permanent link">&para;</a></h2>
+<p>The GVRMaterial object provides access to the fragment shader uniforms by name. Setting the value of a material parameter will set the correspondingly named uniform variable in the fragment shader associated with that material. GVRMaterial has a set of functions that read and write the material parameters based on type.</p>
+<p>You also use GVRMaterial to bind textures to samplers in the shader. Adding a texture by name to a material binds that texture to the sampler of the same name in the shader.</p>
 <table>
 <thead>
 <tr>
@@ -865,6 +890,31 @@
 <td>setVec4(String name, float[] v)</td>
 <td>float[] getVec4(String name)</td>
 </tr>
+<tr>
+<td>float[]</td>
+<td>setFloatArray(String name, float[] v)</td>
+<td>float[] getFloatVec(String name)</td>
+</tr>
+<tr>
+<td>int[]</td>
+<td>setIntArray(String name, int[] v)</td>
+<td>int[] getIntVec(String name)</td>
+</tr>
+<tr>
+<td>int</td>
+<td>setInt(String name, int v)</td>
+<td>int getInt(String name)</td>
+</tr>
+<tr>
+<td>mat4</td>
+<td>setMat4(String name, float m00, .. float m33)</td>
+<td>float[] getFloatArray(String name)</td>
+</tr>
+<tr>
+<td>sampler2D</td>
+<td>setTexture(String name, GVRTexture t)</td>
+<td>GVRTexture getTexture(String name)</td>
+</tr>
 </tbody>
 </table>
 <h2 id="material-construction-example">Material Construction Example<a class="headerlink" href="#material-construction-example" title="Permanent link">&para;</a></h2>
@@ -873,12 +923,14 @@
 <div class="codehilite"><pre><span></span><span class="n">GVRMaterial</span> <span class="nf">createMaterial</span><span class="o">(</span><span class="n">GVRContext</span> <span class="n">gvrContext</span><span class="o">)</span>
 <span class="o">{</span>
    <span class="n">GVRMaterial</span> <span class="n">material</span> <span class="o">=</span> <span class="n">createMaterial</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">);</span>
-   <span class="n">GVRTexture</span> <span class="n">tex</span> <span class="o">=</span> <span class="n">gvrContext</span><span class="o">.</span><span class="na">getAssetLoader</span><span class="o">().</span><span class="na">loadTexture</span><span class="o">(</span><span class="k">new</span> <span class="n">GVRAndroidResource</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">,</span><span class="n">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">gearvr_logo</span><span class="o">));</span>
+   <span class="n">GVRTexture</span> <span class="n">tex</span> <span class="o">=</span> <span class="n">gvrContext</span><span class="o">.</span><span class="na">getAssetLoader</span><span class="o">().</span><span class="na">loadTexture</span><span class="o">(</span>
+        <span class="k">new</span> <span class="n">GVRAndroidResource</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">,</span><span class="n">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">gearvr_logo</span><span class="o">));</span>
 
-   <span class="n">material</span><span class="o">.</span><span class="na">setDiffuseColor</span><span class="o">(</span><span class="mf">0.5f</span><span class="o">,</span> <span class="mf">0.5f</span><span class="o">,</span> <span class="mf">0.5f</span><span class="o">);</span>
-   <span class="n">material</span><span class="o">.</span><span class="na">setAmbientColor</span><span class="o">(</span><span class="mf">1.0f</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">);</span>
-   <span class="n">material</span><span class="o">.</span><span class="na">setSpecularColor</span><span class="o">(</span><span class="mf">1.0f</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">);</span>
-   <span class="n">material</span><span class="o">.</span><span class="na">setSpecularExponent</span><span class="o">(</span><span class="mf">128.0f</span><span class="o">);</span>
+   <span class="n">material</span><span class="o">.</span><span class="na">setVec4</span><span class="o">(</span><span class="s">&quot;diffuse_color&quot;</span><span class="o">,</span> <span class="mf">0.5f</span><span class="o">,</span> <span class="mf">0.5f</span><span class="o">,</span> <span class="mf">0.5f</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">);</span>
+   <span class="n">material</span><span class="o">.</span><span class="na">setVec4</span><span class="o">(</span><span class="s">&quot;ambient_color&quot;</span><span class="o">,</span> <span class="mf">0.2f</span><span class="o">,</span> <span class="mf">0.2f</span><span class="o">,</span> <span class="mf">0.2f</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">);</span>
+   <span class="n">material</span><span class="o">.</span><span class="na">setVec4</span><span class="o">(</span><span class="s">&quot;specular_color&quot;</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">);</span>
+   <span class="n">material</span><span class="o">.</span><span class="na">setFloat</span><span class="o">(</span><span class="mf">128.0f</span><span class="o">);</span>
+   <span class="n">material</span><span class="o">.</span><span class="na">setTexture</span><span class="o">(</span><span class="s">&quot;diffuseTexture&quot;</span><span class="o">,</span> <span class="n">tex</span><span class="o">);</span>
    <span class="k">return</span> <span class="n">material</span><span class="o">;</span>
 <span class="o">}</span>
 </pre></div>
