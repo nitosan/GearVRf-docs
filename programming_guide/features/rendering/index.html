@@ -799,19 +799,48 @@
                   <h1>Rendering</h1>
                 
                 <p>Opaque scene objects are drawn front-to-back, in render order. Transparent objects are drawn back-to-front. The renderer will automatically sort scene object data. The asset loader sets the rendering order based on the characteristics of the asset being imported. GearVRf detects transparent textures and will automatically change objects marked as <em>GEOMETRY</em> to <em>TRANSPARENT</em> if a transparent texture is used.</p>
-<p>Transparent objects typically use alpha blending of some type. To enable transparency, you must call <em>GVRRenderData.setAlphaBlend</em> as well as setting the rendering order. Similarly, to use the stencil buffer you usually need to call <em>GVRRenderData.setStencilOp</em> and <em>GVRRenderData.setStencilFunc</em>.</p>
-<p>|GVRRenderingOrder Value|Render Order|Used For|
-|-|-|
-|GVRRenderingOrder.STENCIL | Stencil | rendered to stencil buffer |
-|GVRRenderingOrder.BACKGROUND | First| skybox, background |
-|GVRRenderingOrder.GEOMETRY | Second| opaque objects |
-|GVRRenderingOrder.TRANSPARENT | Third| transparent objects |
-|GVRRenderingOrder.OVERLAY | Last| GUI and HUD overlays, cursors |</p>
+<p>Transparent objects typically use alpha blending of some type. To enable transparency, you must call <code>GVRRenderData.setAlphaBlend</code> as well as setting the rendering order. Similarly, to use the stencil buffer you usually need to call <code>GVRRenderData.setStencilOp</code> and <code>GVRRenderData.setStencilFunc</code>.</p>
+<table>
+<thead>
+<tr>
+<th>GVRRenderingOrder Value</th>
+<th>Render Order</th>
+<th>Used For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GVRRenderingOrder.STENCIL</td>
+<td>Stencil</td>
+<td>rendered to stencil buffer</td>
+</tr>
+<tr>
+<td>GVRRenderingOrder.BACKGROUND</td>
+<td>First</td>
+<td>skybox, background</td>
+</tr>
+<tr>
+<td>GVRRenderingOrder.GEOMETRY</td>
+<td>Second</td>
+<td>opaque objects</td>
+</tr>
+<tr>
+<td>GVRRenderingOrder.TRANSPARENT</td>
+<td>Third</td>
+<td>transparent objects</td>
+</tr>
+<tr>
+<td>GVRRenderingOrder.OVERLAY</td>
+<td>Last</td>
+<td>GUI and HUD overlays, cursors</td>
+</tr>
+</tbody>
+</table>
 <p>After your startup code has built a scene graph, GearVRf enters its event loop. On each frame, GearVRf starts its render pipeline, which consists of four main steps. The first three steps run your Java callbacks on the GL thread. The final step is managed by GearVRf.</p>
 <ol>
 <li>
 <p>GearVRf executes any Runnable you added to the run-once queue.
-Queue operations are thread-safe. You can use the GVRContext.runOnGlThread() method from the GUI or background threads in the same way you use Activity.runOnUiThread() from non-GUI threads. The analogy is not exact: runOnGlThread() always enqueues its Runnable, even when called from the GL thread.</p>
+Queue operations are thread-safe. You can use the <code>GVRContext.runOnGlThread()</code> method from the GUI or background threads in the same way you use <code>Activity.runOnUiThread()</code> from non-GUI threads. The analogy is not exact: <code>runOnGlThread()</code> always enqueues its Runnable, even when called from the GL thread.</p>
 </li>
 <li>
 <p>GearVRf executes each frame listener you added to the on-frame list.
