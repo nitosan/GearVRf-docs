@@ -1,9 +1,9 @@
 Opaque scene objects are drawn front-to-back, in render order. Transparent objects are drawn back-to-front. The renderer will automatically sort scene object data. The asset loader sets the rendering order based on the characteristics of the asset being imported. GearVRf detects transparent textures and will automatically change objects marked as *GEOMETRY* to *TRANSPARENT* if a transparent texture is used.
 
-Transparent objects typically use alpha blending of some type. To enable transparency, you must call *GVRRenderData.setAlphaBlend* as well as setting the rendering order. Similarly, to use the stencil buffer you usually need to call *GVRRenderData.setStencilOp* and *GVRRenderData.setStencilFunc*.
+Transparent objects typically use alpha blending of some type. To enable transparency, you must call `GVRRenderData.setAlphaBlend` as well as setting the rendering order. Similarly, to use the stencil buffer you usually need to call `GVRRenderData.setStencilOp` and `GVRRenderData.setStencilFunc`.
 
 |GVRRenderingOrder Value|Render Order|Used For|
-|-|-|
+|-|-|-|
 |GVRRenderingOrder.STENCIL | Stencil | rendered to stencil buffer |
 |GVRRenderingOrder.BACKGROUND |	First| skybox, background |
 |GVRRenderingOrder.GEOMETRY | Second| opaque objects |
@@ -13,7 +13,7 @@ Transparent objects typically use alpha blending of some type. To enable transpa
 After your startup code has built a scene graph, GearVRf enters its event loop. On each frame, GearVRf starts its render pipeline, which consists of four main steps. The first three steps run your Java callbacks on the GL thread. The final step is managed by GearVRf.
 
 1. GearVRf executes any Runnable you added to the run-once queue.
-Queue operations are thread-safe. You can use the GVRContext.runOnGlThread() method from the GUI or background threads in the same way you use Activity.runOnUiThread() from non-GUI threads. The analogy is not exact: runOnGlThread() always enqueues its Runnable, even when called from the GL thread.
+Queue operations are thread-safe. You can use the `GVRContext.runOnGlThread()` method from the GUI or background threads in the same way you use `Activity.runOnUiThread()` from non-GUI threads. The analogy is not exact: `runOnGlThread()` always enqueues its Runnable, even when called from the GL thread.
 
 2. GearVRf executes each frame listener you added to the on-frame list.
 GearVRf includes animation and periodic engines that use frame listeners to run time-based code on the GL thread, but you may add frame listeners directly. A frame listener is like a Runnable that gets a parameter telling you how long it has been since the last frame. An animation runs every frame until it stops, and morphs a scene object from one state to another. A periodic callback runs a standard Runnable at a specified time (or times) as a runOnGlThread() callback. You can run a sequence of animations either by starting each new animation in the previous animation's optional on-finish callback or by starting each new animation at set times from a periodic callback.
