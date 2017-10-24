@@ -913,10 +913,12 @@
 </ol>
 <h2 id="intro">Intro<a class="headerlink" href="#intro" title="Permanent link">&para;</a></h2>
 <p>Before we start, we have to obtain a 3D model file with animation.</p>
-<p>Gear VR Framework supports following formats
-<em> FBX
-</em> Collada(.dae)</p>
-<p>And here is one animated 3D model that you can download</p>
+<p>Gear VR Framework supports following formats</p>
+<ul>
+<li>FBX</li>
+<li>Collada(.dae)</li>
+</ul>
+<p>And here is one animated 3D model that we are going to use for this tutorial</p>
 <ul>
 <li><a href="../../images/astro_boy.dae">3D model with animation</a></li>
 <li><a href="../../images/astro_boy.jpg">Texture</a></li>
@@ -924,7 +926,7 @@
 <h2 id="how-to-play-animations">How to play animations<a class="headerlink" href="#how-to-play-animations" title="Permanent link">&para;</a></h2>
 <p>Make sure to copy both files into <code>app/src/main/assets</code> folder</p>
 <p>You can load the animated model with following code</p>
-<div class="codehilite"><pre><span></span>    <span class="n">GVRModelSceneObject</span> <span class="n">character</span> <span class="o">=</span> <span class="n">gvrContext</span><span class="o">.</span><span class="na">getAssetLoader</span><span class="o">().</span><span class="na">loadModel</span><span class="o">(</span><span class="s">&quot;astro_boy.dae&quot;</span><span class="o">,</span>                                                                                              <span class="n">gvrContext</span><span class="o">.</span><span class="na">getMainScene</span><span class="o">());</span>
+<div class="codehilite"><pre><span></span>    <span class="n">GVRModelSceneObject</span> <span class="n">character</span> <span class="o">=</span> <span class="n">gvrContext</span><span class="o">.</span><span class="na">getAssetLoader</span><span class="o">().</span><span class="na">loadModel</span><span class="o">(</span><span class="s">&quot;astro_boy.dae&quot;</span><span class="o">,</span> <span class="n">gvrContext</span><span class="o">.</span><span class="na">getMainScene</span><span class="o">());</span>
     <span class="n">character</span><span class="o">.</span><span class="na">getTransform</span><span class="o">().</span><span class="na">setRotationByAxis</span><span class="o">(</span><span class="mf">45.0f</span><span class="o">,</span> <span class="mf">0.0f</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">,</span> <span class="mf">0.0f</span><span class="o">);</span>
     <span class="n">character</span><span class="o">.</span><span class="na">getTransform</span><span class="o">().</span><span class="na">setScale</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">);</span>
     <span class="n">character</span><span class="o">.</span><span class="na">getTransform</span><span class="o">().</span><span class="na">setPosition</span><span class="o">(</span><span class="mf">0.0f</span><span class="o">,</span> <span class="o">-</span><span class="mf">0.4f</span><span class="o">,</span> <span class="o">-</span><span class="mf">0.5f</span><span class="o">);</span>
