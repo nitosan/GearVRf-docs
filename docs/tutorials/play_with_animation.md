@@ -16,10 +16,11 @@ Perform the following steps to make sure your project runs correctly
 Before we start, we have to obtain a 3D model file with animation.
 
 Gear VR Framework supports following formats
+
 * FBX
 * Collada(.dae)
 
-And here is one animated 3D model that you can download
+And here is one animated 3D model that we are going to use for this tutorial
 
 * [3D model with animation](/images/astro_boy.dae)
 * [Texture](/images/astro_boy.jpg)
@@ -31,7 +32,7 @@ Make sure to copy both files into `app/src/main/assets` folder
 
 You can load the animated model with following code
 ```java
-    GVRModelSceneObject character = gvrContext.getAssetLoader().loadModel("astro_boy.dae", 																								gvrContext.getMainScene());
+    GVRModelSceneObject character = gvrContext.getAssetLoader().loadModel("astro_boy.dae", gvrContext.getMainScene());
     character.getTransform().setRotationByAxis(45.0f, 0.0f, 1.0f, 0.0f);
     character.getTransform().setScale(3, 3, 3);
     character.getTransform().setPosition(0.0f, -0.4f, -0.5f);

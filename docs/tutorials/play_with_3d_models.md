@@ -1,6 +1,6 @@
 ##Overview
 
-Now that you've learnt how to apply material to the VR app with GearVR Framework, we are going to learn how to play with 3D model.
+Now that you've learned how to apply the material to the VR app with GearVR Framework, we are going to learn how to play with 3D model.
 
 ##Create Project
 Create a GearVR Framework project by copying the [template project](https://github.com/gearvrf/GearVRf-Demos/tree/master/template/GVRFApplication) 
@@ -15,9 +15,9 @@ Perform the following steps to make sure your project runs correctly
 
 Often times when we develop VR applications, we need to show complex 3D models. For example a plane, a castle or even an earth. We're going to learn how to achieve it with GearVR Framework
 
-Before we start, we need to have a 3D model file. Here is a [3D T-rex model](/images/trex_mesh.fbx) and it's [texture](/images/trex_tex_diffuse.png) we're going to use for this tutorial. You can preview them in [FBX Review](https://www.autodesk.com/products/fbx/fbx-review). 
+Before we start, we need to have a 3D model file. Here is the [3D T-rex model](/images/trex_mesh.fbx) with [texture](/images/trex_tex_diffuse.png) we're going to use for this tutorial. You can preview them in [FBX Review](https://www.autodesk.com/products/fbx/fbx-review). 
 
-If you want to use 3D models that you prefer that's totally fine, just keep in mind it has to be one of the following file formats:
+You can use your own 3D models, just make sure it is one of the following file formats:
 
 * OBJ
 * FBX
@@ -29,7 +29,7 @@ If you want to use 3D models that you prefer that's totally fine, just keep in m
 
 ## How to load 3D models
 
-The first step of loading a 3D model into your VR app is to place it correctly. Please make sure to copy the files to the following path.
+The first step is to place it correctly. Please make sure to copy the files to the following path.
 
 1. Copy `trex_mesh.fbx` into `app/src/main/assets`
 1. Copy `trex_tex_diffuse` into `app/src/main/assets`
