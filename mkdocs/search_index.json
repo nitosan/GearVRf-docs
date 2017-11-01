@@ -872,7 +872,7 @@
         }, 
         {
             "location": "/community/", 
-            "text": "Gear VR Community\n\n\nReport Issues", 
+            "text": "Gear VR Community\n\n\nReport Issues\n\n\n \n\n\n\n (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id=\"typef_orm\", b=\"<a href=\"https://embed.typeform.com/\">https://embed.typeform.com/</a>\"; if(!gi.call(d,id)) { js=ce.call(d,\"script\"); js.id=id; js.src=b+\"embed.js\"; q=gt.call(d,\"script\")[0]; q.parentNode.insertBefore(js,q) } })() \n \n powered by \nTypeform", 
             "title": "Community"
         }, 
         {
