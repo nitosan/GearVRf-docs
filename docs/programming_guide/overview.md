@@ -12,7 +12,7 @@ GearVRf provides tools to speed up development of advanced features in high qual
 
 GearVRf is a native code 3D rendering engine with an Android library interface. You can build non-trivial content using only built-in objects. You can add new objects (such as scene objects with or without shaders) derived from classes or by overriding some methods - GearVRf takes care of all hardware handholding. You can do just about everything in Java - all source code is published, so you can easily add to or tweak native code.
 
-
+![](/images/GearVRf_Architecture.png)
 
 ## Anatomy of GearVRf Applications
 

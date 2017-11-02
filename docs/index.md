@@ -1,19 +1,17 @@
-# GearVR Framework Project
+# GearVR Framework
 
-The Gear VR Framework (GearVRf) Project is a lightweight, powerful, open source rendering engine with a Java interface for developing mobile VR games and applications for Gear VR and Google Daydream View.
+__A Cross-platform VR SDK for mobile VR__
 
-__GearVRf is:__
+* __Simple__ - A simple SDK allow you to prototype rapidly with Android Studio
 
-* __Simple__ - Java interface, Android Studio build environment and a simple SDK allow you to prototype rapidly. In-depth OpenGL and Oculus/Daydream rendering knowledge is not required. 
+* __Powerful__ - VR-specific rendering optimizations with access to low-level graphics pipeline   
 
-* __Powerful__ - VR-specific rendering optimizations and optional access to low-level graphics pipeline allow you to create and optimize high performance graphics.   
+* __Optimized for mobile__ - Built with focus on mobile performance
 
-* __Optimized for mobile__ - Built with mobile performance in mind, GearVRf provides easy and performance-oriented access to Android OS system level calls.  
+* __Open source__ - No licensing fees or royalties *ever*
 
-* __Open source__ - that means no licensing fees or royalties *ever*, and active developer community contributions 
+* __Cross Platform__ - Write code once and build for both Gear VR and Daydream
 
-* __Efficient__ - GearVRf's interface layer is abstracted from the target mobile VR platform SDK. You can write code once and build for both Gear VR and Daydream/Cardboard. Default build options create a single apk that works for both, with run-time flow checks for Oculus service that revert to Daydream if Oculus not available. Google Cardboard is even supported, as Daydream's backend reverts to the Google Cardboard service if the mobile device does not support Daydream!
+<a class="typeform-share button" href="getting_started" style="display:inline-block;text-decoration:none;background-color:#f9443e;color:white;cursor:pointer;font-family:Helvetica,Arial,sans-serif;font-size:20px;line-height:50px;text-align:center;margin:0;height:50px;padding:0px 33px;border-radius:25px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;">Getting Started</a>
 
-![](/images/GearVRf_Architecture.png)
-
-[Get Started](getting_started.md)
+<a class="typeform-share button" href="https://nitosan.typeform.com/to/fw9Ylx" data-mode="popup" style="display:inline-block;text-decoration:none;background-color:#267DDD;color:white;cursor:pointer;font-family:Helvetica,Arial,sans-serif;font-size:20px;line-height:50px;text-align:center;margin:0;height:50px;padding:0px 33px;border-radius:25px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;" target="_blank">Leave Feedback </a> <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm_share", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script>
