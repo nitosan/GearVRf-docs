@@ -938,10 +938,11 @@
 <h2 id="how-to-play-animations">How to play animations<a class="headerlink" href="#how-to-play-animations" title="Permanent link">&para;</a></h2>
 <p>Make sure to copy both files into <code>app/src/main/assets</code> folder</p>
 <p>You can load the animated model with following code</p>
-<div class="codehilite"><pre><span></span>    <span class="n">GVRModelSceneObject</span> <span class="n">character</span> <span class="o">=</span> <span class="n">gvrContext</span><span class="o">.</span><span class="na">getAssetLoader</span><span class="o">().</span><span class="na">loadModel</span><span class="o">(</span><span class="s">&quot;astro_boy.dae&quot;</span><span class="o">,</span> <span class="n">gvrContext</span><span class="o">.</span><span class="na">getMainScene</span><span class="o">());</span>
+<div class="codehilite"><pre><span></span>    <span class="n">GVRModelSceneObject</span> <span class="n">character</span> <span class="o">=</span> <span class="n">gvrContext</span><span class="o">.</span><span class="na">getAssetLoader</span><span class="o">().</span><span class="na">loadModel</span><span class="o">(</span><span class="s">&quot;astro_boy.dae&quot;</span><span class="o">);</span>
     <span class="n">character</span><span class="o">.</span><span class="na">getTransform</span><span class="o">().</span><span class="na">setRotationByAxis</span><span class="o">(</span><span class="mf">45.0f</span><span class="o">,</span> <span class="mf">0.0f</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">,</span> <span class="mf">0.0f</span><span class="o">);</span>
-    <span class="n">character</span><span class="o">.</span><span class="na">getTransform</span><span class="o">().</span><span class="na">setScale</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">);</span>
-    <span class="n">character</span><span class="o">.</span><span class="na">getTransform</span><span class="o">().</span><span class="na">setPosition</span><span class="o">(</span><span class="mf">0.0f</span><span class="o">,</span> <span class="o">-</span><span class="mf">0.4f</span><span class="o">,</span> <span class="o">-</span><span class="mf">0.5f</span><span class="o">);</span>
+    <span class="n">character</span><span class="o">.</span><span class="na">getTransform</span><span class="o">().</span><span class="na">setScale</span><span class="o">(</span><span class="mi">6</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">6</span><span class="o">);</span>
+    <span class="n">character</span><span class="o">.</span><span class="na">getTransform</span><span class="o">().</span><span class="na">setPosition</span><span class="o">(</span><span class="mf">0.0f</span><span class="o">,</span> <span class="o">-</span><span class="mf">0.5f</span><span class="o">,</span> <span class="o">-</span><span class="mf">1f</span><span class="o">);</span>
+    <span class="n">gvrContext</span><span class="o">.</span><span class="na">getMainScene</span><span class="o">().</span><span class="na">addSceneObject</span><span class="o">(</span><span class="n">character</span><span class="o">);</span>
 </pre></div>
 
 
@@ -955,6 +956,7 @@
 
 <h2 id="work-with-3d-modeling-tools">Work with 3D modeling tools<a class="headerlink" href="#work-with-3d-modeling-tools" title="Permanent link">&para;</a></h2>
 <p>Fbx is the recommended format for the GearVR framework. Currently, all major 3D modeling tools support exporting to FBX format.</p>
+<p><img alt="" src="../../images/tutorials/screenshot_tut_03_2.jpg" /></p>
 <h2 id="source-code">Source Code<a class="headerlink" href="#source-code" title="Permanent link">&para;</a></h2>
 <p>Complete <a href="https://github.com/gearvrf/GearVRf-Demos/tree/master/tutorials/tutorial_3_model_animation">Source Code</a> for this sample</p>
                 

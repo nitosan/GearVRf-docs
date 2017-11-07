@@ -982,22 +982,22 @@
 <p>and initialize them in <code>onInit</code> function</p>
 <div class="codehilite"><pre><span></span>    <span class="c1">//Create Shpere</span>
     <span class="n">mSphere</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRSphereSceneObject</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">);</span>
-    <span class="n">mSphere</span><span class="o">.</span><span class="na">getTransform</span><span class="o">().</span><span class="na">setPosition</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="o">-</span><span class="mi">3</span><span class="o">);</span>
+    <span class="n">mSphere</span><span class="o">.</span><span class="na">getTransform</span><span class="o">().</span><span class="na">setPosition</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="o">-</span><span class="mi">3</span><span class="o">);</span>
     <span class="n">gvrContext</span><span class="o">.</span><span class="na">getMainScene</span><span class="o">().</span><span class="na">addSceneObject</span><span class="o">(</span><span class="n">mSphere</span><span class="o">);</span>
 
     <span class="c1">//Create Cube</span>
     <span class="n">mCube</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRCubeSceneObject</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">);</span>
-    <span class="n">mCube</span><span class="o">.</span><span class="na">getTransform</span><span class="o">().</span><span class="na">setPosition</span><span class="o">(-</span><span class="mi">2</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="o">-</span><span class="mi">3</span><span class="o">);</span>
+    <span class="n">mCube</span><span class="o">.</span><span class="na">getTransform</span><span class="o">().</span><span class="na">setPosition</span><span class="o">(-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="o">-</span><span class="mi">3</span><span class="o">);</span>
     <span class="n">gvrContext</span><span class="o">.</span><span class="na">getMainScene</span><span class="o">().</span><span class="na">addSceneObject</span><span class="o">(</span><span class="n">mCube</span><span class="o">);</span>
 </pre></div>
 
 
 <h2 id="material-with-solid-color">Material with solid color<a class="headerlink" href="#material-with-solid-color" title="Permanent link">&para;</a></h2>
 <p>Material with solid color can be used to create simple 3D objects, such as a red ball, a white cube.</p>
-<p>Let's create a red material with the following code.</p>
+<p>Let's create a white material with the following code.</p>
 <div class="codehilite"><pre><span></span>    <span class="n">GVRMaterial</span> <span class="n">flatMaterial</span><span class="o">;</span>
-    <span class="n">flatMaterial</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRMaterial</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">,</span> <span class="n">GVRMaterial</span><span class="o">.</span><span class="na">GVRShaderType</span><span class="o">.</span><span class="na">Phong</span><span class="o">.</span><span class="na">ID</span><span class="o">);</span>
-    <span class="n">flatMaterial</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="mf">1.0f</span><span class="o">,</span> <span class="mf">0.0f</span><span class="o">,</span> <span class="mf">0.0f</span><span class="o">);</span>
+    <span class="n">flatMaterial</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRMaterial</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">);</span>
+    <span class="n">flatMaterial</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="mf">1.0f</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">);</span>
 </pre></div>
 
 
@@ -1024,21 +1024,21 @@
 
 <p>You can create a material with texture using following code.</p>
 <div class="codehilite"><pre><span></span>    <span class="n">GVRMaterial</span> <span class="n">textureMaterial</span><span class="o">;</span>
-    <span class="n">textureMaterial</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRMaterial</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">,</span> <span class="n">GVRMaterial</span><span class="o">.</span><span class="na">GVRShaderType</span><span class="o">.</span><span class="na">Phong</span><span class="o">.</span><span class="na">ID</span><span class="o">);</span>
-    <span class="n">textureMaterial</span><span class="o">.</span><span class="na">setTexture</span><span class="o">(</span><span class="s">&quot;diffuseTexture&quot;</span><span class="o">,</span> <span class="n">texture</span><span class="o">);</span>
+    <span class="n">textureMaterial</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRMaterial</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">);</span>
+    <span class="n">textureMaterial</span><span class="o">.</span><span class="na">setMainTexture</span><span class="o">(</span><span class="n">texture</span><span class="o">);</span>
     <span class="n">mCube</span><span class="o">.</span><span class="na">getRenderData</span><span class="o">().</span><span class="na">setMaterial</span><span class="o">(</span><span class="n">textureMaterial</span><span class="o">);</span>
 </pre></div>
 
 
 <p>Build and run your app, you should see the wooden crate we just created.</p>
+<p><img alt="" src="../../images/tutorials/screenshot_tut_02_1.jpg" /></p>
 <h2 id="turn-on-the-light">Turn on the light<a class="headerlink" href="#turn-on-the-light" title="Permanent link">&para;</a></h2>
 <p>We just created a wooden crate, but if you look at it closely, you'll find it's really bright and doesn't feel natural. </p>
 <p>In this section, we're going to apply lighting to both objects to make it look a lot nicer.</p>
 <p>First, let's add a light to the scene using following code</p>
 <div class="codehilite"><pre><span></span>    <span class="n">GVRPointLight</span> <span class="n">pointLight</span><span class="o">;</span>
     <span class="n">pointLight</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRPointLight</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">);</span>
-    <span class="n">pointLight</span><span class="o">.</span><span class="na">setDiffuseIntensity</span><span class="o">(</span><span class="mf">0.6f</span><span class="o">,</span> <span class="mf">0.5f</span><span class="o">,</span> <span class="mf">0.5f</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">);</span>
-    <span class="n">pointLight</span><span class="o">.</span><span class="na">setSpecularIntensity</span><span class="o">(</span><span class="mf">0.5f</span><span class="o">,</span> <span class="mf">0.5f</span><span class="o">,</span> <span class="mf">0.5f</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">);</span>
+    <span class="n">pointLight</span><span class="o">.</span><span class="na">setDiffuseIntensity</span><span class="o">(</span><span class="mf">0.9f</span><span class="o">,</span> <span class="mf">0.7f</span><span class="o">,</span> <span class="mf">0.7f</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">);</span>
 
     <span class="n">GVRSceneObject</span> <span class="n">lightNode</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRSceneObject</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">);</span>
     <span class="n">lightNode</span><span class="o">.</span><span class="na">getTransform</span><span class="o">().</span><span class="na">setPosition</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">);</span>
@@ -1048,14 +1048,9 @@
 </pre></div>
 
 
-<p>The code snippet will create a light with diffuse color of (0.6, 0.5, 0.5) and specular color of (0.5, 0.5, 0.5), Which will give the scene a red tone.</p>
-<p>There is one more thing we need to do to make the light work - ensure all the scene objects uses PhongShader and uses diffuse texture.</p>
-<p>Add the following line to the cube object:</p>
-<div class="codehilite"><pre><span></span><span class="n">textureMaterial</span><span class="o">.</span><span class="na">setTexture</span><span class="o">(</span><span class="s">&quot;diffuseTexture&quot;</span><span class="o">,</span> <span class="n">texture</span><span class="o">);</span>
-</pre></div>
-
-
+<p>The code snippet will create a light with diffuse color of (0.9, 0.7, 0.7) this will give the scene a red tone.</p>
 <p>Build and run the app, you should be able to see the lighting on the sphere and crate box, feel free to tweak with the light to make it look better.</p>
+<p><img alt="" src="../../images/tutorials/screenshot_tut_02_2.jpg" /></p>
 <h2 id="make-it-move">Make it move<a class="headerlink" href="#make-it-move" title="Permanent link">&para;</a></h2>
 <p>Add the following code to the <code>onStep()</code> function to make the cube move.</p>
 <div class="codehilite"><pre><span></span>    <span class="c1">//Rotate the cube along the Y axis</span>

@@ -984,14 +984,13 @@
 <h3 id="add-object">Add object<a class="headerlink" href="#add-object" title="Permanent link">&para;</a></h3>
 <p>Adding an object to the scene is simple, Just create the object and specify the material and add it to the scene</p>
 <p>First, let's add a new member variable for the Cube to the <code>MainScene</code></p>
-<div class="codehilite"><pre><span></span>    <span class="n">GVRCubeSceneObject</span> <span class="n">mCube</span>
+<div class="codehilite"><pre><span></span>    <span class="n">GVRSceneObject</span> <span class="n">mCube</span>
 </pre></div>
 
 
 <p>Then add the cube to our scene with following code in <code>onInit()</code> function</p>
 <div class="codehilite"><pre><span></span>    <span class="c1">//Create a cube</span>
-    <span class="n">mCube</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRCubeSceneObject</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span>
-                 <span class="k">new</span> <span class="n">GVRMaterial</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">,</span> <span class="n">GVRMaterial</span><span class="o">.</span><span class="na">GVRShaderType</span><span class="o">.</span><span class="na">Phong</span><span class="o">.</span><span class="na">ID</span><span class="o">);</span>
+    <span class="n">mCube</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GVRCubeSceneObject</span><span class="o">(</span><span class="n">gvrContext</span><span class="o">);</span>
 
     <span class="c1">//Set position of the cube at (0, -2, -3)</span>
     <span class="n">mCube</span><span class="o">.</span><span class="na">getTransform</span><span class="o">().</span><span class="na">setPosition</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="o">-</span><span class="mi">2</span><span class="o">,</span> <span class="o">-</span><span class="mi">3</span><span class="o">);</span>
@@ -1002,6 +1001,7 @@
 
 
 <p>Build and run the app, you should be able to see a white cube on the screen</p>
+<p><img alt="" src="../../images/tutorials/screenshot_tut_01_1.jpg" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If you're using "VR developer mode" without headset the orientation might be different, you might need to turn around to see the cube</p>
