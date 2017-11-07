@@ -32,14 +32,19 @@ You can use your own 3D models, just make sure it is one of the following file f
 The first step is to place it correctly. Please make sure to copy the files to the following path.
 
 1. Copy `trex_mesh.fbx` into `app/src/main/assets`
-1. Copy `trex_tex_diffuse` into `app/src/main/assets`
+1. Copy `trex_tex_diffuse.png` into `app/src/main/assets`
 
 After copying the 3D model files, we can use `GVRAssetLoader` class to load them, it is accessible from the context by calling `GVRContext.getAssetLoader()`
 
 Using the following code to load the fbx file and texture 
 ```java
-GVRMesh dinoMesh = gvrContext.getAssetLoader().loadMesh(new GVRAndroidResource(gvrContext, "trex_mesh.fbx"));
-GVRTexture dinoTexture = gvrContext.getAssetLoader().loadTexture(new GVRAndroidResource(gvrContext, "trex_tex_diffuse.png"));
+GVRMesh dinoMesh = gvrContext.getAssetLoader().loadMesh(
+	new GVRAndroidResource(gvrContext, "trex_mesh.fbx")
+);
+
+GVRTexture dinoTexture = gvrContext.getAssetLoader().loadTexture(
+	new GVRAndroidResource(gvrContext, "trex_tex_diffuse.png")
+);
 ```
 
 !!!note
@@ -58,10 +63,10 @@ After 3D model and texture both loaded, we can add them to the scene with a scen
 !!!note
     We create `GVRSceneObject` instead of use `AssetLoader.loadModel()` because `loadModel()` require fbx files to have correct path to texture file which a lot of 3D modeling software failed to produce.
 
-!!!note
-    You might need to rotate the model differently if you're using other models.
 
 Build and run the app, you should be able to see a T-Rex!
+
+![](/images/tutorials/screenshot_tut_03_1.jpg)
 
 ## Work with 3D modeling tools
 Fbx is the recommended format for the GearVR framework. Currently, all major 3D modeling tools support exporting to FBX format.

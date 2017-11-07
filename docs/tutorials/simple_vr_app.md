@@ -46,23 +46,24 @@ Adding an object to the scene is simple, Just create the object and specify the 
 
 First, let's add a new member variable for the Cube to the `MainScene`
 ```java
-    GVRCubeSceneObject mCube
+    GVRSceneObject mCube
 ```
 
 Then add the cube to our scene with following code in `onInit()` function
 ```java
     //Create a cube
-    mCube = new GVRCubeSceneObject(gvrContext, true,
-    		     new GVRMaterial(gvrContext, GVRMaterial.GVRShaderType.Phong.ID);
+    mCube = new GVRCubeSceneObject(gvrContext);
 
     //Set position of the cube at (0, -2, -3)
     mCube.getTransform().setPosition(0, -2, -3);
-    
+
     //Add cube to the scene
     gvrContext.getMainScene().addSceneObject(mCube);
 ```
 
 Build and run the app, you should be able to see a white cube on the screen
+
+![](/images/tutorials/screenshot_tut_01_1.jpg)
 
 !!!note
     If you're using "VR developer mode" without headset the orientation might be different, you might need to turn around to see the cube

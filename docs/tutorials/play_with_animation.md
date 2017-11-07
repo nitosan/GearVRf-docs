@@ -32,15 +32,16 @@ Make sure to copy both files into `app/src/main/assets` folder
 
 You can load the animated model with following code
 ```java
-    GVRModelSceneObject character = gvrContext.getAssetLoader().loadModel("astro_boy.dae", gvrContext.getMainScene());
+    GVRModelSceneObject character = gvrContext.getAssetLoader().loadModel("astro_boy.dae");
     character.getTransform().setRotationByAxis(45.0f, 0.0f, 1.0f, 0.0f);
-    character.getTransform().setScale(3, 3, 3);
-    character.getTransform().setPosition(0.0f, -0.4f, -0.5f);
+    character.getTransform().setScale(6, 6, 6);
+    character.getTransform().setPosition(0.0f, -0.5f, -1f);
+    gvrContext.getMainScene().addSceneObject(character);
 ```
 
 And play the animation with `GVRAnimator`, here we make sure the animation in looping forever with the `setRepeatCount` set to -1
 ```java
-    GVRAnimator animator = (GVRAnimator)character.getComponent(GVRAnimator.getComponentType());
+	GVRAnimator animator = (GVRAnimator)character.getComponent(GVRAnimator.getComponentType());
     animator.setRepeatCount(-1);
     animator.setRepeatMode(GVRRepeatMode.REPEATED);
     animator.start();
@@ -49,6 +50,7 @@ And play the animation with `GVRAnimator`, here we make sure the animation in lo
 ## Work with 3D modeling tools
 Fbx is the recommended format for the GearVR framework. Currently, all major 3D modeling tools support exporting to FBX format.
 
+![](/images/tutorials/screenshot_tut_03_2.jpg)
 
 ## Source Code
 Complete [Source Code](https://github.com/gearvrf/GearVRf-Demos/tree/master/tutorials/tutorial_3_model_animation) for this sample

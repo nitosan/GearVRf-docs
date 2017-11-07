@@ -33,12 +33,12 @@ and initialize them in `onInit` function
 ```java
     //Create Shpere
     mSphere = new GVRSphereSceneObject(gvrContext);
-    mSphere.getTransform().setPosition(2, 0, -3);
+    mSphere.getTransform().setPosition(1, 0, -3);
     gvrContext.getMainScene().addSceneObject(mSphere);
 
     //Create Cube
     mCube = new GVRCubeSceneObject(gvrContext);
-    mCube.getTransform().setPosition(-2, 0, -3);
+    mCube.getTransform().setPosition(-1, 0, -3);
     gvrContext.getMainScene().addSceneObject(mCube);
 ```
 
@@ -47,12 +47,12 @@ and initialize them in `onInit` function
 
 Material with solid color can be used to create simple 3D objects, such as a red ball, a white cube.
 
-Let's create a red material with the following code.
+Let's create a white material with the following code.
 
 ```java
     GVRMaterial flatMaterial;
-    flatMaterial = new GVRMaterial(gvrContext, GVRMaterial.GVRShaderType.Phong.ID);
-    flatMaterial.setColor(1.0f, 0.0f, 0.0f);
+    flatMaterial = new GVRMaterial(gvrContext);
+    flatMaterial.setColor(1.0f, 1.0f, 1.0f);
 ```
 
 !!!note
@@ -87,12 +87,14 @@ You can create a material with texture using following code.
 
 ```java
     GVRMaterial textureMaterial;
-    textureMaterial = new GVRMaterial(gvrContext, GVRMaterial.GVRShaderType.Phong.ID);
-    textureMaterial.setTexture("diffuseTexture", texture);
+    textureMaterial = new GVRMaterial(gvrContext);
+    textureMaterial.setMainTexture(texture);
     mCube.getRenderData().setMaterial(textureMaterial);
 ```
 
 Build and run your app, you should see the wooden crate we just created.
+
+![](/images/tutorials/screenshot_tut_02_1.jpg)
 
 ## Turn on the light
 
@@ -105,8 +107,7 @@ First, let's add a light to the scene using following code
 ```java
     GVRPointLight pointLight;
     pointLight = new GVRPointLight(gvrContext);
-    pointLight.setDiffuseIntensity(0.6f, 0.5f, 0.5f, 1.0f);
-    pointLight.setSpecularIntensity(0.5f, 0.5f, 0.5f, 1.0f);
+    pointLight.setDiffuseIntensity(0.9f, 0.7f, 0.7f, 1.0f);
 
     GVRSceneObject lightNode = new GVRSceneObject(gvrContext);
     lightNode.getTransform().setPosition(0,0,0);
@@ -115,16 +116,12 @@ First, let's add a light to the scene using following code
     gvrContext.getMainScene().addSceneObject(lightNode);
 ```
 
-The code snippet will create a light with diffuse color of (0.6, 0.5, 0.5) and specular color of (0.5, 0.5, 0.5), Which will give the scene a red tone.
+The code snippet will create a light with diffuse color of (0.9, 0.7, 0.7) this will give the scene a red tone.
 
-There is one more thing we need to do to make the light work - ensure all the scene objects uses PhongShader and uses diffuse texture.
-
-Add the following line to the cube object:
-```java
-textureMaterial.setTexture("diffuseTexture", texture);
-```
 
 Build and run the app, you should be able to see the lighting on the sphere and crate box, feel free to tweak with the light to make it look better.
+
+![](/images/tutorials/screenshot_tut_02_2.jpg)
 
 
 ## Make it move
