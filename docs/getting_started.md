@@ -34,7 +34,7 @@ Getting started with GearVR Framework in few simple steps
 1. Open the project with Android Studio
 1. Rename your Android App by updating `app_name` field of `app/src/main/res/values/strings.xml`
 1. (For Gear VR only) Make sure to download your [Oculus signature file](https://developer.oculus.com/osig/) and copy it under `app\src\main\assets` folder
-1. (For DayDream only) comment out or remove following code
+1. (For DayDream only) remove following code
     1. in `app/build.gradle` 
 
         ```
@@ -46,6 +46,18 @@ Getting started with GearVR Framework in few simple steps
         ```
     <meta-data android:name="com.samsung.android.vr.application.mode" android:value="vr_only"/>
         ```
+
+1. (For DayDream only) add following code [(read more)](https://developers.google.com/vr/distribute/daydream/functionality-requirements)
+    1. in `AndroidManifest.xml` 
+
+        <pre><code class="xml">
+&lt;intent-filter&gt;
+    &lt;action android:name="android.intent.action.MAIN" /&gt;
+    &lt;!-- intent-filter for DayDream--&gt;
+    &lt;category android:name="com.google.intent.category.DAYDREAM"/&gt;
+    &lt;!-- End intent-filter for DayDream--&gt;
+&lt;/intent-filter&gt;
+        </code></pre>
 
 1. Update the applicationID in `app/build.gradle` to avoid conflict between other GearVR Framework apps.
 1. Click Run button and put on your VR device
