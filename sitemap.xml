@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2017-11-07</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,7 +12,7 @@
     
     <url>
      <loc>/getting_started/</loc>
-     <lastmod>2017-11-07</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -21,43 +21,43 @@
         
     <url>
      <loc>/tutorials/simple_vr_app/</loc>
-     <lastmod>2017-11-07</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/tutorials/play_with_material/</loc>
-     <lastmod>2017-11-07</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/tutorials/play_with_3d_models/</loc>
-     <lastmod>2017-11-07</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/tutorials/play_with_animation/</loc>
-     <lastmod>2017-11-07</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/tutorials/play_with_controller/</loc>
-     <lastmod>2017-11-07</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/tutorials/play_with_vr_video/</loc>
-     <lastmod>2017-11-07</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/tutorials/play_with_billboard/</loc>
-     <lastmod>2017-11-07</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -67,7 +67,7 @@
         
     <url>
      <loc>/programming_guide/overview/</loc>
-     <lastmod>2017-11-07</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -79,31 +79,31 @@
         
     <url>
      <loc>/programming_guide/build_instructions/</loc>
-     <lastmod>2017-11-07</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/programming_guide/gearvr_settings_files/</loc>
-     <lastmod>2017-11-07</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/programming_guide/faq/</loc>
-     <lastmod>2017-11-07</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/programming_guide/video_tutorials/</loc>
-     <lastmod>2017-11-07</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/programming_guide/sample_code/</loc>
-     <lastmod>2017-11-07</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -112,7 +112,7 @@
     
     <url>
      <loc>/api_reference/</loc>
-     <lastmod>2017-11-07</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -120,7 +120,7 @@
     
     <url>
      <loc>/community/</loc>
-     <lastmod>2017-11-07</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -128,7 +128,7 @@
     
     <url>
      <loc>/news/</loc>
-     <lastmod>2017-11-07</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -137,7 +137,7 @@
         
     <url>
      <loc>/blog/2017_4_17_x3d/</loc>
-     <lastmod>2017-11-07</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -147,55 +147,55 @@
         
     <url>
      <loc>/about/contribution/</loc>
-     <lastmod>2017-11-07</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/about/certificate/</loc>
-     <lastmod>2017-11-07</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/about/release_notes/</loc>
-     <lastmod>2017-11-07</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/about/roadmap/</loc>
-     <lastmod>2017-11-07</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/about/license/</loc>
-     <lastmod>2017-11-07</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/about/privacy_policy/</loc>
-     <lastmod>2017-11-07</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/about/terms_of_service/</loc>
-     <lastmod>2017-11-07</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/about/marketing_resource/</loc>
-     <lastmod>2017-11-07</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/about/credits/</loc>
-     <lastmod>2017-11-07</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
