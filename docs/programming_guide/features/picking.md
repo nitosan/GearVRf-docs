@@ -41,7 +41,7 @@ For mesh colliders, you can enable coordinate picking in the constructor and the
 
 The most convenient way to use the picker is to attach it to a scene object, typically the owner of the current camera, and respond to the pick events generated when objects are hit. Events are raised each time the picking ray enters or exits an object. You can also observe changes to the list of picked objects as a whole.
 
-To handle pick events in your application you provide a class which implements the IPickEvents interface and attach it as a listener to the scene's event receiver. (The picker routes all pick events through the scene.)
+To handle pick events in your application you provide a class which implements the IPickEvents interface. If you want to handle all pick events from all objects, attach it as a listener to the event receiver for the scene or the picker. (By default, the picker routes all pick events through the scene and to its own listeners.) If you attach the IPickEvents interface to a scene object, only the pick events which affect that scene object are sent.
 
 ## Picking Example
 
@@ -65,15 +65,73 @@ public class PickHandler implements IPickEvents
 
 public void onInit(GVRContext context)
 {
-    GVRScene scene = context.getNextMainScene();
+     GVRScene scene = context.getMainScene();
+     GVRSceneObject sphere = new GVRSphereSceneObject(context);
+     GVRPicker picker = new GVRPicker(scene, true);
+     
+     picker.getEventReceiver().addListener(new PickHandler());
+     scene.getMainCameraRig().getOwnerObject().attachComponent(picker));
+     sphere.getTransform().setPositionZ(-2.0f);
+     sphere.attachComponent(new GVRSphereCollider(context));
+     scene.addSceneObject(sphere);
+ }
+```
+
+## Touch Events and the Controller
+
+The picker can be used with a controller to generate touch events. This lets your application know what is selected by the controller and whether or not the action button is pressed. Every GVRCursorController instance has its own GVRPicker. Your gvr.xml settings file should indicate which controller types your application supports in the "useControllerType" setting. GVRInputManager.selectController will select the available controller preferred by your application.
+
+To handle touch events in your application you provide a class which implements the ITouchEvents interface and attach it as a listener to the controller. To do this, your application must handle controller selection events with a class that implements ICursorControllerSelected ang register this listener with the input manager.  When a controller is selected for your application, the onCursorControllerSelected function is called and you can attach touch event listeners to the controller.
+
+## Controller Touch Example
+
+This example shows how to use touch events to drag an object with the controller. When the user presses the controller button while the pick ray is inside an object, that object is dragged by the controller.
+
+```java
+public class TouchHandler implements GVREventListeners.TouchEvents
+{
+    private GVRSceneObject mDragged = null;
+    public void onTouchStart(GVRSceneObject sceneObj, GVRPicker.GVRPickedObject pickInfo)
     {
-         GVRSceneObject sphere = new GVRSphereSceneObject(context);
-         scene.getEventReceiver().addListener(new PickHandler());
-         scene.getMainCameraRig().getOwnerObject().attachComponent(new GVRPicker(context, scene));
-         sphere.getTransform().setPositionZ(-2.0f);
-         sphere.attachComponent(new GVRSphereCollider(context));
-         scene.addSceneObject(sphere);
+    	if (mDragged == null)
+        {
+        	GVRPicker picker = pickInfo.picker;
+            GVRController controller = picker.getController();
+            if (controller.startDrag(sceneObj))
+            {
+            	mDragged = sceneObj;
+            }
+        }
+    }
+    
+    public void onTouchEnd(GVRSceneObject sceneObj, GVRPicker.GVRPickedObject pickInfo)
+    {
+    	if (mDragged == sceneObj)
+        {
+        	GVRPicker picker = pickInfo.picker;
+            GVRController controller = picker.getController();
+            controller.stopDrag(sceneObj);
+            mDragged = null;
+        }
     }
 }
 
+public class ControllerSelector implements ICursorControllerSelectListener
+{
+    public void onCursorControllerSelected(GVRCursorController newController, GVRCursorController oldController)
+    {
+        newController.addPickEventListener(new TouchHandler());
+    }
+};
+
+public void onInit(GVRContext context)
+{
+     GVRScene scene = context.getMainScene();
+     GVRSceneObject sphere = new GVRSphereSceneObject(context);
+     
+     sphere.getTransform().setPositionZ(-2.0f);
+     sphere.attachComponent(new GVRSphereCollider(context));
+     scene.addSceneObject(sphere);
+     context.getInputManager().selectController(new ControllerSelector());
+ }
 ```
