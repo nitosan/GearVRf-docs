@@ -16,13 +16,123 @@ Perform the following steps to make sure your project runs correctly
 Being able to interact with in the VR environment helps a lot with the immersion. Currently, there are two ways to interact with VR content
 
 1. GearVR controller
+
+    Gear VR controller provides 3 degrees of freedom orientation tracking and trackpad control, it's highly recommended for a more immersive VR experience
+    ![](/images/gear_vr_controller.jpg)
+
 2. Gaze controller
 
-## Gear VR Controller
-Gear VR controller provides 3 degrees of freedom orientation tracking and trackpad control, it's highly recommended for a more immersive VR experience
+    Gaze controller is available by default from GearVR headset, based on the direction of the headset and input commands using the touchpad on GearVR
+
+!!!note
+    Gear VR Framework supports both controllers and GearVR controller have higher priority over gaze controller. It will automatically switch when user turn controller on/off.
+
+## Using VR Controller
+
+For VR controller to work correctly, we need to implement 3 key elements
+
+1. Cursor
+2. Collider
+3. PickHandler
+
+### 1. Create Cursor
+Cursor indicates the location and object that user is pointing. It's a important way for user to interact with the VR environment.
+
+A cursor can be anything, an image, a cube or even something that's animated. Developer can pick anything that fits their needs. 
+
+In this tutorial we'll use a simple reticle texture as an example.
+
+![](/images/cursor.png)
+
+First let's create a quad to display this texture, notice we turn off the depth test and set the rendering order as `OVERLAY` so other SceneObjects will not cover it, so it will be always visible to the user.
+
+```java
+    GVRTexture cursor_texture = gvrContext.getAssetLoader().loadTexture(new GVRAndroidResource(gvrContext, "cursor.png"));
+    final GVRSceneObject cursor = new GVRSceneObject(gvrContext, gvrContext.createQuad(1f, 1f), cursor_texture);
+    cursor.getRenderData().setDepthTest(false);
+    cursor.getRenderData().setRenderingOrder(GVRRenderData.GVRRenderingOrder.OVERLAY);
+```
 
 
-![](/images/gear_vr_controller.jpg)
+### 2. Collider
+
+In order to know which object dose the user picked in the scene, we need to add collider to the SceneObject.
+
+There are three types of colliders
+
+1. BoxCollider
+
+    BoxCollider can detect picking within a bounding box
+
+2. SphereCollider
+
+    SphereCollider can detect picking within a sphere
+
+3. MeshCollider
+
+    MeshCollider can detect picking of a complex 3d Model, however it's slower than the previous two.
+
+Collider can be added to any SceneObject as a component
+```java
+    sceneObject.attachComponent(new GVRMeshCollider(getGVRContext(), false));
+```
+
+
+### 3. PickHandler
+
+PickHandler will be triggered once the cursor enter/exit a SceneObject, base on the events developer can implement different feedback for the user
+
+PickHandler have 4 major method, onEnter/onExit/onTouchStart/onTouchEnd
+
+Here is an example of how to use each method
+
+```java
+    private ITouchEvents mPickHandler = new GVREventListeners.TouchEvents()
+    {
+        private GVRSceneObject movingObject;
+
+        public void onEnter(GVRSceneObject sceneObj, GVRPicker.GVRPickedObject pickInfo)
+        {
+            sceneObj.getRenderData().getMaterial().setColor(Color.RED);
+        }
+
+        public void onTouchStart(GVRSceneObject sceneObj, GVRPicker.GVRPickedObject pickInfo)
+        {
+            if (movingObject == null)
+            {
+                sceneObj.getRenderData().getMaterial().setColor(Color.BLUE);
+                if (mController.startDrag(sceneObj))
+                {
+                    movingObject = sceneObj;
+                }
+            }
+        }
+
+        public void onTouchEnd(GVRSceneObject sceneObj, GVRPicker.GVRPickedObject pickInfo)
+        {
+            sceneObj.getRenderData().getMaterial().setColor(Color.RED);
+            if (sceneObj == movingObject)
+            {
+                mController.stopDrag();
+                movingObject = null;
+            }
+        }
+
+        public void onExit(GVRSceneObject sceneObj, GVRPicker.GVRPickedObject pickInfo)
+        {
+            sceneObj.getRenderData().getMaterial().setColor(Color.GRAY);
+            if (sceneObj == movingObject)
+            {
+                mController.stopDrag();
+                movingObject = null;
+            }
+        }
+    };
+```
+
+### 4. Enable Controller
+
+
 
 ### 1. Enable Controller
 Add the following code in `init` class to enable the controller
