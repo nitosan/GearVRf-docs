@@ -10,6 +10,7 @@ Before rendering can start, the framework needs to know about the characteristic
 |useProtectedFramebuffer |	Enable / disable use of protected framebuffer|
 |useSrgbFramebuffer |	Enable / disable use of SRGB framebuffer|
 |useMultiview | Enable / disable OVR multiview extension|
+|useControllerTypes | Comma separated list of the controller types made available to the application. The list is in priority order with preferred controller last. Supported types are gaze, mouse, gamepad, weartouchpad, controller and external.|
 
 |mono-mode-parms | |
 |-|-|
