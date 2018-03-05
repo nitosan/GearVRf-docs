@@ -37,7 +37,7 @@ public class RotateBehavior extends GVRBehavior {
 
 Note that we have a static field called `TYPE_Rotate_behavior` as well as a function `getComponentType()`.
 
-They are useful when we need to access this component from a `SceneObject` later.
+It will be useful when we need to access this component from a `SceneObject` later.
 
 !!!note
     If we want to access this component from a `SceneObject` we can use `SceneObject.getComponent(RotateBehavior.getComponentType())`
