@@ -1,6 +1,38 @@
 <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
 <style>
+
+.md-flex a {
+    color: white;
+}
+
+.md-flex a:hover {
+    text-decoration: none;
+}
+
+.md-nav a {
+    color: black;
+}
+
+.md-nav a:hover {
+    text-decoration: none;
+}
+
+.md-footer a {
+    color: white;
+}
+
+.md-footer a:hover {
+    text-decoration: none;
+}
+
 /* Tooltip container */
 .tooltip {
     position: relative;
@@ -50,8 +82,8 @@
 }
 
 /*Sections*/
+
 .section {
-    width: 100%;
     height: 400px;
 }
 
@@ -60,8 +92,8 @@
     font-weight: bold;
 }
 
-.section_alt_color {
-    background-color: #c0c0c0
+.item {
+    padding-top: 30px;
 }
 
 .center_parent {
@@ -75,10 +107,18 @@
   transform: translate(-50%, -50%);
 }
 
+.brand_title {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .background_brand {
     background:url('images/gear-vr_phoneplus_new_vr_img.png');
     background-repeat: no-repeat;
     background-position: center;
+    background-size: 300px 120px;
     position: relative;
 }
 
@@ -145,65 +185,114 @@
     -moz-osx-font-smoothing:grayscale;
 }
 
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+    
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+    .item {
+        height: 400px;
+    }
+
+    .background_brand {
+        background:url('images/gear-vr_phoneplus_new_vr_img.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 740px 298px;
+        position: relative;
+    }
+
+    .brand_title {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+}
+
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+    
+}
+
+/*/Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+    
+}
+
 </style>
 
-<div class="section center_parent">
-    <img class="center_child" src="images/GearVRf_Logo_Blue_Text_Inline.png">
-</div>
+<div class="container-fluid">
+    <div class="row section">
+        <div class="col">
+            <img class="center_child" src="images/GearVRf_Logo_Blue_Text_Inline.png">
+        </div>
+      </div>
+      <div class="row section">
+        <div class="col center_parent background_brand">
+            <div class="layer">
+                <h1 class="brand_title">POWERFUL VR SDK <br>FOR MOBILE</h1>
+            </div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-2">
+            <div class="centered item">
+                <h4>Simple</h4>
+                <i class="fas fa-5x fa-child"></i>
+                <br><br>
+                <span>Simple API enables rapid prototyping</span>
+            </div>
+        </div>
+        <div class="col-12 col-lg-2">
+            <div class="centered item">
+                <h4>Powerful</h4>
+                <i class="fas fa-5x fa-shipping-fast"></i>
+                <br><br>
+                <span>VR-specific rendering optimizations</span>
+            </div>
+        </div>
+        <div class="col-12 col-lg-2">
+            <div class="centered item">
+                <h4>Mobile Performance</h4>
+                <i class="fab fa-5x fa-android"></i>
+                <br><br>
+                <span>Built with focus on mobile performance</span>
+            </div>
+        </div>
+        <div class="col-12 col-lg-2">
+            <div class="centered item">
+                <h4>Open Source</h4>
+                <i class="fab fa-5x fa-github"></i>
+                <br><br>
+                <span>No licensing fees or royalties ever</span>
+            </div>
+        </div>
+        <div class="col-12 col-lg-2">
+            <div class="centered item">
+                <h4>Cross Platform</h4>
+                <i class="fas fa-5x fa-cogs"></i>
+                <br><br>
+                <span>Write code once and works for Gear VR and Daydream</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col section background_cta center_parent">
+            <div class="center_child">
+                <a class="button btn_red"  style="color: white;" href="getting_started">
+                    Getting Started
+                </a>
 
-<div class="section section_alt_color center_parent background_brand">
-    <div class="layer">
-        <h1 class="center_child">POWERFUL VR SDK <br>FOR MOBILE</h1>
+                <a class="typeform-share button btn_blue" style="color: white;" href="https://nitosan.typeform.com/to/fw9Ylx" data-mode="popup" style="" target="_blank">
+                    Leave Feedback
+                </a>
+            </div>
+        </div>
     </div>
 </div>
 
-<div class="section center_parent">
-    <div class="center_child group" style="width: 100%">
-        <div class="intro_item centered">
-            <h4>Simple</h4>
-            <i class="fas fa-5x fa-child"></i>
-            <br><br>
-            <span>A simple SDK allow you to prototype rapidly with Android Studio</span>
-        </div>
-        <div class="intro_item centered">
-            <h4>Powerful</h4>
-            <i class="fas fa-5x fa-shipping-fast"></i>
-            <br><br>
-            <span>VR-specific rendering optimizations with access to low-level graphics pipeline</span>
-        </div>
-        <div class="intro_item centered">
-            <h4>Mobile Performance</h4>
-            <i class="fab fa-5x fa-android"></i>
-            <br><br>
-            <span>Built with focus on mobile performance</span>
-        </div>
-        <div class="intro_item centered">
-            <h4>Open Source</h4>
-            <i class="fab fa-5x fa-github"></i>
-            <br><br>
-            <span>No licensing fees or royalties ever</span>
-        </div>
-        <div class="intro_item centered">
-            <h4>Cross Platform</h4>
-            <i class="fas fa-5x fa-cogs"></i>
-            <br><br>
-            <span>Write code once and build for both Gear VR and Daydream</span>
-        </div>
-    </div>
-</div>
-
-<div class="section section_alt_color background_cta center_parent">
-
-    <div class="center_child">
-        <a class="typeform-share button btn_red"  style="color: white;" href="getting_started">
-            Getting Started
-        </a>
-
-        <a class="typeform-share button btn_blue" style="color: white;" href="https://nitosan.typeform.com/to/fw9Ylx" data-mode="popup" style="" target="_blank">
-            Leave Feedback
-        </a>
-    </div>
-
-    <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm_share", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() 
-    </script>
-</div>
+<script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm_share", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() 
+</script>
