@@ -94,6 +94,7 @@
 
 .item {
     padding-top: 30px;
+    padding-bottom: 20px;
 }
 
 .center_parent {
@@ -194,6 +195,8 @@
 @media (min-width: 768px) {
     .item {
         height: 400px;
+        padding-top: 50px;
+        padding-bottom: 0px;
     }
 
     .background_brand {
@@ -256,7 +259,7 @@
         </div>
         <div class="col-12 col-lg-2">
             <div class="centered item">
-                <h4>Mobile Performance</h4>
+                <h4>Mobile Centric</h4>
                 <i class="fab fa-5x fa-android"></i>
                 <br><br>
                 <span>Built with focus on mobile performance</span>
@@ -290,6 +293,45 @@
                     Leave Feedback
                 </a>
             </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 30px;">
+        <div class="col-12 centered">
+            <h1>Sample Highlights</h1>
+        </div>
+        <div class="col-12 col-lg-3">
+            <img src="/images/samples/img_1_360photo.png">
+            <p>A minimal sample showing how to display an equirectangular (360) photo.</p>
+        </div>
+        <div class="col-12 col-lg-3">
+            <img src="/images/samples/img_2_360video.png">
+            <p>A minimal sample showing how to display an equirectangular (360) video.</p>
+        </div>
+        <div class="col-12 col-lg-3">
+            <img src="/images/samples/img_3_3dcursor.png">
+            <p>A simplified version of the gvr-3dcursor sample that shows how to use the 3DCursor plugin.</p>
+        </div>
+        <div class="col-12 col-lg-3">
+            <img src="/images/samples/img_4_accessibility.png">
+            <p>Shows how to use GearVRf's accessibility classes. For example: InvertedColors, TextToSpeech, and Zoom.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-lg-3">
+            <img src="/images/samples/img_9_controller.png">
+            <p>A simple sample that demostrates how to use VR controller.</p>
+        </div>
+        <div class="col-12 col-lg-3">
+            <img src="/images/samples/img_32_solarsystem.png">
+            <p>A sample that shows both heirarchy and animation.</p>
+        </div>
+        <div class="col-12 col-lg-3">
+            <img src="/images/samples/img_15_immersepedia.png">
+            <p>A larger sample that shows a concept of an immersive virtual museum.</p>
+        </div>
+        <div class="col-12 col-lg-3">
+            <img src="/images/samples/img_16_javascript.png">
+            <p>A minimal example showing how an application can be written with Javascript.</p>
         </div>
     </div>
 </div>
