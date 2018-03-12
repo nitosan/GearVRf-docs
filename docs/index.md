@@ -300,37 +300,53 @@
             <h1>Sample Highlights</h1>
         </div>
         <div class="col-12 col-lg-3">
-            <img src="/images/samples/img_1_360photo.png">
+            <a href="https://github.com/gearvrf/GearVRf-Demos/tree/master/gvr-360photo">
+                <img src="/images/samples/img_1_360photo.png">
+            </a>
             <p>A minimal sample showing how to display an equirectangular (360) photo.</p>
         </div>
         <div class="col-12 col-lg-3">
-            <img src="/images/samples/img_2_360video.png">
+            <a href="https://github.com/gearvrf/GearVRf-Demos/tree/master/gvr-360video">
+                <img src="/images/samples/img_2_360video.png">
+            </a>
             <p>A minimal sample showing how to display an equirectangular (360) video.</p>
         </div>
         <div class="col-12 col-lg-3">
-            <img src="/images/samples/img_3_3dcursor.png">
+            <a href="https://github.com/gearvrf/GearVRf-Demos/tree/master/gvr-3dcursor">
+                <img src="/images/samples/img_3_3dcursor.png">
+            </a>
             <p>A simplified version of the gvr-3dcursor sample that shows how to use the 3DCursor plugin.</p>
         </div>
         <div class="col-12 col-lg-3">
-            <img src="/images/samples/img_4_accessibility.png">
+            <a href="https://github.com/gearvrf/GearVRf-Demos/tree/master/gvr-accessibility">
+                <img src="/images/samples/img_4_accessibility.png">
+            </a>
             <p>Shows how to use GearVRf's accessibility classes. For example: InvertedColors, TextToSpeech, and Zoom.</p>
         </div>
     </div>
     <div class="row">
         <div class="col-12 col-lg-3">
-            <img src="/images/samples/img_9_controller.png">
+            <a href="https://github.com/gearvrf/GearVRf-Demos/tree/master/gvr-controller">
+                <img src="/images/samples/img_9_controller.png">
+            </a>
             <p>A simple sample that demostrates how to use VR controller.</p>
         </div>
         <div class="col-12 col-lg-3">
-            <img src="/images/samples/img_32_solarsystem.png">
+            <a href="https://github.com/gearvrf/GearVRf-Demos/tree/master/gvr-solarsystem">
+                <img src="/images/samples/img_32_solarsystem.png">
+            </a>
             <p>A sample that shows both heirarchy and animation.</p>
         </div>
         <div class="col-12 col-lg-3">
-            <img src="/images/samples/img_15_immersepedia.png">
+            <a href="https://github.com/gearvrf/GearVRf-Demos/tree/master/gvr-immersivepedia">
+                <img src="/images/samples/img_15_immersepedia.png">
+            </a>
             <p>A larger sample that shows a concept of an immersive virtual museum.</p>
         </div>
         <div class="col-12 col-lg-3">
-            <img src="/images/samples/img_16_javascript.png">
+            <a href="https://github.com/gearvrf/GearVRf-Demos/tree/master/gvr-javascript">
+                <img src="/images/samples/img_16_javascript.png">
+            </a>
             <p>A minimal example showing how an application can be written with Javascript.</p>
         </div>
     </div>
