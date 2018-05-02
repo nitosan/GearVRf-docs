@@ -1,13 +1,13 @@
-# Blender integration
+# Blender Addon
 
 Gear VR framework Blender Plugin provides a way for the Blender users to preview their creation in Gear VR.
 
-# Prerequisite
+## Prerequisite
 
-* Blender
-* Download and build GearVRf-Demos project
+* [Blender](https://www.blender.org)
+* Download and build [GearVRf-Demos](https://github.com/gearvrf/GearVRf-Demos) project
 
-# Installation
+## Installation
 
 Download the Gear VR Framework project from github, and you can find the plugin in `GVRf/tools/blender_addon` folder.
 
@@ -15,11 +15,11 @@ Create a zip file of the `gvrf_exporter` folder and import it through the add-on
 
 ![](/images/tutorials/blender_import_addon.jpg)
 
-# Usage
+## Usage
 
-Open or create a blender project ([Here is a sample project](https://github.com/dsazulay/blender-sample-projects))
+Open or create a blender project ([sample project](https://github.com/dsazulay/blender-sample-projects))
 
-Enable `Export to GVRf` plugin in User preference
+Enable `Import-Export: Export to GVRf` plugin in User preference
 
 ![](/images/tutorials/blender_enable_addon.jpg)
 
@@ -32,7 +32,7 @@ Click on "Export" button and preview the blender project in VR
 
 ![](/images/tutorials/blender_use_addon.jpg)
 
-# Q&A
+## Q&A
 1. Blender addon report error "Connect attempt failed"
 Make sure the IP address is correct, also make sure the computer and Gear VR device is on the same network
 
