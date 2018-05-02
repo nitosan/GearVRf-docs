@@ -56,8 +56,8 @@ pages:
     - Sample Code: programming_guide/sample_code.md
   - API Reference: api_reference.md
   - Community: community.md
-  - News: news.md
   - Blog:
+    - Blender Addon for GVRF: blog/blender_plugin_guide.md
     - GVRF and the X3D file format: blog/2017_4_17_x3d.md
   - About:
     - Contribution: about/contribution.md
