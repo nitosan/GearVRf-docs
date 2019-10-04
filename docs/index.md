@@ -230,9 +230,36 @@
 <div class="container-fluid">
     <div class="row section">
         <div class="col">
-            <img class="center_child" src="images/GearVRf_Logo_Blue_Text_Inline.png">
+            <img class="center_child" src="images/GearVRf_Logo_Blue_Text_Inline.png" >
         </div>
       </div>
+
+      The <b>GearVR Framework</b> has been <b>renamed</b> and <b>rebranded</b><br>
+      It is now known as the <b>Samsung XR SDK</b>.<br>
+      We started this migration in 2017 and completed it in 2018.<br>
+      We did this so that developers would not think that we <b>only</b> supported GearVR.<br>
+      The Samsung XR SDK supports: <br>
+      <li> GearVR 
+      <li> DayDream 
+      <li> Oculus Go
+      <li> Oculus Quest
+      <li> Monoscopic (regular 2d phone screen)
+      <li> AR support with ARCore <br>
+      <p>
+      The new website is located at <a href="http://sdk.samsungxr.com">sdk.samsungxr.com</a><br>
+      The new github locations are <a href="https://github.com/sxrsdk/sxrsdk">sxrsdk</a> and <a href="https://github.com/sxrsdk/sxrsdk-demos">sxrsdk-demos</a><br>
+      <p>
+      Migrating is relatively easy.  Here are the following changes:
+      <li> Package is renamed from: org.gearvrf to com.samsungxr
+      <li> Class prefixes are renamed from GVR to SXR
+      <li> GVRSceneObject is renamed to SXRNode
+      <p>
+      Please check out the new website and new repos and report any new issues and questions there.  Thank you for developing with our SDK!
+
+
+
+
+      <!--
       <div class="row section">
         <div class="col center_parent background_brand">
             <div class="layer">
@@ -349,6 +376,7 @@
             </a>
             <p>A minimal example showing how an application can be written with Javascript.</p>
         </div>
+      -->
     </div>
 </div>
 
